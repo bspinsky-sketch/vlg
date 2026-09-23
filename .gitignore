@@ -1,0 +1,38 @@
+# The legacy Flask app has its own separate, frozen git repo rooted
+# at app/ (github.com/bspinsky-sketch/vlg-web, from the project
+# template's original clone-into-app/ convention -- see README_first.md).
+# It is intentionally excluded here rather than nested/tracked by this
+# repo. See PROJECT_STATE.md / SESSION_LOG.md for the architecture
+# pivot away from it.
+app/
+
+# Design-exploration archive (screenshots, superseded slide drafts,
+# reference PDFs) -- kept on disk per Ben's call during the 2026-09-23
+# cleanup pass, but not code and not needed to build or deploy the
+# tool, so not versioned here.
+Claude outputs/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+.vscode/
+*.log
+
+# Office lock files (regenerate automatically whenever a .xlsx/.pptx
+# in Files/ is open elsewhere -- never worth committing)
+~$*
+
+# Scratch/QA-render dump folders that have recurred across sessions
+# (see the 2026-09-23 disk-cleanup pass in SESSION_LOG.md) -- ignored
+# proactively so they don't silently get committed if they reappear
+_to_delete/
+preview_output/
+tmp_view/

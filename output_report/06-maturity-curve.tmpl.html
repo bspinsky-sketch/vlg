@@ -1,0 +1,96 @@
+{# Results cluster, page 1 of 3 -- replaces the pptx's flat-image slide 8
+   ("YOUR MATURITY STORY"). Modeled on K1x's own production template
+   (PMTC assessment/Application/output_report/03-how-scored.tmpl.html,
+   their "slide 3") per Ben's 2026-09-22 direction: same curve-card +
+   5-card zone-strip structure, but with VLG's own dark app-band gradient
+   in place of K1x's photo background, VLG's own 6-stage maturity scale,
+   and VLG's own native 5-band level system (levelBands in
+   static-site/data.json) in place of K1x's 5 zones. See DATA_CONTRACT.md.
+
+   K1x's page draws the curve with an embedded <script> that runs in a
+   real browser (their pipeline renders via headless Chromium). WeasyPrint
+   has no JS engine, so this page instead expects `curve` to already be
+   the *finished* geometry -- every x/y, the spline path, and every
+   label's final collision-resolved position -- precomputed by curve.py's
+   build_curve() and handed in as plain data. This template only loops
+   over that data; it does no layout math of its own.
+
+   Paint (fill/stroke) on every SVG element below is set via inline
+   style="" / presentation attributes, not the page's own base.css
+   classes -- confirmed by render+visual-check (2026-09-22) that
+   WeasyPrint's SVG renderer does not apply the enclosing HTML document's
+   external stylesheet to inline <svg> content. See base.css's comment
+   just above .curve-marks and DATA_CONTRACT.md. #}
+{%- set mark_paint = {
+  'now':    {'fill': '#E8A23A', 'stroke': '#0E4570', 'text': '#FFFFFF'},
+  'target': {'fill': '#0E4570', 'stroke': '#E8A23A', 'text': '#FFFFFF'},
+  'peer':   {'fill': '#0088E6', 'stroke': '#0E4570', 'text': 'rgba(255,255,255,.85)'},
+} %}
+<link rel="stylesheet" href="base.css">
+<div class="page curve-page">
+  <div class="h1">How This Is Scored</div>
+  <div class="lede">Every capability is scored 0 to 5, Reacting through Orchestrating. Your overall score is the average across all eight, and that average lands you in one of five maturity zones.</div>
+
+  <div class="curve-card">
+    <div class="model-track">
+      <svg class="curve-svg" viewBox="{{ curve.viewbox }}" preserveAspectRatio="xMinYMid meet">
+        <line x1="{{ curve.axis.x1 }}" y1="{{ curve.axis.y1 }}" x2="{{ curve.axis.x2 }}" y2="{{ curve.axis.y2 }}"
+          style="stroke:rgba(255,255,255,.28); stroke-width:1;"></line>
+        <path d="{{ curve.path_d }}" fill="none" style="stroke:#A9B7C0; stroke-width:4px; stroke-linecap:round;"></path>
+        {%- for p in curve.ticks %}
+        <g>
+          <line x1="{{ p.x|round(2) }}" y1="{{ curve.axis.y1 }}" x2="{{ p.x|round(2) }}" y2="{{ curve.axis.y1 + 6 }}"
+            style="stroke:rgba(255,255,255,.28); stroke-width:1;"></line>
+          {#- Reversed per Ben, 2026-09-22: stage name reads first (closer to
+             the axis), the (level) number second -- was the other way
+             around. Each also gets its own text-anchor (from curve.py's
+             _anchor(), same logic the mark labels use) so "Reacting" at
+             the left tick and "Orchestrating" at the right tick draw
+             inward over the chart instead of overflowing past the card's
+             edge, which is what happened when every tick label was
+             hardcoded to anchor="middle". #}
+          <text x="{{ p.x|round(2) }}" y="{{ curve.axis.y1 + 21 }}" text-anchor="{{ p.anchor }}"
+            style="fill:rgba(255,255,255,.7); font-family:'Prompt',Helvetica,Arial,sans-serif; font-weight:500; font-size:11px; letter-spacing:.02em;">{{ p.name }}</text>
+          <text x="{{ p.x|round(2) }}" y="{{ curve.axis.y1 + 36 }}" text-anchor="{{ p.anchor }}"
+            style="fill:rgba(255,255,255,.5); font-family:'Prompt',Helvetica,Arial,sans-serif; font-weight:500; font-size:11px; letter-spacing:.02em;">({{ p.level }})</text>
+        </g>
+        {%- endfor %}
+        {%- for m in curve.marks %}
+        {%- set paint = mark_paint[m.mark] %}
+        <g>
+          <circle cx="{{ m.x|round(2) }}" cy="{{ m.y|round(2) }}" r="{{ curve.dot_r }}"
+            style="fill:{{ paint.fill }}; stroke:{{ paint.stroke }}; stroke-width:4px;"></circle>
+          <line x1="{{ m.x|round(2) }}" y1="{{ m.leader_y1|round(2) }}" x2="{{ m.x|round(2) }}" y2="{{ m.leader_y2|round(2) }}"
+            style="stroke:rgba(255,255,255,.4); stroke-width:1;"></line>
+          {#- Text is the mark's full display label, already including its
+             numeric score in parentheses -- e.g. "Your Score (0.9)" --
+             composed by render_preview.py and passed into
+             curve.build_curve() as `labels`, not appended here, so the
+             collision-avoidance pass in curve.py measured the real
+             (longer) string. Ben, 2026-09-22: replaces the separate
+             legend paragraph this page used to have below the chart. #}
+          <text x="{{ m.x|round(2) }}" y="{{ m.base_y|round(2) }}" text-anchor="{{ m.anchor }}"
+            style="fill:{{ paint.text }}; font-family:'Prompt',Helvetica,Arial,sans-serif; font-weight:600; font-size:13px; letter-spacing:.03em;">{{ m.text }}</text>
+        </g>
+        {%- endfor %}
+      </svg>
+    </div>
+  </div>
+
+  <div class="zone-track">
+    <div class="zone-strip">
+      {%- for band in level_bands %}
+      <div class="zone-card{% if band.active %} active{% endif %}">
+        <div class="zone-name">{{ band.label }}</div>
+        <div class="zone-sub">{{ band.tagline }}</div>
+        <div class="zone-narrative">{{ band.descriptor }}</div>
+        {%- if band.active %}
+        <div class="zone-tag">You are here &middot; {{ "%.1f"|format(scores.your_score) }}</div>
+        {%- endif %}
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+
+  <div class="page-number">{{ "%02d"|format(page_number) }}</div>
+</div>

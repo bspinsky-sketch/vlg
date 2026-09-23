@@ -1,0 +1,86 @@
+{# "Communicate, quantify, and activate value at scale." -- ports pptx
+   slide 17, the second of the static marketing-tail pages (see
+   14-partner-with-us's docstring for the research already done on this
+   set: no app/K1x equivalent, pptx is the only source, positioning
+   follows this report's own established light-page conventions).
+
+   Structure, top to bottom: shared header (h1/subhead) -> two "why
+   Genius Drive" cards side by side ("Built by value-selling
+   practitioners." / "A complete Value-Led Growth program.") -> an
+   "OUTCOMES YOU CAN COUNT ON" eyebrow -> 3 proof-point stats.
+
+   TWEAK, Ben 2026-09-22: in the pptx, the 3 stats sit directly on the
+   page background -- icon + big number side by side, label underneath,
+   with a plain 1px hairline divider (`Shape 13`/`16`, fill `C9C5BF`)
+   between each group, no card frame at all. Ben asked for these to
+   become actual cards instead. Redesigned as `.stat-card` -- icon
+   centered on top, then the figure, then the label, all centered --
+   matching the icon-on-top card language 14-partner-with-us just
+   established for this same marketing-tail set (rather than copying the
+   pptx's own side-by-side icon+number arrangement, which doesn't carry
+   over cleanly into a boxed card at this width). Hairline dividers are
+   dropped entirely -- the card boundaries do that job now.
+
+   The two upper "why us" cards, unlike the stats, WERE already cards in
+   the pptx (`Shape 4`/`Shape 7`, plain white fill) -- confirmed each
+   already carries the exact same shadow this deck's own card convention
+   uses (`effectLst/outerShdw`, black at 40% alpha, i.e. this project's
+   `box-shadow:3px 3px 5px rgba(0,0,0,.4)` is not just page 02's
+   invention, it's traceable to the pptx's own design here too), so
+   those two are a straight port, just re-flowed onto this report's own
+   grid/padding rather than the pptx's literal inch offsets.
+
+   Icons (handshake+contract / person+$ / person, all single-color teal,
+   NOT per-pillar-colored like slide 16's -- consistent with the rest of
+   this deck's one-accent convention, so no color decision needed here)
+   extracted from the pptx's own picture shapes: assets/img/icon-stat-
+   handshake.png / -dealsize.png / -cycle.png. Footer logo confirmed by
+   MD5 to be the same asset already vendored (assets/img/gd_logo.png) --
+   no new file needed.
+
+   Fully static, same as 14-partner-with-us -- no render_preview.py
+   kwargs, content lives in the template's own `WHY_CARDS`/`STAT_CARDS`
+   lists. Copy is the pptx's own text verbatim (following 10's own
+   "use pptx copy as-is unless told otherwise" default -- not
+   separately re-confirmed with Ben this page, since he didn't flag the
+   copy, only the stats' layout). #}
+<link rel="stylesheet" href="base.css">
+{%- set WHY_CARDS = [
+  {"heading": "Built by value-selling practitioners.",
+   "body": "Founded by practitioners who have built value programs, trained revenue teams, and engineered frameworks used by hundreds of leading B2B organizations worldwide."},
+  {"heading": "A complete Value-Led Growth program.",
+   "body": "Proven frameworks, enablement, automation and strategic advisory – turning value from a periodic exercise into a durable competitive advantage."},
+] -%}
+{%- set STAT_CARDS = [
+  {"icon": "icon-stat-handshake.png", "figure": "48%", "label": "improvement in win rate"},
+  {"icon": "icon-stat-dealsize.png", "figure": "35%", "label": "increase in deal size"},
+  {"icon": "icon-stat-cycle.png", "figure": "25%", "label": "acceleration in sales cycle"},
+] -%}
+<div class="page whyus">
+  <div class="h1">Communicate, quantify, and activate value at scale.</div>
+  <div class="subhead">Most B2B revenue teams can pitch their solution. Far fewer can consistently articulate why it matters, prove its worth, or activate that value across the buyer journey. Genius Drive was built to close that gap.</div>
+
+  <div class="about-cards">
+    {%- for card in WHY_CARDS %}
+    <div class="about-card">
+      <div class="about-heading">{{ card.heading }}</div>
+      <div class="about-body">{{ card.body }}</div>
+    </div>
+    {%- endfor %}
+  </div>
+
+  <div class="outcomes-label">OUTCOMES YOU CAN COUNT ON</div>
+  <div class="stat-cards">
+    {%- for s in STAT_CARDS %}
+    <div class="stat-card">
+      <img class="stat-icon" src="assets/img/{{ s.icon }}" alt="">
+      <div class="stat-figure">{{ s.figure }}</div>
+      <div class="stat-label">{{ s.label }}</div>
+    </div>
+    {%- endfor %}
+  </div>
+
+  <img class="logo" src="assets/img/gd_logo.png" style="position:absolute; left:64px; bottom:28px; width:117px;">
+  <div class="copyright" style="left:auto; right:0; width:1280px; text-align:center;">&copy; 2026 Genius Drive. All rights reserved.</div>
+  <div class="page-number">{{ "%02d"|format(page_number) }}</div>
+</div>

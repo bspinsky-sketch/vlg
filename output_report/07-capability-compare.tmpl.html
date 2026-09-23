@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="base.css">
+<div class="page compare">
+  <div class="h1">Score by Capability</div>
+  <div class="subhead">Your self-assessment against the leaders among {{ peer_count }} {{ profile.industry }} peers.</div>
+
+  <div class="chart-legend">
+    <div class="legend-item"><div class="legend-swatch swatch-peer"></div><span>Peer leaders (top 10% of {{ peer_count }} peers)</span></div>
+    <div class="legend-item"><div class="legend-swatch swatch-behind"></div><span>Your score &ndash; behind peers</span></div>
+    <div class="legend-item"><div class="legend-swatch swatch-ahead"></div><span>Your score &ndash; at or ahead of peer leaders</span></div>
+  </div>
+
+  {%- for row in cap_rows %}
+  <div class="cap-row">
+    <div class="cap-label">{{ row.name }}</div>
+    <div class="bar-area">
+      <div class="bar-peer" style="width:{{ (row.peer / 5 * 100) | round(2) }}%"></div>
+      <div class="bar-user {{ 'ahead' if row.you >= row.peer else 'behind' }}" style="width:{{ (row.you / 5 * 100) | round(2) }}%"></div>
+    </div>
+  </div>
+  {%- endfor %}
+
+  <div class="x-axis-row">
+    <div class="x-spacer"></div>
+    <div class="x-ticks">
+      <span class="x-tick">0</span><span class="x-tick">1</span><span class="x-tick">2</span><span class="x-tick">3</span><span class="x-tick">4</span><span class="x-tick">5</span>
+    </div>
+  </div>
+
+  <img class="logo" src="assets/img/gd_logo.png" style="position:absolute; left:64px; bottom:28px; width:117px;">
+  <div class="copyright" style="left:auto; right:0; width:1280px; text-align:center;">&copy; 2026 Genius Drive. All rights reserved.</div>
+  <div class="page-number">{{ "%02d"|format(page_number) }}</div>
+</div>

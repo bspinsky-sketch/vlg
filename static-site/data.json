@@ -1,0 +1,2031 @@
+{
+  "capabilities": [
+    {
+      "key": "strategy_governance",
+      "name": "Strategy & Governance"
+    },
+    {
+      "key": "people",
+      "name": "People"
+    },
+    {
+      "key": "attract",
+      "name": "Attract"
+    },
+    {
+      "key": "engage",
+      "name": "Engage"
+    },
+    {
+      "key": "sell",
+      "name": "Sell"
+    },
+    {
+      "key": "retain_expand",
+      "name": "Retain & Expand"
+    },
+    {
+      "key": "tools_technology",
+      "name": "Tools / Technology"
+    },
+    {
+      "key": "intelligence_optimization",
+      "name": "Intelligence & Optimization"
+    }
+  ],
+  "pillars": {
+    "VC": {
+      "tag": "1 OF 3",
+      "name": "Value Communication",
+      "question": "Does your team tell a value story - or pitch features?",
+      "coachCallout": "Rate where your team stands today for each capability below. Be honest - the recommendations on the Results page get sharper the more accurately you score. There are no wrong answers, only useful ones."
+    },
+    "VQ": {
+      "tag": "2 OF 3",
+      "name": "Value Quantification",
+      "question": "Can your team prove the value you deliver?",
+      "coachCallout": "Rate where your team stands today on each capability below. Quantification is the pillar most teams find hardest - go slow, and don't be afraid to mark \"Reacting\" when that's the truth."
+    },
+    "VA": {
+      "tag": "3 OF 3",
+      "name": "Value Activation",
+      "question": "Does value-led growth live in your operating rhythm?",
+      "coachCallout": "Rate where your team stands today on each capability below. Activation is about whether the work sticks - training, coaching, reinforcement, and tooling. Score how the team actually operates, not how the playbook says they should."
+    }
+  },
+  "capabilityQuestions": {
+    "VC": [
+      "How intentionally and consistently do we define, govern, measure, and improve how value is communicated across the organization?",
+      "How effectively are people aligned, enabled, and accountable for communicating value consistently and credibly?",
+      "How effectively do we use value storytelling to attract the right buyers, shape early perceptions, and drive demand across segments and personas?",
+      "How consistently do we engage buyers with value-led conversations, interactive assets, and education that adapt to their needs, use cases, and maturity?",
+      "How effectively do we use value communication to guide executive conversations, advance deals, and understand what drives wins and losses?",
+      "How consistently do we communicate realized value to reinforce confidence, guide renewals, and drive expansion across the customer lifecycle?",
+      "How well do our tools and data enable scalable, insight-driven, and increasingly intelligent value communication across teams and buyers?",
+      "How effectively do we measure, analyze, and optimize the impact of our value communication across the buyer journey?"
+    ],
+    "VQ": [
+      "How clearly defined, governed, and measured is our approach to quantifying value across the customer lifecycle?",
+      "How effectively are our teams aligned, enabled, and supported to consistently quantify value using shared methods, frameworks, and practices?",
+      "How effectively do we use quantified value to attract, qualify, and prioritize the right prospects early in the buying journey?",
+      "How consistently do we uncover value drivers, assess maturity, form value hypotheses, and prioritize opportunities based on value potential?",
+      "How effectively do we quantify value to support pricing, business cases, shared value plans, and buyer decision-making during sales?",
+      "How consistently do we measure, communicate, and act on realized value to drive renewals, expansion, and long-term growth?",
+      "How well do our tools, data, and automation enable scalable, accurate, and increasingly intelligent value quantification across teams and customers?",
+      "How effectively do we measure, validate, and continuously improve the credibility, accuracy, and business impact of our value quantification efforts?"
+    ],
+    "VA": [
+      "How clearly defined, governed, and measured is our approach to activating value through learning, enablement, and execution across the customer lifecycle?",
+      "How effectively are our teams and leaders equipped, certified, and accountable for activating value through consistent skills, behaviors, and cross-functional collaboration?",
+      "How effectively do our teams activate value storytelling and prospecting skills to drive high-quality engagement at the top of the funnel?",
+      "How consistently do sellers and solution teams activate value skills in discovery, qualification, demos, and proof of value during active opportunities?",
+      "How effectively do our teams activate value-based selling skills in proposals, pricing, negotiation, and strategic deal execution?",
+      "How consistently do customer-facing teams activate value realization skills to reinforce outcomes, guide renewals, and drive expansion?",
+      "How well do our learning, coaching, and enablement technologies activate value skills at scale through data-driven and AI-powered reinforcement?",
+      "How effectively do we measure, reinforce, and optimize the activation of value in the field and with customers across the lifecycle?"
+    ]
+  },
+  "maturityMap": {
+    "Reacting (0)": 0.0,
+    "Aspiring (1)": 1.0,
+    "Constructing (2)": 2.0,
+    "Operationalizing (3)": 3.0,
+    "Composing (4)": 4.0,
+    "Orchestrating (5)": 5.0
+  },
+  "peerScores": [
+    1.8,
+    2.1,
+    2.9,
+    2.4,
+    2.7,
+    1.5,
+    2.0,
+    1.3
+  ],
+  "peerCount": 122,
+  "overallPeer": 2.0875000000000004,
+  "peerLeaders": [
+    3.554983319324868,
+    3.8549833193248677,
+    4.6549833193248675,
+    4.1549833193248675,
+    4.454983319324868,
+    3.254983319324868,
+    3.754983319324868,
+    3.054983319324868
+  ],
+  "overallPeerLeaders": 3.842483319324868,
+  "topPctPeersLabel": "Top percentile of 122 peers",
+  "phraseTable": {
+    "Strategy & Governance": "value-led GTM strategy",
+    "People": "GTM team enablement",
+    "Attract": "demand generation",
+    "Engage": "value-led engagement",
+    "Sell": "value selling",
+    "Retain & Expand": "post-sale value realization",
+    "Tools / Technology": "value automation",
+    "Intelligence & Optimization": "value intelligence"
+  },
+  "profileLists": {
+    "industry": [
+      "Select one",
+      "AI & Data Platforms",
+      "Asset & Wealth Management",
+      "Business Process Outsourcing (BPO)",
+      "Commercial Banking & Fintech",
+      "Construction & Real Estate Technology",
+      "Customer Success & CX Technology",
+      "Cybersecurity",
+      "Developer Tools & Infrastructure",
+      "Energy & Utilities (B2B)",
+      "Enterprise Learning & EdTech",
+      "Enterprise SaaS & Cloud",
+      "Finance & Accounting Services",
+      "Government & Public Sector (B2B)",
+      "Health IT & Digital Health",
+      "HR & Workforce Solutions",
+      "Industrial Equipment & Manufacturing",
+      "Insurance (Commercial)",
+      "Legal Services",
+      "Life Sciences & Pharma (B2B)",
+      "Marketing Technology (MarTech)",
+      "Medical Devices & Equipment",
+      "Professional & Management Consulting",
+      "Sales & Revenue Technology",
+      "Supply Chain & Logistics",
+      "Other"
+    ],
+    "gtmTeamSize": [
+      "Select range…",
+      "1 to 5",
+      "6 to 15",
+      "16 to 30",
+      "31 to 50",
+      "51 to 100",
+      "101 to 250",
+      "251+"
+    ],
+    "annualSales": [
+      "Select range…",
+      "Under $5M",
+      "$5M to $20M",
+      "$20M to $50M",
+      "$50M to $100M",
+      "$100M to $250M",
+      "$250M to $500M",
+      "$500M to $1B",
+      "Over $1B"
+    ],
+    "location": [
+      "Select one",
+      "United States",
+      "North America",
+      "Central America",
+      "South America",
+      "Eastern Europe",
+      "Western Europe",
+      "Middle East",
+      "Africa",
+      "Asia",
+      "Pacific Rim"
+    ]
+  },
+  "recommendationBullets": {
+    "VC": {
+      "Strategy & Governance|Reacting (0)": [
+        "Acknowledge need for centralized content ownership",
+        "Identify executive sponsor for revenue enablement",
+        "Document current-state content sprawl and gaps",
+        "Define initial governance working group"
+      ],
+      "Strategy & Governance|Aspiring (1)": [
+        "Draft Revenue Enablement Charter",
+        "Define value messaging standards",
+        "Establish basic content taxonomy structure",
+        "Define success metrics for value communication",
+        "Assign content ownership roles"
+      ],
+      "Strategy & Governance|Constructing (2)": [
+        "Implement scalable content taxonomy",
+        "Govern content expiration and versioning",
+        "Centralize content in one managed location",
+        "Conduct initial maturity assessment",
+        "Define content lifecycle processes"
+      ],
+      "Strategy & Governance|Operationalizing (3)": [
+        "Enforce taxonomy and lifecycle governance",
+        "Audit and clean up underused content",
+        "Track content performance and win/loss correlation",
+        "Monitor rep activity for governance adherence",
+        "Maintain scalable taxonomy across segments"
+      ],
+      "Strategy & Governance|Composing (4)": [
+        "Conduct recurring capability and maturity assessments",
+        "Produce executive “State of Value” reporting",
+        "Continuously refine taxonomy based on performance data",
+        "Align governance to industry/segment differentiation",
+        "Optimize content investment decisions based on ROI"
+      ],
+      "Strategy & Governance|Orchestrating (5)": [
+        "Integrate governance metrics into GTM strategy planning",
+        "Use predictive analytics to guide content strategy",
+        "Dynamically optimize taxonomy and lifecycle rules",
+        "Tie value communication governance to revenue forecasting and growth planning",
+        "Continuously benchmark maturity across regions/segments"
+      ],
+      "People|Reacting (0)": [
+        "Identify executive sponsor for value enablement",
+        "Assess current value storytelling capability gaps",
+        "Document skill variability across GTM roles",
+        "Define ownership for value communication training"
+      ],
+      "People|Aspiring (1)": [
+        "Define value communication competency model",
+        "Launch foundational value storytelling training",
+        "Begin manager-led coaching sessions",
+        "Share examples of strong value narratives internally"
+      ],
+      "People|Constructing (2)": [
+        "Formalize onboarding modules for value communication",
+        "Implement role-based certification programs",
+        "Collaborate with SMEs to create reusable value narratives",
+        "Align hiring profiles to value communication skills"
+      ],
+      "People|Operationalizing (3)": [
+        "Track completion of value training and certification",
+        "Monitor rep activity for use of approved value content",
+        "Incorporate value storytelling quality into performance reviews",
+        "Use win/loss analysis to refine coaching priorities"
+      ],
+      "People|Composing (4)": [
+        "Deliver advanced executive storytelling workshops",
+        "Localize value messaging training for regions and industries",
+        "Analyze which value behaviors correlate to higher win rates",
+        "Share peer best practices across teams"
+      ],
+      "People|Orchestrating (5)": [
+        "Integrate AI-driven coaching recommendations",
+        "Predict skill gaps based on performance data",
+        "Tie compensation and promotion to value activation quality",
+        "Benchmark value communication capability across regions"
+      ],
+      "Attract|Reacting (0)": [
+        "Assess external messaging for product bias",
+        "Document ICPs and priority personas",
+        "Identify top customer pains and outcomes",
+        "Define initial value narrative hypothesis"
+      ],
+      "Attract|Aspiring (1)": [
+        "Incorporate pain and impact language into prospecting",
+        "Create early value-based blogs or briefs",
+        "Pilot outcome-focused campaign messaging",
+        "Align SDR messaging to customer challenges"
+      ],
+      "Attract|Constructing (2)": [
+        "Develop industry-specific value storytelling frameworks",
+        "Create persona-based value briefs",
+        "Deliver high-impact, branded value content",
+        "Launch value-led webinars or thought leadership events",
+        "Localize messaging for priority markets"
+      ],
+      "Attract|Operationalizing (3)": [
+        "Align campaigns to ICP-specific value narratives",
+        "Tell a story through curated web portals or landing pages",
+        "Share and track content engagement with buyers",
+        "Enforce messaging consistency across marketing channels",
+        "Understand content performance by persona"
+      ],
+      "Attract|Composing (4)": [
+        "Produce industry “State of” or outcome research reports",
+        "Orchestrate customer spotlight and value outcome events",
+        "Refine messaging based on engagement and win/loss insights",
+        "Optimize pipeline quality using value-driven segmentation"
+      ],
+      "Attract|Orchestrating (5)": [
+        "Continuously optimize value narratives using performance analytics",
+        "Predict high-converting messages by ICP and persona",
+        "Coordinate cross-channel value storytelling globally",
+        "Tie value attraction performance directly to revenue forecasting"
+      ],
+      "Engage|Reacting (0)": [
+        "Map current sales conversations to product vs value focus",
+        "Document top use cases and associated buyer pains",
+        "Identify gaps in discovery consistency",
+        "Centralize core presentation assets"
+      ],
+      "Engage|Aspiring (1)": [
+        "Create structured discovery guides",
+        "Develop foundational value storytelling decks",
+        "Pilot interactive presentations to pivot conversations",
+        "Align demos to top use cases rather than features"
+      ],
+      "Engage|Constructing (2)": [
+        "Map use cases to quantified business outcomes",
+        "Build reusable point-of-value deck collections",
+        "Introduce capability and maturity education guides",
+        "Enable sellers to pivot conversations with interactive decks",
+        "Share and track content engagement with buyers"
+      ],
+      "Engage|Operationalizing (3)": [
+        "Run interactive digital selling rooms for active deals",
+        "Tell a story through curated web portals",
+        "Track deal progress and next steps within shared environments",
+        "Monitor rep usage of approved engagement assets",
+        "Analyze engagement impact on win rates"
+      ],
+      "Engage|Composing (4)": [
+        "Continuously refine interactive assets based on buyer engagement data",
+        "Integrate content performance insights into playbook updates",
+        "Standardize value-led demos across segments",
+        "Use engagement analytics to guide coaching and deal strategy"
+      ],
+      "Engage|Orchestrating (5)": [
+        "Dynamically personalize digital deal rooms by role and maturity",
+        "Predict next best value conversation using engagement signals",
+        "Integrate CRM, content, and engagement data for orchestration",
+        "Optimize engagement strategies by segment and persona at scale"
+      ],
+      "Sell|Reacting (0)": [
+        "Assess executive conversation quality across deals",
+        "Document current win/loss drivers anecdotally",
+        "Identify gaps in outcome-focused messaging",
+        "Centralize core sales content assets"
+      ],
+      "Sell|Aspiring (1)": [
+        "Create executive-ready value storytelling decks",
+        "Reframe competitive battlecards around outcomes",
+        "Introduce basic value proposal templates",
+        "Begin tracking shared content engagement manually"
+      ],
+      "Sell|Constructing (2)": [
+        "Standardize business case and value proposal templates",
+        "Run interactive deal rooms for late-stage opportunities",
+        "Share and track content with buyers",
+        "Track deal progress and next steps",
+        "Begin structured win/loss analysis"
+      ],
+      "Sell|Operationalizing (3)": [
+        "Understand what drives wins and losses using engagement data",
+        "Monitor rep activity to drive accountability",
+        "Correlate content influence to deal progression",
+        "Enforce use of standardized value templates in key stages",
+        "Support executive conversations with curated content sets"
+      ],
+      "Sell|Composing (4)": [
+        "Deliver prescriptive content recommendations by deal stage",
+        "Use engagement insights to guide next best sales actions",
+        "Integrate win/loss findings into messaging updates",
+        "Coach sellers using value activation metrics"
+      ],
+      "Sell|Orchestrating (5)": [
+        "Predict deal risk and win probability using engagement and content signals",
+        "Dynamically recommend outcome-focused messaging by persona",
+        "Optimize battlecards and value narratives using portfolio analytics",
+        "Tie value communication performance directly to revenue forecasting"
+      ],
+      "Retain & Expand|Reacting (0)": [
+        "Assess current renewal messaging for product bias",
+        "Document anecdotal customer outcomes",
+        "Identify gaps in expansion planning",
+        "Centralize customer-facing success assets"
+      ],
+      "Retain & Expand|Aspiring (1)": [
+        "Incorporate realized value slides into QBR templates",
+        "Create foundational customer success stories",
+        "Collect qualitative feedback through surveys",
+        "Begin mapping expansion opportunities to customer outcomes"
+      ],
+      "Retain & Expand|Constructing (2)": [
+        "Define structured expansion plays by use case",
+        "Standardize value-led QBR frameworks",
+        "Share and track post-sale content with customers",
+        "Tell customer stories through curated portals",
+        "Develop industry- and role-specific success briefs"
+      ],
+      "Retain & Expand|Operationalizing (3)": [
+        "Track engagement with QBR and expansion content",
+        "Use realized value KPIs in renewal conversations",
+        "Run interactive customer portals or digital rooms for expansion initiatives",
+        "Analyze retention and expansion drivers",
+        "Monitor CSM activity tied to value communication"
+      ],
+      "Retain & Expand|Composing (4)": [
+        "Deliver prescriptive content recommendations for renewals and upsell motions",
+        "Refine success stories using performance and engagement insights",
+        "Localize customer narratives by segment and maturity",
+        "Integrate retention analytics into value messaging refinement"
+      ],
+      "Retain & Expand|Orchestrating (5)": [
+        "Predict renewal and expansion likelihood using engagement and value signals",
+        "Dynamically personalize customer portals by executive role and maturity",
+        "Continuously optimize expansion plays using portfolio-level analytics",
+        "Tie realized value communication directly to net revenue retention forecasting"
+      ],
+      "Tools / Technology|Reacting (0)": [
+        "Inventory content across systems",
+        "Identify duplicate and outdated materials",
+        "Define requirements for central content management",
+        "Assess current digital selling capabilities"
+      ],
+      "Tools / Technology|Aspiring (1)": [
+        "Manage content in one central location",
+        "Improve search and tagging structure",
+        "Introduce basic usage tracking",
+        "Enable internal and partner access to approved materials"
+      ],
+      "Tools / Technology|Constructing (2)": [
+        "Create reusable content sets and deck builders",
+        "Maintain a scalable content taxonomy",
+        "Enable offline access for sellers",
+        "Govern content expiration and versioning",
+        "Capture content usage and engagement data"
+      ],
+      "Tools / Technology|Operationalizing (3)": [
+        "Run interactive deal rooms",
+        "Share and track content with buyers",
+        "Understand content performance by deal stage and persona",
+        "Monitor rep activity to drive accountability",
+        "Track deal progress and next steps within shared environments"
+      ],
+      "Tools / Technology|Composing (4)": [
+        "Audit and clean up underused content regularly",
+        "Localize content for different markets at scale",
+        "Deliver high-impact, branded sales content dynamically",
+        "Use performance insights to guide content investment decisions",
+        "Integrate content data into CRM and revenue dashboards"
+      ],
+      "Tools / Technology|Orchestrating (5)": [
+        "Deliver AI-driven content recommendations by role and deal stage",
+        "Predict content influence on win rates and expansion",
+        "Dynamically personalize digital selling rooms",
+        "Continuously optimize taxonomy using engagement analytics",
+        "Tie value communication technology performance directly to revenue forecasting"
+      ],
+      "Intelligence & Optimization|Reacting (0)": [
+        "Assess current visibility into content usage and engagement",
+        "Document anecdotal win/loss drivers",
+        "Identify gaps in reporting capabilities",
+        "Define initial value communication KPIs"
+      ],
+      "Intelligence & Optimization|Aspiring (1)": [
+        "Introduce basic content usage tracking",
+        "Create manual reports linking content to deals",
+        "Begin collecting buyer engagement signals",
+        "Establish baseline metrics for value communication effectiveness"
+      ],
+      "Intelligence & Optimization|Constructing (2)": [
+        "Track digital selling room engagement",
+        "Understand content performance by deal stage",
+        "Correlate content usage with opportunity progression",
+        "Monitor rep activity tied to value communication",
+        "Begin structured win/loss analysis"
+      ],
+      "Intelligence & Optimization|Operationalizing (3)": [
+        "Build unified dashboards across CRM and content systems",
+        "Analyze what drives wins and losses using engagement data",
+        "Score value storytelling quality in active deals",
+        "Use intelligence insights to guide coaching and enablement priorities",
+        "Refine messaging based on performance patterns"
+      ],
+      "Intelligence & Optimization|Composing (4)": [
+        "Measure buyer consensus and executive engagement indicators",
+        "Tie content performance to win rate, deal velocity, and expansion",
+        "Benchmark narrative effectiveness across segments",
+        "Integrate intelligence insights into governance and content investment decisions"
+      ],
+      "Intelligence & Optimization|Orchestrating (5)": [
+        "Deliver AI-driven narrative and asset recommendations",
+        "Predict win probability based on engagement signals",
+        "Forecast content influence on pipeline and revenue outcomes",
+        "Continuously optimize value communication by ICP, persona, and maturity level",
+        "Benchmark performance globally and guide strategic investment"
+      ]
+    },
+    "VQ": {
+      "Strategy & Governance|Reacting (0)": [
+        "Assess current state of value quantification practices",
+        "Identify deal-driven or reactive quantification patterns",
+        "Document lack of ownership and governance gaps",
+        "Define executive sponsor for value program"
+      ],
+      "Strategy & Governance|Aspiring (1)": [
+        "Define vision for enterprise value quantification",
+        "Draft Value Program Office charter",
+        "Identify value consulting or engineering roles",
+        "Conduct initial capability and maturity assessment",
+        "Define early success metrics for value cases"
+      ],
+      "Strategy & Governance|Constructing (2)": [
+        "Formalize Value Program Office structure",
+        "Standardize value assessment and ROI methodologies",
+        "Introduce Capability Maturity Model frameworks",
+        "Define value selling journey stages and handoffs",
+        "Establish governance cadence and review process"
+      ],
+      "Strategy & Governance|Operationalizing (3)": [
+        "Integrate value quantification into CRM and GTM workflows",
+        "Track value case usage and effectiveness across deals",
+        "Enforce standardized ROI and CMM frameworks",
+        "Align sales, marketing, and customer success to shared value methodology",
+        "Measure quantification impact on win rates and deal quality"
+      ],
+      "Strategy & Governance|Composing (4)": [
+        "Conduct recurring maturity assessments across segments",
+        "Refine value frameworks using win/loss and realization insights",
+        "Use value program data to guide segmentation a"
+      ],
+      "People|Reacting (0)": [
+        "Identify executive sponsor for value quantification",
+        "Document inconsistency in current ROI approaches",
+        "Assess cross-functional collaboration gaps",
+        "Define ownership for value case governance"
+      ],
+      "People|Aspiring (1)": [
+        "Formalize sponsorship model and steering committee",
+        "Define engagement model for value consultants or engineers",
+        "Clarify roles and responsibilities across GTM",
+        "Launch foundational cross-functional workshops on value frameworks"
+      ],
+      "People|Constructing (2)": [
+        "Establish Value Program Office operating model",
+        "Define handoffs between sales, value, and customer success",
+        "Promote shared ROI and CMM methodologies",
+        "Introduce structured collaboration workflows for strategic deals"
+      ],
+      "People|Operationalizing (3)": [
+        "Standardize value engagement model across segments",
+        "Track adoption of shared methods across teams",
+        "Monitor cross-functional participation in value cases",
+        "Integrate value accountability into performance reviews"
+      ],
+      "People|Composing (4)": [
+        "Conduct recurring enablement and best practice forums",
+        "Benchmark value delivery consistency across regions",
+        "Refine engagement model using performance insights",
+        "Align partner ecosystem to standardized value practices"
+      ],
+      "People|Orchestrating (5)": [
+        "Align compensation and incentives to quantified value outcomes",
+        "Orchestrate global value community of practice",
+        "Predict resource needs based on value program demand",
+        "Continuously optimize engagement model at enterprise scale"
+      ],
+      "Attract|Reacting (0)": [
+        "Assess absence of value-led top-of-funnel engagement",
+        "Document current targeting criteria",
+        "Identify gaps in value-based qualification",
+        "Define initial quantified value messaging hypothesis"
+      ],
+      "Attract|Aspiring (1)": [
+        "Introduce outcome-focused messaging in campaigns",
+        "Pilot basic ROI examples in marketing content",
+        "Define requirements for self-service assessment tools",
+        "Begin incorporating value potential into ICP definition"
+      ],
+      "Attract|Constructing (2)": [
+        "Launch self-service CMM assessment tools",
+        "Deploy interactive ROI or TCO calculators",
+        "Publish TVA or TEI-style quantified value briefs",
+        "Incorporate value scoring into account prioritization models"
+      ],
+      "Attract|Operationalizing (3)": [
+        "Track usage and conversion from self-service value tools",
+        "Align SDR outreach to quantified outcomes",
+        "Prioritize pipeline based on value potential scoring",
+        "Refine value white papers using engagement insights"
+      ],
+      "Attract|Composing (4)": [
+        "Optimize demand generation using value conversion data",
+        "Adjust ICP targeting using realized customer outcomes",
+        "Continuously improve self-service tools based on usage analytics",
+        "Integrate value scoring into account-based marketing programs"
+      ],
+      "Attract|Orchestrating (5)": [
+        "Deploy AI-driven predictive value scoring for accounts",
+        "Dynamically personalize ROI tools by industry and persona",
+        "Continuously optimize targeting models using portfolio outcome data",
+        "Tie quantified value attraction directly to pipeline quality forecasting"
+      ],
+      "Engage|Reacting (0)": [
+        "Assess variability in discovery practices",
+        "Document absence of structured value qualification",
+        "Identify reliance on deal size vs value potential",
+        "Define core value drivers by ICP"
+      ],
+      "Engage|Aspiring (1)": [
+        "Develop structured value discovery guides",
+        "Introduce early-stage value hypothesis templates",
+        "Pilot maturity assessment questionnaires",
+        "Begin capturing discovery insights in CRM"
+      ],
+      "Engage|Constructing (2)": [
+        "Deploy standardized CMM assessment tools",
+        "Implement value and risk scoring frameworks",
+        "Automate capture of discovery and hypothesis data",
+        "Align qualification criteria to value potential",
+        "Train sellers on forming quantified value hypotheses"
+      ],
+      "Engage|Operationalizing (3)": [
+        "Enforce structured discovery across pipeline stages",
+        "Prioritize deals using value-based scoring models",
+        "Integrate maturity and hypothesis data into CRM dashboards",
+        "Use qualification insights to guide resource allocation",
+        "Analyze pipeline quality based on value metrics"
+      ],
+      "Engage|Composing (4)": [
+        "Introduce AI-assisted discovery recommendations",
+        "Dynamically refine value scoring using win/loss insights",
+        "Predict deal risk using maturity and value signals",
+        "Continuously optimize qualification models across segments"
+      ],
+      "Engage|Orchestrating (5)": [
+        "Synchronize discovery and scoring across GTM systems",
+        "Use predictive analytics to guide territory and account strategy",
+        "Continuously benchmark value-based pipeline quality globally",
+        "Tie qualification intelligence directly to forecast accuracy and revenue planning"
+      ],
+      "Sell|Reacting (0)": [
+        "Assess frequency and quality of business case usage",
+        "Document disconnect between pricing and value",
+        "Identify reactive discounting patterns",
+        "Define initial business value framework"
+      ],
+      "Sell|Aspiring (1)": [
+        "Introduce standardized business case templates",
+        "Pilot value-based pricing discussion guides",
+        "Train sellers on financial storytelling basics",
+        "Begin linking quantified outcomes to proposals"
+      ],
+      "Sell|Constructing (2)": [
+        "Deploy structured business value assessment tools",
+        "Standardize ROI and TCO modeling frameworks",
+        "Enable collaborative shared value plan templates",
+        "Align discount approval process to quantified value rationale",
+        "Integrate value proposals into digital deal rooms"
+      ],
+      "Sell|Operationalizing (3)": [
+        "Enforce structured value assessment in key deal stages",
+        "Align pricing and discounting policies to quantified impact",
+        "Track business case influence on win rates",
+        "Use digital selling rooms to manage shared value plans",
+        "Correlate quantified value strength to deal progression"
+      ],
+      "Sell|Composing (4)": [
+        "Continuously refine ROI and pricing models using win/loss insights",
+        "Integrate realization data into value model assumptions",
+        "Provide prescriptive guidance on pricing based on quantified impact",
+        "Benchmark deal quality using value metrics"
+      ],
+      "Sell|Orchestrating (5)": [
+        "Deploy AI-assisted business case modeling",
+        "Predict optimal pricing bands based on value and risk signals",
+        "Dynamically personalize shared value plans by segment and maturity",
+        "Tie quantified value performance directly to revenue forecasting and margin optimization"
+      ],
+      "Retain & Expand|Reacting (0)": [
+        "Assess absence of realized value tracking",
+        "Document renewal decisions driven by intuition",
+        "Identify lack of shared value plan continuity",
+        "Define baseline post-sale value metrics"
+      ],
+      "Retain & Expand|Aspiring (1)": [
+        "Introduce outcome review templates for renewals",
+        "Pilot periodic ROI discussions with key customers",
+        "Conduct basic risk assessments tied to value delivery",
+        "Begin documenting realized outcomes manually"
+      ],
+      "Retain & Expand|Constructing (2)": [
+        "Deploy ongoing CMM reassessment tools",
+        "Implement realized ROI tracking dashboards",
+        "Standardize shared value plan review cadence",
+        "Conduct value gap analyses before renewal cycles",
+        "Identify expansion triggers tied to maturity progression"
+      ],
+      "Retain & Expand|Operationalizing (3)": [
+        "Integrate realized value metrics into customer health scoring",
+        "Use value-based risk and growth scoring models",
+        "Align renewal playbooks to quantified impact",
+        "Track expansion pipeline informed by value realization data",
+        "Correlate realized value strength to retention rates"
+      ],
+      "Retain & Expand|Composing (4)": [
+        "Continuously refine value models using realization insights",
+        "Integrate outcome analytics into product and services planning",
+        "Benchmark retention and expansion performance by value maturity level",
+        "Align executive QBRs to quantified strategic impact"
+      ],
+      "Retain & Expand|Orchestrating (5)": [
+        "Deploy predictive renewal and expansion modeling based on realized value signals",
+        "Dynamically update shared value plans using automation and intelligence",
+        "Optimize portfolio strategy using lifetime value analytics",
+        "Tie value realization performance directly to net revenue retention forecasting"
+      ],
+      "Tools / Technology|Reacting (0)": [
+        "Audit spreadsheet-based ROI and business case tools",
+        "Document model duplication and inconsistency",
+        "Identify integration gaps with CRM and CS systems",
+        "Define requirements for scalable value automation"
+      ],
+      "Tools / Technology|Aspiring (1)": [
+        "Standardize ROI and business case templates",
+        "Create centralized repository for value models",
+        "Evaluate value automation platforms",
+        "Begin mapping integration points with CRM and CS tools"
+      ],
+      "Tools / Technology|Constructing (2)": [
+        "Deploy value automation platform for business cases",
+        "Integrate platform with CRM opportunity data",
+        "Enable shared value plan collaboration digitally",
+        "Introduce realized value tracking dashboards",
+        "Reduce spreadsheet dependency in priority segments"
+      ],
+      "Tools / Technology|Operationalizing (3)": [
+        "Fully integrate value platform across sales and CS workflows",
+        "Automate value hypothesis generation and documentation",
+        "Capture product usage and outcome KPIs in dashboards",
+        "Correlate quantified value with win rates and renewals",
+        "Standardize digital delivery of business cases and value plans"
+      ],
+      "Tools / Technology|Composing (4)": [
+        "Apply AI to refine ROI assumptions and industry benchmarks",
+        "Automate personalized value storytelling outputs",
+        "Continuously update value models using realization data",
+        "Integrate pricing and discount governance into value platform",
+        "Provide executive-ready outcome dashboards"
+      ],
+      "Tools / Technology|Orchestrating (5)": [
+        "Deploy predictive value modeling and pricing optimization",
+        "Automate renewal and expansion opportunity identification",
+        "Continuously benchmark value performance across regions",
+        "Integrate customer, product, and financial data for real-time optimization",
+        "Tie platform intelligence directly to revenue forecasting and margin strategy"
+      ],
+      "Intelligence & Optimization|Reacting (0)": [
+        "Assess absence of projected vs realized value tracking",
+        "Document inconsistency in ROI model assumptions",
+        "Identify gaps in feedback loops across functions",
+        "Define baseline quantification performance KPIs"
+      ],
+      "Intelligence & Optimization|Aspiring (1)": [
+        "Begin storing deal-level ROI outputs centrally",
+        "Track key assumptions and financial drivers manuall",
+        "Compare select projected values to renewal outcomes",
+        "Establish initial reporting cadence for value case usage"
+      ],
+      "Intelligence & Optimization|Constructing (2)": [
+        "Build dashboards for business case adoption and ROI ranges",
+        "Track discount sensitivity relative to quantified value",
+        "Begin structured projected vs realized comparisons",
+        "Create governed assumption libraries",
+        "Conduct early win-rate correlation analysis"
+      ],
+      "Intelligence & Optimization|Operationalizing (3)": [
+        "Correlate quantified value strength to win rates and deal velocity",
+        "Integrate realization tracking into value dashboards",
+        "Analyze pricing performance against quantified value",
+        "Use intelligence insights to refine models and sales coaching",
+        "Benchmark quantification performance across segments"
+      ],
+      "Intelligence & Optimization|Composing (4)": [
+        "Systematically compare projections to realized outcomes portfolio-wide",
+        "Refine ROI benchmarks using industry and segment data",
+        "Integrate quantification insights into pricing and packaging strategy",
+        "Measure credibility and forecast accuracy of value models",
+        "Tie intelligence reporting into executive performance reviews"
+      ],
+      "Intelligence & Optimization|Orchestrating (5)": [
+        "Deploy AI-driven assumption optimization and benchmarking",
+        "Predict renewal and expansion likelihood based on realized value signals",
+        "Continuously adjust pricing bands using quantified performance data",
+        "Integrate real-time product usage into value forecasting models",
+        "Tie quantification intelligence directly to growth strategy and capital allocation"
+      ]
+    },
+    "VA": {
+      "Strategy & Governance|Reacting (0)": [
+        "Assess absence of structured activation strategy",
+        "Document reactive enablement patterns",
+        "Identify gaps in ownership and governance",
+        "Define executive sponsor for activation"
+      ],
+      "Strategy & Governance|Aspiring (1)": [
+        "Draft Learning Program Office charter",
+        "Define role-based activation journeys",
+        "Outline certification framework and criteria",
+        "Conduct initial activation maturity assessment",
+        "Define activation success metrics"
+      ],
+      "Strategy & Governance|Constructing (2)": [
+        "Formalize Learning Program Office operating model",
+        "Launch structured role-based and partner learning journeys",
+        "Introduce certification programs with clear milestones",
+        "Establish governance cadence for enablement review",
+        "Align activation metrics with GTM priorities"
+      ],
+      "Strategy & Governance|Operationalizing (3)": [
+        "Track certification completion and adoption rates",
+        "Integrate activation metrics into performance reviews",
+        "Align enablement initiatives to pipeline and revenue goals",
+        "Promote activation program across leadership forums",
+        "Reduce variability in execution across teams"
+      ],
+      "Strategy & Governance|Composing (4)": [
+        "Conduct recurring activation maturity assessments",
+        "Refine learning journeys using performance insights",
+        "Align staffing and resource allocation to certification readiness",
+        "Benchmark activation capability across regions and roles"
+      ],
+      "Strategy & Governance|Orchestrating (5)": [
+        "Synchronize activation governance globally",
+        "Use predictive insights to prioritize enablement investment",
+        "Tie activation performance directly to revenue and retention forecasting",
+        "Continuously optimize learning strategy using execution and outcome analytics"
+      ],
+      "People|Reacting (0)": [
+        "Assess current value lifecycle knowledge across roles",
+        "Identify gaps in orchestration and activation skills",
+        "Document absence of certification standards",
+        "Define executive sponsor for activation capability"
+      ],
+      "People|Aspiring (1)": [
+        "Launch introductory value lifecycle training",
+        "Define core value activation competencies by role",
+        "Pilot cross-functional value workshops",
+        "Outline certification requirements and criteria"
+      ],
+      "People|Constructing (2)": [
+        "Deploy structured role-based learning paths",
+        "Introduce formal certification programs by role",
+        "Establish executive sponsorship cadence",
+        "Encourage cross-functional participation in activation initiatives",
+        "Track early adoption and completion metrics"
+      ],
+      "People|Operationalizing (3)": [
+        "Embed certification into onboarding programs",
+        "Track certification completion and skill validation",
+        "Integrate activation competencies into performance reviews",
+        "Promote cross-functional value orchestration forums",
+        "Align learning programs to lifecycle execution standards"
+      ],
+      "People|Composing (4)": [
+        "Use certification data to guide staffing and promotion decisions",
+        "Benchmark activation capability across regions and segments",
+        "Continuously refine curriculum using performance insights",
+        "Deepen advanced orchestration and lifecycle mastery programs"
+      ],
+      "People|Orchestrating (5)": [
+        "Scale certification programs globally with governance consistency",
+        "Align incentives and leadership development to activation excellence",
+        "Predict capability gaps using performance analytics",
+        "Continuously optimize activation talent strategy using execution outcomes"
+      ],
+      "Attract|Reacting (0)": [
+        "Assess variability in prospecting and messaging quality",
+        "Identify product-centric outreach patterns",
+        "Define core value narrative for top-of-funnel teams",
+        "Document coaching gaps"
+      ],
+      "Attract|Aspiring (1)": [
+        "Launch foundational value storytelling training for marketing and SDR/BDR roles",
+        "Introduce value-based prospecting frameworks",
+        "Provide outcome-focused messaging template",
+        "Begin informal coaching sessions focused on value positioning"
+      ],
+      "Attract|Constructing (2)": [
+        "Implement structured prospecting playbooks by ICP and persona",
+        "Deliver role-specific certification for value prospecting skills",
+        "Establish regular coaching cadence for outreach quality review",
+        "Track engagement metrics tied to value-based messaging"
+      ],
+      "Attract|Operationalizing (3)": [
+        "Integrate value storytelling standards into campaign planning",
+        "Align SDR outreach scripts to quantified value drivers",
+        "Monitor prospecting performance using conversion analytics",
+        "Reinforce coaching using structured feedback frameworks",
+        "Tie activation metrics to pipeline quality KPIs"
+      ],
+      "Attract|Composing (4)": [
+        "Refine messaging using conversion and engagement analytics",
+        "Personalize coaching based on performance data",
+        "Benchmark value-based prospecting effectiveness across teams",
+        "Integrate activation outcomes into marketing planning cycles"
+      ],
+      "Attract|Orchestrating (5)": [
+        "Deploy AI-assisted messaging optimization tools",
+        "Predict high-converting value narratives by segment",
+        "Continuously optimize top-of-funnel activation using analytics",
+        "Align attraction activation directly to pipeline forecasting and revenue planning"
+      ],
+      "Engage|Reacting (0)": [
+        "Assess variability in discovery and demo quality",
+        "Identify product-led vs value-led behavior gaps",
+        "Document absence of structured qualification criteria",
+        "Define core value engagement standards"
+      ],
+      "Engage|Aspiring (1)": [
+        "Launch foundational value discovery and demo training",
+        "Introduce structured qualification frameworks",
+        "Provide value hypothesis templates",
+        "Begin informal coaching and role-play sessions"
+      ],
+      "Engage|Constructing (2)": [
+        "Implement structured value discovery playbooks",
+        "Deliver role-specific certification for AEs and SEs",
+        "Formalize role-play and skills practice cadence",
+        "Establish manager coaching guidelines",
+        "Track skill application in live deals"
+      ],
+      "Engage|Operationalizing (3)": [
+        "Embed structured discovery and qualification into CRM stages",
+        "Conduct regular value demo reviews and feedback sessions",
+        "Tie coaching to opportunity performance metrics",
+        "Reinforce hypothesis quality and quantification standards",
+        "Benchmark value engagement performance across teams"
+      ],
+      "Engage|Composing (4)": [
+        "Deliver advanced executive value conversation training",
+        "Use deal performance data to inform coaching priorities",
+        "Refine engagement playbooks using win/loss insights",
+        "Integrate maturity collaboration into proof-of-value programs"
+      ],
+      "Engage|Orchestrating (5)": [
+        "Deploy AI-assisted coaching recommendations",
+        "Predict skill gaps based on deal performance analytics",
+        "Continuously benchmark engagement mastery globally",
+        "Align activation performance directly to win rate and deal quality outcomes"
+      ],
+      "Sell|Reacting (0)": [
+        "Assess frequency of discount-driven deal closures",
+        "Identify gaps in value-based negotiation skills",
+        "Document absence of shared value plan usage in negotiations",
+        "Define core value selling standards"
+      ],
+      "Sell|Aspiring (1)": [
+        "Launch foundational value-based negotiation training",
+        "Introduce outcome-aligned proposal frameworks",
+        "Provide pricing alignment discussion guides",
+        "Pilot structured deal review sessions"
+      ],
+      "Sell|Constructing (2)": [
+        "Deliver structured role-based value selling certification",
+        "Implement shared value plan usage standards in late-stage deals",
+        "Formalize strategic deal support model",
+        "Establish recurring role-play cadence for negotiation practice",
+        "Track discounting patterns relative to quantified value"
+      ],
+      "Sell|Operationalizing (3)": [
+        "Embed value-based pricing standards into approval workflows",
+        "Conduct proactive deal strategy reviews for complex opportunities",
+        "Tie coaching feedback to negotiation outcomes",
+        "Benchmark deal quality using value-based metrics",
+        "Integrate shared value plans into closing governance"
+      ],
+      "Sell|Composing (4)": [
+        "Use win/loss insights to refine negotiation coaching priorities",
+        "Provide advanced strategic deal execution workshops",
+        "Align compensation incentives to value-based pricing discipline",
+        "Monitor margin performance tied to value articulation strength"
+      ],
+      "Sell|Orchestrating (5)": [
+        "Deploy AI-assisted pricing and negotiation guidance",
+        "Predict discount risk using deal and engagement analytics",
+        "Continuously benchmark value-based selling performance globally",
+        "Align strategic deal execution to portfolio-level margin optimization"
+      ],
+      "Retain & Expand|Reacting (0)": [
+        "Assess variability in QBR and renewal conversation quality",
+        "Identify focus on activity vs impact",
+        "Document lack of structured realized value storytelling",
+        "Define core value realization standards"
+      ],
+      "Retain & Expand|Aspiring (1)": [
+        "Launch foundational training on realized value storytelling",
+        "Introduce structured QBR or QVR templates",
+        "Provide outcome-alignment discussion guides",
+        "Begin informal coaching sessions for renewals"
+      ],
+      "Retain & Expand|Constructing (2)": [
+        "Implement standardized value realization frameworks such as GROWS or QVRs",
+        "Introduce structured renewal and expansion playbooks",
+        "Establish regular role-play cadence for customer success teams",
+        "Provide dedicated deal support for strategic renewals",
+        "Track renewal conversations tied to value outcomes"
+      ],
+      "Retain & Expand|Operationalizing (3)": [
+        "Embed value review cadence into customer lifecycle milestones",
+        "Monitor renewal confidence and executive alignment indicators",
+        "Tie coaching feedback to retention and expansion performance",
+        "Benchmark renewal quality using realized value metrics",
+        "Integrate value realization into expansion qualification processes"
+      ],
+      "Retain & Expand|Composing (4)": [
+        "Deliver advanced executive outcome storytelling workshops",
+        "Use realized value analytics to guide expansion strateg",
+        "Refine renewal playbooks using retention and churn insights",
+        "Align performance incentives to value realization effectiveness"
+      ],
+      "Retain & Expand|Orchestrating (5)": [
+        "Deploy AI-assisted renewal and expansion coaching insights",
+        "Predict renewal and expansion likelihood based on realization signals",
+        "Continuously benchmark customer success activation globally",
+        "Tie value realization performance directly to net revenue retention forecasting"
+      ],
+      "Tools / Technology|Reacting (0)": [
+        "Audit current learning and enablement tools",
+        "Identify gaps in coaching and certification infrastructure",
+        "Document lack of integration with sales processes",
+        "Define requirements for scalable activation platform"
+      ],
+      "Tools / Technology|Aspiring (1)": [
+        "Deploy foundational LMS capabilities",
+        "Centralize activation learning content",
+        "Launch virtual instructor-led sessions",
+        "Track basic course completion metrics",
+        "Begin planning certification framework"
+      ],
+      "Tools / Technology|Constructing (2)": [
+        "Integrate LMS with CRM and enablement platforms",
+        "Introduce role-based certification paths",
+        "Enable video coaching and recorded feedback sessions",
+        "Track content consumption and engagement analytics",
+        "Launch peer learning communities"
+      ],
+      "Tools / Technology|Operationalizing (3)": [
+        "Prescribe training based on role and maturity stage",
+        "Manage certifications and badging systematically",
+        "Integrate learning analytics into manager dashboards",
+        "Reinforce skills through structured coaching programs",
+        "Tie learning progress to performance conversations"
+      ],
+      "Tools / Technology|Composing (4)": [
+        "Deliver personalized learning recommendations using performance data",
+        "Use activation analytics to refine curriculum",
+        "Integrate coaching insights into continuous development plans",
+        "Benchmark skill adoption across regions and roles"
+      ],
+      "Tools / Technology|Orchestrating (5)": [
+        "Deploy AI-driven role-play simulations and coaching assistants",
+        "Predict skill gaps using performance and deal analytics",
+        "Dynamically adjust certification and learning paths",
+        "Scale global communities of practice with governance",
+        "Tie activation learning intelligence directly to revenue and retention outcomes"
+      ],
+      "Intelligence & Optimization|Reacting (0)": [
+        "Assess absence of activation performance visibility",
+        "Document variability in field value execution",
+        "Identify gaps in coaching feedback loops",
+        "Define baseline activation KPIs"
+      ],
+      "Intelligence & Optimization|Aspiring (1)": [
+        "Track basic activation participation metrics",
+        "Begin monitoring value tool usage in select deals",
+        "Capture anecdotal realized value examples",
+        "Introduce simple activation reporting cadence"
+      ],
+      "Intelligence & Optimization|Constructing (2)": [
+        "Build dashboards for value tool usage and executive engagement",
+        "Track adoption of mutual success or shared value plans",
+        "Monitor participation in value-based selling motions",
+        "Incorporate activation behaviors into coaching frameworks",
+        "Begin correlating activation activity to deal progression"
+      ],
+      "Intelligence & Optimization|Operationalizing (3)": [
+        "Integrate activation metrics into CRM and performance reviews",
+        "Track realized value milestones against pre-sale commitments",
+        "Correlate activation behaviors to win rates and renewal outcomes",
+        "Use insights to guide coaching and enablement investment",
+        "Benchmark activation performance across teams"
+      ],
+      "Intelligence & Optimization|Composing (4)": [
+        "Link activation behaviors to retention, expansion, and customer health scores",
+        "Analyze activation adoption by segment and persona",
+        "Feed realization insights back into quantification and learning refinement",
+        "Integrate activation metrics into executive business reviews"
+      ],
+      "Intelligence & Optimization|Orchestrating (5)": [
+        "Deploy AI-driven activation performance forecasting",
+        "Predict renewal and expansion risk based on activation signals",
+        "Continuously optimize coaching and enablement priorities using performance analytics",
+        "Integrate real-time product usage into activation scoring models",
+        "Tie activation intelligence directly to revenue forecasting and growth planning"
+      ]
+    }
+  },
+  "actionBullets": {
+    "VC": {
+      "Strategy & Governance|Reacting (0)": [
+        "No defined strategy or governance.",
+        "Value messaging is inconsistent and content is created reactively.",
+        "No taxonomy, lifecycle management, ownership, or metrics exist."
+      ],
+      "Strategy & Governance|Aspiring (1)": [
+        "Intent to improve exists.",
+        "Early governance ideas and messaging standards are discussed, but remain informal and inconsistently applied."
+      ],
+      "Strategy & Governance|Constructing (2)": [
+        "Foundational governance structures are defined.",
+        "Charter drafted, messaging frameworks created, taxonomy and lifecycle standards introduced.",
+        "Adoption is partial."
+      ],
+      "Strategy & Governance|Operationalizing (3)": [
+        "Governance is formalized and enforced.",
+        "Charter approved, taxonomy implemented, lifecycle rules active, metrics tracked and used to guide improvements."
+      ],
+      "Strategy & Governance|Composing (4)": [
+        "Governance is embedded into operating rhythm.",
+        "Regular maturity reviews, content audits, and executive updates refine standards and investment decisions."
+      ],
+      "Strategy & Governance|Orchestrating (5)": [
+        "Governance operates as a closed-loop, intelligence-driven system.",
+        "Strategy, standards, and metrics are continuously optimized and tied directly to revenue and growth outcomes."
+      ],
+      "People|Reacting (0)": [
+        "Value communication depends on individual talent.",
+        "There is no defined competency model, no structured training, and no accountability for value storytelling quality.",
+        "Skills vary widely across sellers, SEs, and leaders."
+      ],
+      "People|Aspiring (1)": [
+        "Leaders recognize capability gaps.",
+        "Informal coaching or ad hoc training on value messaging begins.",
+        "Some high performers model strong value communication, but skills are not standardized or scalable."
+      ],
+      "People|Constructing (2)": [
+        "Core value communication competencies are defined.",
+        "Structured training programs are introduced. Managers begin coaching on value narratives.",
+        "Hiring profiles start reflecting value storytelling expectations. Adoption is uneven."
+      ],
+      "People|Operationalizing (3)": [
+        "Value communication competencies are embedded into onboarding, certification, and performance reviews.",
+        "Managers are trained to coach on value storytelling.",
+        "Field execution quality is measured and reinforced."
+      ],
+      "People|Composing (4)": [
+        "Continuous skill development is embedded.",
+        "Advanced storytelling, executive communication, and industry value positioning programs are active.",
+        "Peer best practices are shared across teams.",
+        "Leadership reinforces value communication as a cultural expectation."
+      ],
+      "People|Orchestrating (5)": [
+        "Value communication excellence is institutionalized.",
+        "Competencies are benchmarked across roles and regions.",
+        "AI-assisted coaching and performance analytics proactively guide development.",
+        "Talent strategy, hiring, promotion, and compensation reinforce value-led behaviors."
+      ],
+      "Attract|Reacting (0)": [
+        "External messaging is product- or feature-focused.",
+        "No defined value storytelling framework by industry, role, or use case.",
+        "Campaigns, thought leadership, and events are ad hoc and disconnected from customer outcomes."
+      ],
+      "Attract|Aspiring (1)": [
+        "Intent to shift toward value-based messaging.",
+        "Early pain-point and outcome language appears in prospecting and content.",
+        "Some value-oriented blogs or events exist, but messaging is inconsistent and not tailored by ICP or persona."
+      ],
+      "Attract|Constructing (2)": [
+        "Foundational value storytelling frameworks are defined by industry, role, and use case.",
+        "Persona-specific value briefs and branded assets are created.",
+        "Early value-based campaigns are launched, though execution and distribution are uneven."
+      ],
+      "Attract|Operationalizing (3)": [
+        "Value storytelling consistently drives demand generation.",
+        "Campaigns, blogs, white papers, webinars, and events align to defined value narratives by ICP and persona.",
+        "Messaging consistency is enforced across marketing and early sales."
+      ],
+      "Attract|Composing (4)": [
+        "Value attraction is embedded into brand and demand strategy.",
+        "Frameworks are refined using performance data.",
+        "Industry thought leadership and customer outcome events reinforce authority and pipeline quality."
+      ],
+      "Attract|Orchestrating (5)": [
+        "Value-led attraction operates as a coordinated, insight-driven system.",
+        "ICP-specific value narratives are continuously optimized across channels and regions.",
+        "Value storytelling predictably drives high-quality demand and positions the company as a trusted authority."
+      ],
+      "Engage|Reacting (0)": [
+        "Buyer engagement is reactive and product-led.",
+        "Discovery is informal.",
+        "Use cases are not mapped to value.",
+        "Presentations focus on features.",
+        "Conversations cannot pivot based on buyer maturity or needs.",
+        "Content sharing is static and disconnected from journey stages."
+      ],
+      "Engage|Aspiring (1)": [
+        "Teams acknowledge the need for stronger value conversations.",
+        "Basic playbooks or value decks are introduced.",
+        "Some interactive assets are piloted, but they are not consistently tailored by account, persona, or use case."
+      ],
+      "Engage|Constructing (2)": [
+        "Use cases are mapped to value outcomes.",
+        "Structured discovery guides and playbooks are created.",
+        "Early point-of-value decks and value-led demos are introduced.",
+        "Capability and maturity guides begin educating buyers.",
+        "Adoption varies by team."
+      ],
+      "Engage|Operationalizing (3)": [
+        "Value-led engagement is consistently applied.",
+        "Sellers guide account-specific value plays, pivot conversations using interactive decks, and anchor discovery in structured value frameworks.",
+        "Curated portals and digital selling rooms are used to share relevant content aligned to buyer needs."
+      ],
+      "Engage|Composing (4)": [
+        "Engagement is embedded into operating rhythm.",
+        "Capability and maturity guides shape buyer roadmaps.",
+        "Value demos reinforce outcomes over features.",
+        "Digital engagement assets are refined using interaction data and performance insights."
+      ],
+      "Engage|Orchestrating (5)": [
+        "Value-led engagement is orchestrated end to end.",
+        "Conversations dynamically adapt by role, use case, and maturity.",
+        "Interactive assets and data-driven insights guide next best value actions.",
+        "Digital selling rooms function as collaborative, living value narratives at scale."
+      ],
+      "Sell|Reacting (0)": [
+        "Value communication in sales is inconsistent and seller-dependent.",
+        "Executive conversations are product-focused.",
+        "Buyer value stories are not co-created.",
+        "Content is shared without visibility into engagement.",
+        "There is little insight into what influences deal progression or outcomes."
+      ],
+      "Sell|Aspiring (1)": [
+        "Teams recognize the need for stronger value narratives in sales.",
+        "Early templates or executive decks exist.",
+        "Competitive messaging begins shifting toward outcomes.",
+        "Content tracking is sporadic, and insights into engagement or win drivers are limited and not actionable."
+      ],
+      "Sell|Constructing (2)": [
+        "Standardized templates for business cases, value proposals, and shared value plans are introduced.",
+        "Competitive battlecards are reframed around outcomes.",
+        "Content engagement tracking begins.",
+        "Sellers start collaborating with buyers on a value story, though usage varies."
+      ],
+      "Sell|Operationalizing (3)": [
+        "Value-led selling is consistently applied.",
+        "Executive conversations focus on outcomes and business impact.",
+        "Sellers co-create buyer value narratives using standardized templates.",
+        "Content engagement and deal progression signals are tracked to understand win and loss drivers."
+      ],
+      "Sell|Composing (4)": [
+        "Value communication is embedded into deal governance.",
+        "Engagement data informs coaching and next best actions.",
+        "Prescriptive playbooks guide executive conversations.",
+        "Win/loss analysis systematically refines messaging, battlecards, and value positioning."
+      ],
+      "Sell|Orchestrating (5)": [
+        "Value-led selling is orchestrated at scale.",
+        "Executive conversations, buyer-collaborative value stories, and competitive positioning are dynamically guided by data.",
+        "Content influence and deal signals continuously optimize win rates, deal quality, and sales efficiency across segments."
+      ],
+      "Retain & Expand|Reacting (0)": [
+        "Post-sale value communication is reactive and renewal-driven.",
+        "Expansion discussions lack a roadmap.",
+        "Realized value is not consistently communicated.",
+        "Success stories are anecdotal.",
+        "Customer data and feedback are rarely used to guide retention or growth."
+      ],
+      "Retain & Expand|Aspiring (1)": [
+        "The organization acknowledges the need to reinforce value after the sale.",
+        "Realized outcomes are occasionally referenced in QBRs.",
+        "Some success stories are created.",
+        "Messaging is inconsistent and not tailored by role, industry, or maturity."
+      ],
+      "Retain & Expand|Constructing (2)": [
+        "Expansion plays and roadmaps are defined.",
+        "A value messaging framework is introduced for QBRs and ongoing engagements.",
+        "Qualitative impact surveys capture customer outcomes.",
+        "Early success stories are developed, though personalization varies."
+      ],
+      "Retain & Expand|Operationalizing (3)": [
+        "Customer success teams consistently leverage realized value KPIs and qualitative insights in QBRs.",
+        "Expansion plays are structured around defined value outcomes.",
+        "Success stories are developed by role, industry, maturity, and use case to reinforce credibility."
+      ],
+      "Retain & Expand|Composing (4)": [
+        "Value communication is embedded into customer lifecycle management.",
+        "Realized value data, success stories, and post-sale messaging frameworks are continuously refined.",
+        "Prescriptive next steps and content recommendations guide renewals and expansion."
+      ],
+      "Retain & Expand|Orchestrating (5)": [
+        "Retention and expansion are orchestrated through value intelligence. Realized value insights and customer narratives dynamically shape renewal and growth strategy. Value communication strengthens executive alignment and predictably drives retention and expansion at scale."
+      ],
+      "Tools / Technology|Reacting (0)": [
+        "Value content is scattered across systems, drives, and teams with no central source of truth.",
+        "Sellers struggle to find materials. Reuse is limited.",
+        "There is no visibility into usage or engagement.",
+        "Digital selling experiences are minimal or nonexistent."
+      ],
+      "Tools / Technology|Aspiring (1)": [
+        "The need for better tooling is recognized.",
+        "Early efforts centralize content and improve search.",
+        "Basic usage tracking is introduced.",
+        "Capabilities remain fragmented, adoption is inconsistent, and insights are descriptive rather than actionable."
+      ],
+      "Tools / Technology|Constructing (2)": [
+        "Content is centralized for internal teams and partners.",
+        "Reusable content sets and deck builders are introduced.",
+        "Offline access is supported.",
+        "Usage and engagement data are captured, but analysis and optimization remain limited."
+      ],
+      "Tools / Technology|Operationalizing (3)": [
+        "Tools are consistently used across GTM teams.",
+        "Sellers quickly assemble and share relevant value content through digital selling rooms.",
+        "Online and offline engagement is supported.",
+        "Usage and performance data inform enablement and content decisions."
+      ],
+      "Tools / Technology|Composing (4)": [
+        "Technology is embedded into GTM workflows.",
+        "Performance insights drive continuous optimization.",
+        "Underused content is audited and retired.",
+        "Localization is managed at scale.",
+        "Digital selling rooms operate as dynamic, interactive value experiences.",
+        "Data increasingly guides recommendations."
+      ],
+      "Tools / Technology|Orchestrating (5)": [
+        "Technology operates as a data-driven, AI-powered value communication system.",
+        "Content discovery, assembly, sharing, and optimization are continuously refined using engagement and outcome insights.",
+        "Digital experiences dynamically adapt by role, market, deal context, and buyer behavior."
+      ],
+      "Intelligence & Optimization|Reacting (0)": [
+        "There is little to no visibility into value communication performance.",
+        "Content usage, buyer engagement, and narrative effectiveness are not tracked.",
+        "Teams rely on anecdotal feedback. No dashboards, scoring models, or revenue correlations exist."
+      ],
+      "Intelligence & Optimization|Aspiring (1)": [
+        "The need for measurement is recognized. Basic activity metrics such as downloads or views are available but fragmented.",
+        "Reporting is manual and retrospective.",
+        "Engagement and deal influence are not systematically analyzed."
+      ],
+      "Intelligence & Optimization|Constructing (2)": [
+        "Foundational tracking is implemented.",
+        "Content usage, digital room access, and engagement metrics are captured.",
+        "Early dashboards show content influence on opportunities.",
+        "Measurement exists but is inconsistent and not standardized."
+      ],
+      "Intelligence & Optimization|Operationalizing (3)": [
+        "Intelligence is consistently tracked and reported.",
+        "Unified dashboards correlate content usage, engagement signals, and opportunity progression.",
+        "Buyer interaction data informs coaching.",
+        "Early quality standards for value storytelling are defined."
+      ],
+      "Intelligence & Optimization|Composing (4)": [
+        "Intelligence is embedded into operating rhythm.",
+        "Narrative effectiveness, buyer consensus indicators, and engagement timing are measured and optimized.",
+        "Content performance is tied to win rates, deal velocity, retention, and expansion.",
+        "Value communication quality is formally scored."
+      ],
+      "Intelligence & Optimization|Orchestrating (5)": [
+        "A closed-loop, predictive intelligence system operates at scale.",
+        "Multi-source revenue, engagement, and content data are unified.",
+        "AI-driven insights proactively guide sellers on optimal narratives and timing.",
+        "Performance is forecasted, benchmarked, and continuously optimized across segments and markets."
+      ]
+    },
+    "VQ": {
+      "Strategy & Governance|Reacting (0)": [
+        "Value quantification has no defined strategy or governance.",
+        "There is no Value Program Office, no standardized methodology, and no shared understanding of how value should be assessed.",
+        "Quantification occurs only when forced by deals, renewals, or escalations."
+      ],
+      "Strategy & Governance|Aspiring (1)": [
+        "The importance of value quantification is acknowledged.",
+        "Early discussions begin around governance, standardization, and maturity assessment.",
+        "Execution remains inconsistent and dependent on individual champions or high-priority deals."
+      ],
+      "Strategy & Governance|Constructing (2)": [
+        "Foundational governance is established.",
+        "A Value Program Office charter is drafted.",
+        "Roles for value program management and value consulting or engineering are defined. Initial capability and maturity assessments are conducted.",
+        "Standard value assessment frameworks and success metrics are defined but not consistently applied."
+      ],
+      "Strategy & Governance|Operationalizing (3)": [
+        "Governance is formally established and applied across core GTM and customer-facing teams.",
+        "The Value Program Office operates with clear ownership. Standard value frameworks and CMM models are consistently used.",
+        "The value selling journey is integrated into sales, marketing, and customer success processes.",
+        "Success metrics guide prioritization and improvement."
+      ],
+      "Strategy & Governance|Composing (4)": [
+        "Value quantification is embedded into operating rhythm.",
+        "Capability and maturity assessments are conducted on a regular cadence.",
+        "Standardized value frameworks and CMM models are continuously refined.",
+        "Value program management informs planning, segmentation, pricing strategy, and investment decisions."
+      ],
+      "Strategy & Governance|Orchestrating (5)": [
+        "Governance operates as a coordinated, enterprise-wide value system.",
+        "Value frameworks, operating models, performance management, and realization tracking are synchronized across functions and partners.",
+        "Leaders continuously optimize value creation, quantification, and realization at scale using insight-driven governance."
+      ],
+      "People|Reacting (0)": [
+        "There is no executive sponsorship or defined ownership for value quantification.",
+        "Teams quantify value independently using inconsistent methods, frameworks, and tools.",
+        "Collaboration across sales, marketing, customer success, and partners is minimal and informal."
+      ],
+      "People|Aspiring (1)": [
+        "Leadership recognizes the need for stronger value quantification capability and sponsorship.",
+        "Early advocates or champions promote more consistent approaches.",
+        "Roles, responsibilities, and engagement models remain unclear. Inconsistency across teams and functions is common."
+      ],
+      "People|Constructing (2)": [
+        "A value quantification team model begins to take shape.",
+        "Executive sponsors are identified.",
+        "Value consulting or engineering roles are formally defined.",
+        "Cross-functional collaboration improves.",
+        "Standard methods and practices are promoted, but adoption varies by role and team."
+      ],
+      "People|Operationalizing (3)": [
+        "Roles, responsibilities, and engagement models are clearly defined and supported by executive sponsorship.",
+        "Sales, marketing, customer success, and partners collaborate using standardized frameworks, methods, and tools. Inconsistency in value quantification delivery is actively reduced across teams."
+      ],
+      "People|Composing (4)": [
+        "Value quantification operates as a shared, cross-functional discipline.",
+        "The Value Program Office and value leaders actively evangelize best practices.",
+        "Enablement, coaching, and governance continuously reinforce standard methods.",
+        "Teams consistently apply shared frameworks across the lifecycle."
+      ],
+      "People|Orchestrating (5)": [
+        "Value quantification is orchestrated across the full GTM ecosystem.",
+        "Executives, value teams, sellers, customer success, and partners operate with a common language and shared practices.",
+        "Incentives and performance metrics are aligned to value-based behaviors.",
+        "The value program scales predictably across markets and regions."
+      ],
+      "Attract|Reacting (0)": [
+        "Prospects are not engaged with quantified value during early stages.",
+        "There are no self-service assessment or value tools.",
+        "Targeting is driven primarily by firmographics or intuition.",
+        "Value framing is largely absent from top-of-funnel activity."
+      ],
+      "Attract|Aspiring (1)": [
+        "The need to introduce quantification earlier is recognized.",
+        "Value outcomes are occasionally referenced in marketing or prospecting.",
+        "Concepts for self-service tools or value-led content are discussed.",
+        "Account targeting shows limited consideration of value potential."
+      ],
+      "Attract|Constructing (2)": [
+        "Foundational value attraction capabilities are built.",
+        "Self-service CMM assessments and interactive ROI or TCO tools are introduced.",
+        "TVA or TEI-style value white papers are developed.",
+        "Value potential begins to inform account targeting, though adoption varies."
+      ],
+      "Attract|Operationalizing (3)": [
+        "Quantified value is consistently used to attract and qualify prospects.",
+        "Self-service CMM, ROI, TCO, and value-pricing tools are actively used by prospects.",
+        "Value white papers frame buyer expectations early.",
+        "Account targeting prioritizes prospects based on value and outcome potential."
+      ],
+      "Attract|Composing (4)": [
+        "Value quantification is embedded into demand generation and account planning.",
+        "Self-service tools and value content are refined using usage and conversion data.",
+        "Targeting models are adjusted based on realized outcomes.",
+        "Value framing builds buyer confidence before direct sales engagement."
+      ],
+      "Attract|Orchestrating (5)": [
+        "Value-led attraction is orchestrated at scale.",
+        "Prospect self-service tools dynamically adapt by segment, industry, and role.",
+        "Account targeting is driven by predictive value and outcome analytics.",
+        "Quantified value consistently differentiates the company and drives high-quality demand globally."
+      ],
+      "Engage|Reacting (0)": [
+        "Value discovery is informal and inconsistent.",
+        "Customer capability, maturity, and value drivers are not systematically assessed.",
+        "Value is positioned late in the sales cycle.",
+        "Opportunities are qualified primarily on deal size and intuition rather than value potential."
+      ],
+      "Engage|Aspiring (1)": [
+        "The need for structured value discovery is recognized.",
+        "Early discovery guides or qualification concepts are introduced.",
+        "Teams attempt to discuss value earlier in conversations.",
+        "Maturity and value potential are not reliably captured or used for prioritization."
+      ],
+      "Engage|Constructing (2)": [
+        "Foundational value engagement capabilities are built.",
+        "Structured discovery frameworks and value hypothesis models are introduced.",
+        "Customer capability and maturity assessments are deployed.",
+        "Early automation supports sellers in capturing discovery insights.",
+        "Value qualification frameworks and risk scoring models are defined, though adoption varies."
+      ],
+      "Engage|Operationalizing (3)": [
+        "Value discovery and qualification are consistently applied across active opportunities.",
+        "Sellers use structured discovery and automated CMM assessments to position value early.",
+        "Value hypotheses are documented and refined collaboratively.",
+        "Opportunities are prioritized using defined value and risk scoring frameworks.",
+        "Discovery insights inform resource allocation and deal strategy."
+      ],
+      "Engage|Composing (4)": [
+        "Value quantification is embedded into opportunity engagement and prioritization.",
+        "AI-assisted discovery and automated maturity assessments dynamically refine value hypotheses.",
+        "Qualification and scoring models continuously improve using performance data.",
+        "Teams consistently focus effort on highest-value opportunities."
+      ],
+      "Engage|Orchestrating (5)": [
+        "Value-led engagement is orchestrated at scale.",
+        "Discovery, maturity assessment, hypothesis development, and qualification are synchronized through automation and intelligence.",
+        "Predictive value and risk insights guide pipeline strategy.",
+        "Leaders and sellers continuously optimize pipeline quality and conversion outcomes."
+      ],
+      "Sell|Reacting (0)": [
+        "Business value is not consistently quantified during the sales process.",
+        "Pricing and discounting decisions are disconnected from value.",
+        "Business cases are created only when required by deal size or executive review.",
+        "Buyer collaboration on value is minimal and informal."
+      ],
+      "Sell|Aspiring (1)": [
+        "The importance of quantified value in sales is recognized.",
+        "Early business value assessments or proposal templates are introduced.",
+        "Some effort is made to link value to pricing discussions.",
+        "Execution remains inconsistent and largely manual."
+      ],
+      "Sell|Constructing (2)": [
+        "Foundational value selling capabilities are established.",
+        "Standard approaches for business value assessments, business cases, and value proposals are introduced.",
+        "Sellers begin collaborating with buyers to shape quantified value narratives.",
+        "Alignment between quantified value and pricing or discounting is emerging but inconsistent."
+      ],
+      "Sell|Operationalizing (3)": [
+        "Value quantification is consistently applied to sales execution.",
+        "Sellers conduct structured business value assessments and build personalized business cases.",
+        "Shared value plans are developed collaboratively to span pre- and post-sale outcomes.",
+        "Digital selling rooms are used to deliver and manage business cases and value proposals."
+      ],
+      "Sell|Composing (4)": [
+        "Value quantification is embedded into deal strategy and commercial decision-making.",
+        "Pricing and discounting are routinely aligned to quantified value.",
+        "Shared value plans guide both sales execution and post-sale success.",
+        "Value models and proposals are refined continuously based on deal outcomes and realization data."
+      ],
+      "Sell|Orchestrating (5)": [
+        "Value-led selling is orchestrated at scale.",
+        "Business value assessments, pricing alignment, shared value plans, and proposals are dynamically guided by integrated data and predictive insights.",
+        "Quantified value consistently drives higher win rates, stronger deal quality, and predictable commercial performance across segments."
+      ],
+      "Retain & Expand|Reacting (0)": [
+        "Post-sale value is rarely quantified or reviewed.",
+        "Customer capability progression, maturity advancement, and realized outcomes are not systematically measured.",
+        "Renewal and expansion decisions are largely reactive.",
+        "Shared value plans are not maintained after the sale."
+      ],
+      "Retain & Expand|Aspiring (1)": [
+        "The need to quantify and communicate realized value is recognized.",
+        "Early attempts are made to review outcomes or discuss ROI.",
+        "Some risk assessments are introduced.",
+        "Execution is inconsistent and largely manual.",
+        "Insights are not reliably used to guide retention or expansion strategy."
+      ],
+      "Retain & Expand|Constructing (2)": [
+        "Foundational post-sale value management capabilities are introduced.",
+        "Ongoing CMM assessments and realized value tracking are implemented.",
+        "Shared value plan reviews occur periodically.",
+        "Value reviews and gap analyses begin identifying renewal risks and expansion opportunities.",
+        "Adoption varies across teams and segments."
+      ],
+      "Retain & Expand|Operationalizing (3)": [
+        "Value quantification is consistently applied across the customer lifecycle.",
+        "Teams leverage CMM progression, realized ROI metrics, and value-based risk scoring.",
+        "Quarterly value reviews reinforce alignment on goals and outcomes.",
+        "Insights systematically inform renewal planning and targeted expansion plays."
+      ],
+      "Retain & Expand|Composing (4)": [
+        "Value quantification is embedded into customer success strategy and business planning.",
+        "Realized value insights continuously refine shared value plans.",
+        "Investment decisions and roadmap priorities are influenced by quantified outcomes.",
+        "Quarterly value reviews reinforce executive alignment and long-term confidence."
+      ],
+      "Retain & Expand|Orchestrating (5)": [
+        "Value-led retention and expansion is orchestrated at scale.",
+        "Customer maturity progression, realized value, and predictive risk and growth insights dynamically guide renewal and expansion strategy.",
+        "Value quantification continuously maximizes lifetime value and sustainable growth across the portfolio."
+      ],
+      "Tools / Technology|Reacting (0)": [
+        "Value quantification relies almost entirely on spreadsheets and disconnected tools.",
+        "Value models, business cases, and ROI calculations are manually built.",
+        "Models are difficult to reuse, govern, or scale.",
+        "There is little integration with CRM, customer success, or product data."
+      ],
+      "Tools / Technology|Aspiring (1)": [
+        "The limitations of spreadsheet-based quantification are recognized.",
+        "Templates are standardized to improve reuse and consistency.",
+        "Automation platforms are explored.",
+        "Integration across systems remains limited.",
+        "Value modeling and storytelling remain largely manual."
+      ],
+      "Tools / Technology|Constructing (2)": [
+        "Foundational value technology capabilities are introduced.",
+        "A value automation platform supports business cases and shared value plans, often alongside spreadsheets.",
+        "Basic realized value tracking is implemented.",
+        "Early integrations with CRM or customer success systems begin.",
+        "Automation and intelligence remain limited."
+      ],
+      "Tools / Technology|Operationalizing (3)": [
+        "Value quantification technology is consistently used across the lifecycle.",
+        "A value automation platform supports discovery, value hypotheses, business cases, shared value plans, and realized value tracking.",
+        "CRM, customer success, marketing, and analytics systems are integrated.",
+        "Product instrumentation and dashboards capture outcome KPIs and ROI."
+      ],
+      "Tools / Technology|Composing (4)": [
+        "Value technology is embedded into GTM and product workflows.",
+        "AI automates discovery insights, generates value hypotheses, and refines value models.",
+        "Value storytelling and presentation assets are enhanced by automation.",
+        "Realized value dashboards continuously communicate outcomes to customers and executives.",
+        "Data informs prioritization, pricing, and growth decisions."
+      ],
+      "Tools / Technology|Orchestrating (5)": [
+        "Value quantification operates through intelligent, data-driven platforms.",
+        "AI continuously optimizes value models, pricing alignment, storytelling, and opportunity prioritization using customer and product data.",
+        "Real-time outcome reporting and automated insights create a predictive value-led growth engine.",
+        "Internal teams and partners operate on a unified, scalable value platform."
+      ],
+      "Intelligence & Optimization|Reacting (0)": [
+        "Value quantification impact is not measured.",
+        "Business cases are created inconsistently.",
+        "Assumptions and financial drivers are not systematically tracked.",
+        "No system captures projected versus realized value.",
+        "There is no feedback loop between sales, finance, and customer success.",
+        "ROI claims are anecdotal and unvalidated."
+      ],
+      "Intelligence & Optimization|Aspiring (1)": [
+        "The need to measure quantification effectiveness is recognized.",
+        "Some deal-level ROI outputs may be stored.",
+        "Assumptions, drivers, and outcomes are not consistently tracked.",
+        "Forecast accuracy and credibility are difficult to assess.",
+        "Post-sale realization is rarely compared to pre-sale projections."
+      ],
+      "Intelligence & Optimization|Constructing (2)": [
+        "Foundational tracking of value cases is implemented.",
+        "Standardized ROI templates and calculators are used in portions of the business.",
+        "Key assumptions and projected benefits are documented.",
+        "Early comparisons between projected and actual outcomes begin.",
+        "Insights are manual and inconsistent across segments."
+      ],
+      "Intelligence & Optimization|Operationalizing (3)": [
+        "Value quantification performance is consistently tracked and reviewed.",
+        "Dashboards analyze business case usage, projected ROI ranges, discount sensitivity, and win-rate correlation.",
+        "Assumption libraries are governed and periodically updated.",
+        "Post-sale realization data informs refinements in value models and messaging."
+      ],
+      "Intelligence & Optimization|Composing (4)": [
+        "Intelligence is embedded across the full value lifecycle.",
+        "Pre-sale projections are systematically compared to realized outcomes.",
+        "Quantification accuracy, credibility, and industry benchmarks are continuously refined.",
+        "Insights improve pricing strategy, packaging, segmentation, and sales coaching.",
+        "Value modeling performance informs executive planning."
+      ],
+      "Intelligence & Optimization|Orchestrating (5)": [
+        "A closed-loop, predictive value intelligence system operates at scale.",
+        "Real-time customer and product data feed quantification models.",
+        "AI-enhanced benchmarking dynamically adjusts assumptions by segment, persona, and maturity level.",
+        "Value accuracy and realized ROI are forecasted and optimized.",
+        "Quantification intelligence directly informs revenue strategy, expansion planning, and product investment decisions."
+      ]
+    },
+    "VA": {
+      "Strategy & Governance|Reacting (0)": [
+        "Value activation has no defined strategy, ownership, or governance.",
+        "Learning and enablement efforts are ad hoc and reactive to short-term needs.",
+        "Programs are role-agnostic and inconsistent.",
+        "There is no assessment of activation maturity.",
+        "No certification model or success metrics exist."
+      ],
+      "Strategy & Governance|Aspiring (1)": [
+        "The need to improve value activation through structured learning is recognized.",
+        "Early discussions take place around role-based learning journeys or certification models.",
+        "Ownership and governance structures are unclear.",
+        "Measurement and execution remain inconsistent and informal."
+      ],
+      "Strategy & Governance|Constructing (2)": [
+        "Foundational governance for value activation is established.",
+        "A Learning Program Office charter is drafted.",
+        "Learning and enablement roles are defined.",
+        "An initial activation maturity assessment identifies capability gaps.",
+        "Role-based and partner learning journeys are designed, though rollout varies."
+      ],
+      "Strategy & Governance|Operationalizing (3)": [
+        "Value activation governance is formally established and consistently applied.",
+        "The Learning Program Office operates with clear ownership.",
+        "Structured learning journeys and certifications are delivered by role and partner type.",
+        "Enablement efforts are actively promoted and reinforced.",
+        "Success metrics are tracked and guide improvement priorities."
+      ],
+      "Strategy & Governance|Composing (4)": [
+        "Value activation is embedded into operating rhythms and talent development models.",
+        "Maturity assessments are conducted on a regular cadence.",
+        "Learning journeys and certifications are continuously refined.",
+        "Certification status informs readiness, staffing, and investment decisions.",
+        "Leaders actively sponsor and evangelize activation based on measurable impact."
+      ],
+      "Strategy & Governance|Orchestrating (5)": [
+        "Value activation governance operates as a coordinated, insight-driven system.",
+        "Learning strategy, certification, performance management, and execution standards are synchronized across internal teams and partners.",
+        "Continuous optimization drives predictable adoption, execution excellence, and scalable growth.",
+        "Activation performance is directly tied to revenue, retention, and expansion outcomes."
+      ],
+      "People|Reacting (0)": [
+        "Teams have limited understanding of value needs and lifecycle stages.",
+        "Value orchestration and management skills are inconsistent and learned informally.",
+        "Executive sponsorship is absent.",
+        "Cross-functional engagement is minimal.",
+        "No certification model exists."
+      ],
+      "People|Aspiring (1)": [
+        "Gaps in value knowledge and activation skills are recognized.",
+        "Early learning initiatives introduce value lifecycle concepts.",
+        "Leaders express support in principle.",
+        "Certification and cross-functional participation are discussed but not defined or enforced."
+      ],
+      "People|Constructing (2)": [
+        "Foundational activation capabilities are developed.",
+        "Training improves understanding of value needs, lifecycle stages, and orchestration practices.",
+        "Executive sponsors are identified.",
+        "Cross-functional participation increases.",
+        "Role-based certification programs are designed, though rigor varies."
+      ],
+      "People|Operationalizing (3)": [
+        "Value activation skills are consistently developed across roles.",
+        "Executives actively sponsor and evangelize learning programs.",
+        "Structured certification paths are delivered across marketing, SDRs, AEs, SEs, customer success, and value teams.",
+        "Cross-functional stakeholders participate regularly.",
+        "Teams apply value orchestration practices reliably throughout the lifecycle."
+      ],
+      "People|Composing (4)": [
+        "Value activation capabilities are embedded into role expectations and onboarding.",
+        "Certification status validates readiness and informs staffing and development decisions.",
+        "Learning programs continuously deepen lifecycle and orchestration mastery.",
+        "Cross-functional collaboration becomes standard operating behavior."
+      ],
+      "People|Orchestrating (5)": [
+        "Value activation expertise is orchestrated enterprise-wide.",
+        "Deep lifecycle and orchestration mastery is shared across all GTM and value roles.",
+        "Certification programs scale globally with consistency.",
+        "Executives actively evangelize value learning as a core growth discipline.",
+        "Cross-functional alignment enables predictable, high-quality execution at scale."
+      ],
+      "Attract|Reacting (0)": [
+        "Marketing, SDRs, and BDRs have limited value storytelling or value prospecting skills.",
+        "Messaging and outreach are largely product-led or campaign-driven.",
+        "Customer pain, outcomes, and value are not consistently emphasized.",
+        "Coaching is minimal, reactive, and inconsistent."
+      ],
+      "Attract|Aspiring (1)": [
+        "The need to improve value storytelling and prospecting skills is recognized.",
+        "Basic training introduces outcome-focused messaging.",
+        "Guidance is provided to shift outreach toward customer pain and value.",
+        "Coaching exists in pockets but is not structured or role-specific."
+      ],
+      "Attract|Constructing (2)": [
+        "Foundational activation capabilities for attraction are developed.",
+        "Training programs strengthen value storytelling basics for marketing and SDR/BDR roles.",
+        "Value-based prospecting frameworks are introduced.",
+        "Early coaching models are established.",
+        "Skill adoption varies across teams."
+      ],
+      "Attract|Operationalizing (3)": [
+        "Value-based storytelling and prospecting are consistently practiced.",
+        "Marketing campaigns and outreach reflect clear, role-specific value narratives.",
+        "Structured coaching and feedback loops reinforce prospecting excellence.",
+        "Managers actively review messaging quality and performance."
+      ],
+      "Attract|Composing (4)": [
+        "Value storytelling and prospecting skills are embedded into onboarding and performance models.",
+        "Campaign design is guided by outcome-based frameworks.",
+        "Advanced messaging is refined using conversion and engagement data.",
+        "Coaching is proactive, personalized, and data-informed."
+      ],
+      "Attract|Orchestrating (5)": [
+        "Value-led attraction is orchestrated across marketing and SDR/BDR functions.",
+        "Teams consistently deliver compelling, value-driven narratives tailored by ICP and persona.",
+        "Coaching and enablement are continuously optimized using performance insights.",
+        "Top-of-funnel activation predictably drives higher-quality demand and pipeline growth."
+      ],
+      "Engage|Reacting (0)": [
+        "AEs and SEs rely primarily on product knowledge rather than value storytelling and discovery skills.",
+        "Discovery and qualification are inconsistent and not value-led.",
+        "Value demos, hypotheses, and quantification are improvised.",
+        "Coaching and role-play are rare and reactive."
+      ],
+      "Engage|Aspiring (1)": [
+        "Gaps in value engagement skills are recognized.",
+        "Basic training introduces value storytelling, discovery, and qualification concepts.",
+        "Limited coaching occurs.",
+        "Skill application is inconsistent and confidence varies across teams."
+      ],
+      "Engage|Constructing (2)": [
+        "Foundational value engagement capabilities are developed.",
+        "Structured training strengthens value storytelling, discovery, qualification, demo, hypothesis, and quantification skills.",
+        "Role-play is introduced to reinforce learning.",
+        "Coaching practices exist but vary by manager and team."
+      ],
+      "Engage|Operationalizing (3)": [
+        "Value engagement skills are consistently applied across active deals.",
+        "AEs and SEs conduct structured discovery and value-based qualification.",
+        "Outcome-focused demos and credible value hypotheses are delivered confidently.",
+        "Coaching and role-play are regularly used to reinforce execution excellence."
+      ],
+      "Engage|Composing (4)": [
+        "Value engagement capabilities are embedded into selling practices.",
+        "Advanced training strengthens value quantification, maturity collaboration, and executive-level engagement.",
+        "Coaching is data-informed and continuous.",
+        "Teams confidently adapt value narratives and proof points to each buyer and context."
+      ],
+      "Engage|Orchestrating (5)": [
+        "Value activation during engagement is orchestrated at scale.",
+        "AEs and SEs demonstrate consistent mastery across discovery, qualification, demos, hypotheses, and quantification.",
+        "Continuous coaching and deliberate practice reinforce excellence.",
+        "Value engagement becomes a predictable and differentiated capability across the organization."
+      ],
+      "Sell|Reacting (0)": [
+        "Sellers rely primarily on product knowledge and price concessions.",
+        "Value-based proposals and negotiation skills are limited.",
+        "Shared value plans and business cases are inconsistently understood or applied.",
+        "Coaching and role-play are rare.",
+        "Strategic deal support is reactive and limited to escalations."
+      ],
+      "Sell|Aspiring (1)": [
+        "The need to improve value selling skills is recognized.",
+        "Basic training introduces value proposals, pricing alignment, and negotiation concepts.",
+        "Limited deal support is available for larger opportunities.",
+        "Coaching and practice remain informal and inconsistent."
+      ],
+      "Sell|Constructing (2)": [
+        "Foundational value selling capabilities are developed.",
+        "Training strengthens shared value plan, business case, pricing, and negotiation skills.",
+        "Structured role-play and coaching are introduced.",
+        "Dedicated deal support begins assisting priority opportunities.",
+        "Coverage and consistency vary by team and segment."
+      ],
+      "Sell|Operationalizing (3)": [
+        "Value selling skills are consistently applied across active deals.",
+        "Sellers leverage value proposals and outcome-based pricing discussions confidently.",
+        "Shared value plans anchor negotiation strategy.",
+        "Regular coaching and role-play reinforce execution quality.",
+        "Strategic deal support is proactively provided for complex opportunities."
+      ],
+      "Sell|Composing (4)": [
+        "Value selling is embedded into execution and performance models.",
+        "Advanced coaching, structured deal reviews, and deliberate practice strengthen negotiation and value articulation skills.",
+        "Deal support proactively guides high-impact opportunities.",
+        "Shared value plans align closing strategy with post-sale success."
+      ],
+      "Sell|Orchestrating (5)": [
+        "Value activation in selling is orchestrated at scale.",
+        "Elite value selling capabilities are consistently demonstrated across roles and regions.",
+        "Expert deal support and continuous coaching drive pricing discipline and negotiation strength.",
+        "Strategic deals are executed with precision and predictability.",
+        "Value-based execution becomes a differentiated competitive advantage."
+      ],
+      "Retain & Expand|Reacting (0)": [
+        "Customer success teams have limited skills in value realization and outcome storytelling.",
+        "Realized value conversations are inconsistent and reactive.",
+        "Discussions focus on activity rather than business impact.",
+        "Coaching, role-play, and deal support for value realization are minimal."
+      ],
+      "Retain & Expand|Aspiring (1)": [
+        "The need to strengthen value realization capabilities is recognized.",
+        "Early training introduces realized value concepts, QBR frameworks, and outcome storytelling.",
+        "Some coaching occurs.",
+        "Execution remains inconsistent and dependent on individual experience."
+      ],
+      "Retain & Expand|Constructing (2)": [
+        "Foundational value realization capabilities are developed.",
+        "Training strengthens realized value measurement and storytelling frameworks such as GROWS or QVRs.",
+        "Customer outcome alignment improves.",
+        "Role-play, coaching, and renewal deal support are introduced.",
+        "Adoption varies by team and segment."
+      ],
+      "Retain & Expand|Operationalizing (3)": [
+        "Value realization skills are consistently applied across customer engagements.",
+        "Teams conduct structured value reviews and communicate realized impact clearly.",
+        "Compelling outcome stories reinforce executive confidence.",
+        "Regular coaching and role-play reinforce execution quality.",
+        "Dedicated deal support guides renewals and expansion efforts."
+      ],
+      "Retain & Expand|Composing (4)": [
+        "Value realization is embedded into customer success execution and growth strategy.",
+        "Advanced coaching and continuous practice strengthen executive alignment and renewal readiness.",
+        "Outcome-focused storytelling consistently supports expansion conversations.",
+        "Realized value insights actively guide engagement planning and account strategy."
+      ],
+      "Retain & Expand|Orchestrating (5)": [
+        "Value activation for retention and expansion is orchestrated at scale.",
+        "Customer success teams demonstrate mastery in value realization, storytelling, and executive alignment.",
+        "Continuous coaching and expert deal support reinforce excellence.",
+        "Renewals and expansions are driven predictably by demonstrated value impact.",
+        "Portfolio-wide value execution maximizes long-term customer lifetime value."
+      ],
+      "Tools / Technology|Reacting (0)": [
+        "Learning tools are limited or fragmented.",
+        "Enablement consists primarily of static content repositories.",
+        "Training is not integrated into sales or value processes.",
+        "There is minimal visibility into learning consumption or effectiveness.",
+        "Coaching, certification, and community-based learning are largely absent."
+      ],
+      "Tools / Technology|Aspiring (1)": [
+        "The need for improved learning infrastructure is recognized.",
+        "An LMS is deployed or planned.",
+        "Basic training content and virtual sessions are introduced.",
+        "Integration with sales processes is limited.",
+        "Personalization and measurement remain minimal."
+      ],
+      "Tools / Technology|Constructing (2)": [
+        "Foundational learning technology capabilities are established.",
+        "The LMS integrates with core enablement and sales systems.",
+        "Tailored learning plans and certification paths are introduced.",
+        "Content consumption and feedback are tracked.",
+        "Virtual training events, video coaching, and peer learning communities begin to form."
+      ],
+      "Tools / Technology|Operationalizing (3)": [
+        "Learning technology is consistently used to activate value skills across roles.",
+        "Training is prescribed based on role, lifecycle stage, and maturity.",
+        "Certifications and badging are actively managed.",
+        "Video coaching and virtual sessions reinforce skill application.",
+        "Learning insights inform coaching and development priorities."
+      ],
+      "Tools / Technology|Composing (4)": [
+        "Learning and activation technology are embedded into daily workflows.",
+        "Data from learning consumption, performance, and enablement tools inform personalized learning paths.",
+        "Prescriptive recommendations support continuous skill improvement.",
+        "Communities of practice, office hours, and knowledge hubs reinforce ongoing mastery."
+      ],
+      "Tools / Technology|Orchestrating (5)": [
+        "Value activation technology operates as an AI-powered, adaptive learning ecosystem.",
+        "AI-driven role-play, coaching simulations, and recommendations tailor learning and practice to individual performance signals.",
+        "Certification and skill reinforcement dynamically adjust based on execution data.",
+        "Learning, coaching, and community engagement scale globally with consistency.",
+        "Technology continuously drives sustained mastery and execution excellence."
+      ],
+      "Intelligence & Optimization|Reacting (0)": [
+        "There is no systematic visibility into whether value messaging or quantified ROI is activated in live deals or customer engagements.",
+        "Field execution varies widely by individual.",
+        "Coaching is anecdotal and inconsistent.",
+        "Customer value realization is not tracked in a structured way.",
+        "No feedback loop exists between enablement, sales, and customer success."
+      ],
+      "Intelligence & Optimization|Aspiring (1)": [
+        "The need to improve field execution and value realization is acknowledged.",
+        "Basic activity metrics such as meeting counts, training attendance, or CRM stage movement are tracked.",
+        "These metrics do not measure quality of value activation.",
+        "Customer outcomes are discussed but not consistently documented or analyzed."
+      ],
+      "Intelligence & Optimization|Constructing (2)": [
+        "Early activation metrics are introduced.",
+        "Participation in value-based selling motions and use of business cases are tracked in parts of the business.",
+        "Executive engagement rates and success plan references to value commitments are monitored.",
+        "Coaching begins incorporating activation behaviors.",
+        "Adoption and measurement remain inconsistent."
+      ],
+      "Intelligence & Optimization|Operationalizing (3)": [
+        "Value activation is consistently measured across the lifecycle.",
+        "Dashboards track use of value tools in active opportunities.",
+        "Executive alignment signals and mutual success plan adoption are monitored.",
+        "Customer value milestones are documented.",
+        "Field performance reviews include activation metrics.",
+        "Customer success teams report on realized value relative to pre-sale commitments."
+      ],
+      "Intelligence & Optimization|Composing (4)": [
+        "Activation intelligence is embedded into operating cadence and leadership reviews.",
+        "Data links activation behaviors to win rates, expansion, retention, and customer health.",
+        "Adoption patterns are analyzed by segment, persona, and role.",
+        "Realized outcomes are systematically captured.",
+        "Insights inform enablement and quantification refinement."
+      ],
+      "Intelligence & Optimization|Orchestrating (5)": [
+        "A closed-loop activation intelligence engine operates at scale.",
+        "Real-time CRM, engagement, success plan, and product usage signals predict activation quality and realization risk.",
+        "AI-driven insights proactively guide sellers and customer success managers on next best value actions.",
+        "Activation effectiveness is forecasted and optimized continuously.",
+        "Value execution is systematically improved across the entire customer lifecycle."
+      ]
+    }
+  },
+  "levelBands": [
+    {
+      "lowerBound": 0.0,
+      "label": "No Value Narrative",
+      "tagline": "Invisible by default (0-1)",
+      "descriptor": "Value-led practices are mostly ad hoc today. Efforts depend on individual initiative rather than a defined approach, with little documentation, ownership, or measurement in place. Awareness that change is needed may be emerging, but execution is inconsistent and reactive rather than deliberate."
+    },
+    {
+      "lowerBound": 1.0,
+      "label": "Value by Accident",
+      "tagline": "Hit or miss (1-2)",
+      "descriptor": "Your organization recognizes the need for a more deliberate approach and early efforts are underway. Foundational frameworks, roles, or tools are being introduced, but adoption is uneven and dependent on a handful of champions. Consistency and governance are still taking shape across teams."
+    },
+    {
+      "lowerBound": 2.0,
+      "label": "Value on Paper",
+      "tagline": "Built, not lived (2-3)",
+      "descriptor": "Foundational structures are in place: frameworks, ownership, and tools have been defined and are starting to take hold. Execution is becoming more consistent, though adoption still varies by team. The building blocks exist; the focus now is embedding them as standard practice everywhere."
+    },
+    {
+      "lowerBound": 3.0,
+      "label": "Value in Practice",
+      "tagline": "Steady and scalable (3-4)",
+      "descriptor": "Defined practices are formalized and consistently applied across teams, with clear ownership and metrics in place. Execution is reliable rather than occasional. The organization is now shifting from consistent operation toward continuous refinement, using data to sharpen what already works."
+    },
+    {
+      "lowerBound": 4.0,
+      "label": "Value as a System",
+      "tagline": "Smarter every cycle (4-5)",
+      "descriptor": "Value-led practices are deeply embedded and continuously refined using data and feedback. Cross-functional teams operate with shared standards and clear accountability. The remaining shift is toward a fully orchestrated, intelligence-driven system that optimizes outcomes in real time."
+    }
+  ],
+  "_meta": {
+    "sourceWorkbook": "../Files/Value-Led Growth Assessment v2.x3-web.xlsx",
+    "generatedNote": "Generated by extract_data.py. Do not hand-edit; re-run the script instead."
+  }
+}

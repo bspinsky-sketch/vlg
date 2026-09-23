@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Value-Led Growth Assessment</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#18876D">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&family=Prompt:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="components/segment-slider.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Shared breadcrumb -- persistent across every view, dynamically built
+     by app.js from the currently-selected pillars. -->
+<div class="app-band">
+  <div class="band-inner" style="padding-bottom:0;">
+    <nav class="breadcrumb" id="breadcrumb" aria-label="Progress"></nav>
+  </div>
+</div>
+
+<!-- ============================================================
+     VIEW: Profile (entry point -- no separate landing page)
+     Ported from mockup_profile_final.html.
+     ============================================================ -->
+<section class="view" data-view="profile">
+  <div class="app-band">
+    <div class="band-inner">
+      <h1 class="hero-heading">Let's tailor your assessment.</h1>
+      <p class="hero-lede">Spend a few minutes telling us about your team and choosing the areas you'd like to assess. We'll meet you on the other side with results and recommendations tailored to exactly where you are today.</p>
+    </div>
+  </div>
+
+  <div class="shell">
+    <div class="step-label">Step 1 &ndash; What will we assess today?</div>
+    <p class="step-intro">We recommend assessing all three pillars together &ndash; that's the default, and they're most powerful in combination. You can de-select one or two to focus your attention, but expect partial recommendations as a result.</p>
+
+    <div class="pillar-cards">
+      <div class="pillar-card" id="card-vc">
+        <div class="card-top-row">
+          <div class="pc-icon-badge badge-vc">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#3F3F41" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a7.5 7.5 0 0 1-11.4 6.4L4 19l1.1-5.4A7.5 7.5 0 1 1 21 11.5z"/></svg>
+          </div>
+          <div class="card-name">Value Communication</div>
+          <div class="card-check" id="check-vc"></div>
+        </div>
+        <div class="card-subtitle">Communicate value clearly.</div>
+        <div class="card-desc">Build a shared understanding of customer pain, impact, and the outcomes they want to achieve.</div>
+      </div>
+      <div class="pillar-card" id="card-vq">
+        <div class="card-top-row">
+          <div class="pc-icon-badge badge-vq">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#3F3F41" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M12 20V4M20 20v-7"/></svg>
+          </div>
+          <div class="card-name">Value Quantification</div>
+          <div class="card-check" id="check-vq"></div>
+        </div>
+        <div class="card-subtitle">Quantify what you deliver.</div>
+        <div class="card-desc">Translate customer challenges into credible financial and operational value cases.</div>
+      </div>
+      <div class="pillar-card" id="card-va">
+        <div class="card-top-row">
+          <div class="pc-icon-badge badge-va">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#3F3F41" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="8" r="3"/><circle cx="16" cy="8.5" r="2.4"/><path d="M3 19c.6-3 2.7-5 5.5-5s4.9 2 5.5 5M14 14.3c2.3.2 4 1.9 4.5 4.7"/></svg>
+          </div>
+          <div class="card-name">Value Activation</div>
+          <div class="card-check" id="check-va"></div>
+        </div>
+        <div class="card-subtitle">Activate your GTM team.</div>
+        <div class="card-desc">Embed value through training, coaching, and reinforcement across your team.</div>
+      </div>
+    </div>
+    <div class="selection-note" id="selectionNote"></div>
+
+    <div class="dyk-divider">
+      <div class="dyk-blob-accent"></div>
+      <div class="dyk-icon-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0E4570" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17h.01M12 13.5a2 2 0 1 0-2-2"/><circle cx="12" cy="12" r="9"/></svg>
+      </div>
+      <div class="dyk-content">
+        <div class="dyk-label">Did you know&hellip;</div>
+        <span class="dyk-stat-num">86%</span><span class="dyk-text">of B2B purchases stall before close, and 81% of buyers end up dissatisfied with their chosen provider. The teams that win &ndash; and keep customers &ndash; don't pitch features. They help buyers articulate and quantify value clearly enough to defend it internally.</span>
+        <div class="dyk-source">Source: Forrester, The State of Business Buying, 2024.</div>
+      </div>
+    </div>
+
+    <div class="step-label">Step 2 &ndash; About your organization</div>
+    <div class="form-fields">
+      <div class="field-row full">
+        <label class="field-label" for="company">Your company name</label>
+        <input class="field-input" type="text" id="company" placeholder="Company name">
+      </div>
+      <div class="field-row">
+        <label class="field-label" for="industry">Industry</label>
+        <select class="field-input" id="industry"></select>
+      </div>
+      <div class="field-row">
+        <label class="field-label" for="gtmteam">Size of GTM team</label>
+        <select class="field-input" id="gtmteam"></select>
+      </div>
+      <div class="field-row">
+        <label class="field-label" for="revenue">Annual sales revenue</label>
+        <select class="field-input" id="revenue"></select>
+      </div>
+      <div class="field-row">
+        <label class="field-label" for="location">Location</label>
+        <select class="field-input" id="location"></select>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span></span>
+      <button class="btn btn-primary" id="btnProfileNext">Next &rarr;</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     VIEW: Assessment (one shared view for VC/VQ/VA -- app.js repopulates
+     the header text and rebuilds the accordion each time the current
+     pillar changes). Ported from mockup_assess_accordion_v{c,q,a}.html.
+     ============================================================ -->
+<section class="view" data-view="assess">
+  <div class="app-band">
+    <div class="band-inner">
+      <p class="pillar-name" id="pillarName"></p>
+      <p class="pillar-question" id="pillarQuestion"></p>
+    </div>
+  </div>
+  <div class="shell">
+    <p class="coach-callout" id="coachCallout"></p>
+
+    <div id="cap-list"></div>
+
+    <div class="page-footer">
+      <button type="button" class="btn btn-secondary" id="assessBackBtn">&larr; Back</button>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <p class="validation-msg" id="startValidationMsg" role="status" aria-live="polite"></p>
+        <button type="button" class="btn btn-primary" id="assessNextBtn" disabled>Next &rarr;</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     VIEW: Results. Ported from mockup_results.html; all sample/hardcoded
+     values replaced with live IDs that app.js populates from calc.js's
+     runCalculation() output.
+     ============================================================ -->
+<section class="view" data-view="results">
+  <div class="app-band">
+    <div class="band-inner">
+      <header class="page-header">
+        <h1 class="h1">You have a number. Top performers have a system.</h1>
+        <p class="lede" id="resultsLede"></p>
+      </header>
+
+      <div class="your-score-card">
+        <div class="ysc-ring">
+          <div class="ysc-eyebrow">Your Score</div>
+          <div class="ring-figure">
+            <svg class="ring-svg" viewBox="0 0 156 156" aria-hidden="true">
+              <circle class="ring-track" cx="78" cy="78" r="70" stroke-width="13"></circle>
+              <circle class="ring-you" id="ringYou" cx="78" cy="78" r="70" stroke-width="13"></circle>
+              <circle class="ring-track" cx="78" cy="78" r="50" stroke-width="13"></circle>
+              <circle class="ring-peer" id="ringPeer" cx="78" cy="78" r="50" stroke-width="13"></circle>
+            </svg>
+            <div class="ring-text">
+              <div class="ring-stat"><div class="ring-num" id="ringNum">0.0</div><div class="ring-den">/5</div></div>
+            </div>
+          </div>
+          <div class="ysc-eyebrow peer-lead-eyebrow">Peer leaders<br>score</div>
+          <div class="peer-score-num"><span class="stat-num" id="peerRowNum">0.0</span><span class="stat-den">/5</span></div>
+        </div>
+        <div class="ysc-band">
+          <div class="ysc-eyebrow">Where You Are Today</div>
+          <div class="ysc-band-body">
+            <div class="ysc-band-strong" id="bandLabel"></div>
+            <div class="ysc-band-sub" id="bandTagline"></div>
+          </div>
+          <p class="peer-caption" id="peerCaption"></p>
+        </div>
+        <div class="ysc-narrative">
+          <div class="narrative-card">
+            <div class="ysc-eyebrow">What This Means</div>
+            <p class="ysc-narrative-body"><span id="bandDescriptor"></span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="curve-card">
+        <figure style="margin:0">
+          <svg class="curve-svg" id="curveSvg" viewBox="0 0 620 200" preserveAspectRatio="xMinYMid meet" aria-hidden="true"></svg>
+          <figcaption class="curve-cap">
+            <p class="curve-marks" id="curveKey"></p>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <div class="shell">
+    <div class="sg-table">
+      <div class="sg-col">
+        <div class="sg-header">Your strongest positions</div>
+        <p class="sg-foot">Smallest gaps versus peer leaders.</p>
+        <div id="sgStrengths"></div>
+      </div>
+      <div class="sg-col">
+        <div class="sg-header">Your biggest opportunities</div>
+        <p class="sg-foot">Biggest gaps versus peer leaders.</p>
+        <div id="sgGaps"></div>
+      </div>
+    </div>
+
+    <div class="section-heading">How you compare, by capability</div>
+    <div id="chart-rows"></div>
+    <div class="x-axis-row">
+      <div class="x-spacer"></div>
+      <div class="x-ticks">
+        <span class="x-tick">0</span><span class="x-tick">1</span><span class="x-tick">2</span><span class="x-tick">3</span><span class="x-tick">4</span><span class="x-tick">5</span>
+      </div>
+    </div>
+    <div class="chart-legend">
+      <div class="legend-item"><div class="legend-swatch swatch-peer"></div><span>Peer leaders (top decile)</span></div>
+      <div class="legend-item"><div class="legend-swatch swatch-behind"></div><span>Your score &ndash; behind leaders</span></div>
+      <div class="legend-item"><div class="legend-swatch swatch-ahead"></div><span>Your score &ndash; at/ahead of leaders</span></div>
+    </div>
+
+    <header class="page-header moves-header">
+      <h2 class="h1" style="color:var(--ink);">Build your system.</h2>
+      <p class="lede" style="color:var(--ink-soft);">Building a system starts with momentum, not perfection. The three capabilities below are your fastest path to real business outcomes &ndash; not just a higher maturity score, but measurable gains in the results that matter to your GTM motion &ndash; each paired with the moves organizations typically take to advance to the next maturity level. Two to three moves per capability, per quarter, is enough to start compounding real progress.</p>
+    </header>
+    <div class="moves-cards" id="movesCards"></div>
+
+    <header class="page-header report-teaser-header">
+      <h2 class="h1" style="color:var(--ink);">Your full report goes further.</h2>
+      <p class="lede" style="color:var(--ink-soft);">This page shows you the gap. Your full report shows you the plan &ndash; a complete roadmap for every capability, with a clear next step whenever you're ready to talk it through.</p>
+    </header>
+    <div class="report-stat-grid">
+      <div class="report-stat-tile">
+        <img class="report-stat-icon" src="icons/icon_winrate.png" alt="">
+        <div class="stat-num">48<sup>%</sup></div>
+        <div class="stat-cap">improvement in win rate</div>
+      </div>
+      <div class="report-stat-tile">
+        <img class="report-stat-icon" src="icons/icon_dealsize.png" alt="">
+        <div class="stat-num">35<sup>%</sup></div>
+        <div class="stat-cap">increase in deal size</div>
+      </div>
+      <div class="report-stat-tile">
+        <img class="report-stat-icon" src="icons/icon_salescycle.png" alt="">
+        <div class="stat-num">25<sup>%</sup></div>
+        <div class="stat-cap">acceleration in sales cycle</div>
+      </div>
+    </div>
+    <p class="report-stat-note">Figures reflect Genius Drive engagement results across value-led growth programs.</p>
+
+    <div class="page-footer">
+      <button type="button" class="btn btn-secondary" id="resultsBackBtn">&larr; Back</button>
+      <div class="report-stack">
+        <button type="button" class="btn btn-primary" id="openReportModalBtn2">Get My Report</button>
+        <button type="button" class="btn-ghost" id="resultsStartOverBtn">&#8635; Start over</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     "Get My Report" modal -- submits to HubSpot (Forms API) via
+     hubspot.js once hubspot-config.js has a portalId and formId. Until
+     then it stays inert: submitting just shows the confirmation state
+     below and sends nothing. Google Sheets capture (O-10) is separate.
+     ============================================================ -->
+<div class="modal-scrim" id="modalScrim">
+  <div class="modal-box">
+    <button class="modal-close" id="modalCloseBtn" aria-label="Close">&times;</button>
+
+    <div id="formState">
+      <div class="modal-eyebrow">Full Report</div>
+      <h2 class="modal-h">Get your full report.</h2>
+      <p class="modal-body">We'll email your personalized maturity report, the capability-by-capability breakdown, and the full set of recommendations for every capability.</p>
+
+      <form id="gateForm">
+        <div class="field-2col">
+          <div class="field-row">
+            <label class="field-label" for="fname">First name</label>
+            <input class="field-input" type="text" id="fname" required>
+          </div>
+          <div class="field-row">
+            <label class="field-label" for="lname">Last name</label>
+            <input class="field-input" type="text" id="lname" required>
+          </div>
+        </div>
+        <div class="field-row">
+          <label class="field-label" for="mcompany">Company</label>
+          <input class="field-input" type="text" id="mcompany" required>
+        </div>
+        <div class="field-row">
+          <label class="field-label" for="memail">Work email</label>
+          <input class="field-input" type="email" id="memail" placeholder="you@company.com" required>
+        </div>
+        <div class="opt-in">
+          <input type="checkbox" id="optin">
+          <label for="optin">Keep me updated on Genius Drive product news and events.</label>
+        </div>
+        <div class="modal-error" id="gateError" role="alert" aria-live="polite"></div>
+        <button type="submit" class="btn btn-primary modal-submit">Email Report</button>
+        <button type="button" class="btn-ghost" id="modalMaybeLaterBtn" style="display:block;margin:14px auto 0;">Maybe later</button>
+      </form>
+    </div>
+
+    <div id="confirmState" class="confirm-block">
+      <div class="confirm-icon">&check;</div>
+      <h2 class="modal-h">Report on its way.</h2>
+      <p class="modal-body">We've sent your personalized report to the email address you provided. Check your inbox in a few minutes.</p>
+      <div class="modal-note" id="reportNote" role="status" aria-live="polite"></div>
+      <button type="button" class="btn btn-secondary modal-submit" id="modalConfirmCloseBtn">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     "Start over" confirmation modal -- triggers a full state reset
+     (localStorage cleared, all profile/toggle/rating data wiped).
+     ============================================================ -->
+<div class="modal-scrim" id="restartScrim">
+  <div class="modal-box">
+    <button class="modal-close" id="restartModalCloseBtn" aria-label="Close">&times;</button>
+    <div class="modal-eyebrow">Start Over</div>
+    <h2 class="modal-h">Start over?</h2>
+    <p class="modal-body">This clears your company info, pillar selection, and all capability ratings.</p>
+    <button type="button" class="btn btn-primary modal-submit" id="restartCancelBtn">Cancel</button>
+    <button type="button" class="btn btn-secondary modal-submit" id="restartConfirmBtn" style="margin-top:10px;display:flex;width:100%;">Yes, start over</button>
+  </div>
+</div>
+
+<!-- data.js sets window.VLG_DATA (a plain assignment, not fetch()'d JSON),
+     so the site works when opened directly via file:// during local
+     testing, not only when served over http(s)://. Generated by
+     extract_data.py from the live workbook; data.json is kept alongside as
+     the human-readable/diffable copy of the same content. -->
+<script src="data.js"></script>
+<script src="components/segment-slider.js"></script>
+<script src="components/maturity-curve.js"></script>
+<script src="calc.js"></script>
+<script src="hubspot-config.js"></script>
+<script src="hubspot.js"></script>
+<script src="report-config.js"></script>
+<script src="report-client.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

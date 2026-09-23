@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VLG Assessment -- Value Quantification (accordion mockup)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&family=Prompt:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Genius Drive brand tokens -- from Claude outputs/tokens-doc.md, verified
+     against geniusdrive.com (Sep 3 2026 crawl). */
+  --gd-ink-blue:#0E4570; --gd-charcoal:#3F3F41; --gd-muted-blue:#81A1B7;
+  --gd-teal-primary:#18876D; --gd-teal-light:#8AC3B6; --gd-sky-light:#D9EEFD;
+  --gd-surface-gray:#EFEFEF; --gd-meta-gray:#ADADAD; --gd-white:#FFFFFF;
+
+  /* Semantic roles, mapped from the K1x PMTC accordion+segment-slider pattern
+     being ported (see wireframe/DESIGN_DECISIONS.md) onto GD's tokens. Names
+     kept as the K1x CSS below already uses them -- only the values change, so
+     the ported goal-card/segment-slider rules needed no renaming. --slate,
+     --slate-light and --rule have no direct GD-verified token (tokens-doc.md
+     didn't extract a neutral-gray scale) -- these are interpolated
+     placeholders pending design lock, flagged for review, not verified the
+     way the GD-prefixed tokens above are. */
+  --ink: var(--gd-charcoal);
+  --ink-soft: #5C5C5E;
+  --slate: #75757A;
+  --slate-light: #C7CBCC;
+  --rule: #E3E5E6;
+  --bone: var(--gd-surface-gray);
+  --paper: var(--gd-white);
+  --signal: var(--gd-sky-light);
+  --signal-ink: var(--gd-ink-blue);
+  --accent: var(--gd-teal-primary);
+  --accent-light: var(--gd-teal-light);
+
+  --font-display:'Montserrat',Helvetica,Arial,sans-serif;
+  --font-ui:'Open Sans',Helvetica,Arial,sans-serif;
+  --font-mono:'Prompt',Helvetica,Arial,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--font-ui);background:var(--bone);color:var(--ink);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;}
+.shell{max-width:960px;margin:0 auto;padding:0 24px 96px;}
+a{color:inherit;}
+
+/* Hero band -- navy gradient, ported from the locked Results hero band
+   (Ben's call; K1x's Picture1.png + scrim treatment is parked, not ruled
+   out for later). */
+.hero-band{background:linear-gradient(135deg, #0A2F4D 0%, #0E4570 42%, #0C4A48 100%);}
+.hero-inner{max-width:960px;margin:0 auto;padding:0 24px;}
+.pillar-tag{display:inline-block;font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gd-ink-blue);background:var(--gd-sky-light);padding:4px 10px;margin:28px 0 14px;}
+.pillar-name{font-family:var(--font-display);font-size:34px;font-weight:800;line-height:1.15;letter-spacing:-.01em;color:#fff;margin-bottom:10px;}
+.pillar-question{font-size:16px;line-height:1.5;color:rgba(255,255,255,.82);max-width:640px;padding-bottom:36px;}
+
+/* Coaching callout (VC!B8) -- VLG's own already-approved treatment (tinted
+   background + colored left border), not a K1x element; sits on the light
+   page just below the hero band. */
+.coach-callout{background:var(--gd-sky-light);border-left:4px solid var(--gd-ink-blue);padding:16px 20px;margin:32px 0 8px;font-size:15.5px;color:var(--gd-charcoal);line-height:1.6;}
+
+/* ============================================================
+   Capability accordion -- ported from K1x PMTC assessment.html
+   (chevron header / static question / slider mount / trailing-pair
+   accordion), GD tokens substituted for K1x's palette. See
+   wireframe/DESIGN_DECISIONS.md sections 18, 21, 27, 29, 30.
+   ============================================================ */
+.goal-card{border-bottom:1px solid var(--rule);}
+.goal-row-head{display:flex;align-items:center;gap:10px;padding:16px 0;}
+.goal-card[data-clickable="true"] .goal-row-head{cursor:pointer;}
+.goal-row-head:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
+.gc-chevron{visibility:hidden;display:inline-flex;position:relative;width:11px;height:11px;flex-shrink:0;color:var(--ink);transition:transform .18s ease;}
+.gc-chevron svg{width:100%;height:100%;}
+.goal-card[data-clickable="true"] .gc-chevron{visibility:visible;}
+.goal-card[data-state="open"] .gc-chevron{transform:rotate(90deg);}
+.goal-card[data-clickable="true"][data-state="open"] .goal-row-head{cursor:default;}
+.goal-card[data-clickable="true"][data-state="open"] .gc-chevron{cursor:pointer;}
+.goal-card[data-clickable="true"][data-state="open"] .gc-chevron::before{content:'';position:absolute;inset:-5.5px;}
+.gc-name{font-family:var(--font-display);font-weight:700;font-size:15.5px;flex:1;transition:font-size .15s,font-weight .15s;}
+.goal-card[data-state="open"] .gc-name{font-weight:800;font-size:22px;}
+.gc-score{font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--slate);flex-shrink:0;}
+.gc-score[data-scored="true"]{color:var(--ink);}
+.goal-card[data-state="open"] .gc-score{display:none;}
+.gc-spark{display:flex;gap:2px;width:64px;height:7px;flex-shrink:0;}
+.goal-card[data-state="open"] .gc-spark{display:none;}
+.gc-spark i{flex:1;background:var(--slate-light);border-radius:1px;}
+.gc-spark i[data-filled="true"]{background:var(--accent);}
+.goal-body{display:none;padding-bottom:22px;}
+.goal-card[data-state="open"] .goal-body{display:block;}
+.goal-slot{width:100%;}
+.gc-question{font-size:18px;color:var(--ink);margin:-4px 0 16px;}
+
+.page-footer{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:40px;padding-top:24px;border-top:1px solid var(--rule);flex-wrap:wrap;}
+.validation-msg{font-family:var(--font-mono);font-size:12.5px;font-weight:600;letter-spacing:.02em;color:var(--gd-ink-blue);min-height:1em;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--font-ui);font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.1em;border-radius:999px;min-height:48px;cursor:pointer;text-decoration:none;transition:background .15s,color .15s;border:none;}
+.btn-primary{background:var(--accent);color:#fff;padding:15px 26px;}
+.btn-primary:hover:not(:disabled){background:var(--gd-ink-blue);}
+.btn-primary:disabled{background:var(--slate-light);color:var(--paper);cursor:not-allowed;}
+.btn-secondary{background:transparent;color:var(--ink);border:2px solid var(--ink);padding:13px 24px;}
+.btn-secondary:hover{background:var(--ink);color:#fff;}
+
+/* ============================================================
+   segment-slider component (vendored, inlined per this project's
+   one-file-per-page convention -- matches how the K1x PMTC source
+   inlines it too). Source: PMTC assessment/segment-slider/segment-slider.css,
+   unmodified except for the palette-mapping block at the bottom, which is
+   this project's own addition, same as K1x's own palette block was.
+   ============================================================ */
+.sseg {
+  --sseg-seg-h: 15px;
+  --sseg-seg-gap: 4px;
+  --sseg-empty: #DDE4EA;
+  --sseg-empty-line: #A9B6C2;
+  --sseg-passed: #123A63;
+  --sseg-on: #00A3E0;
+  --sseg-passed-line: #0C2340;
+  --sseg-ink: #0C2340;
+  --sseg-muted: #5B6B7C;
+  --sseg-accent-ink: #00699A;
+  --sseg-focus: #00699A;
+  --sseg-cond: inherit;
+  --sseg-field: #C9D4DE;
+  --sseg-surface: #FFFFFF;
+  --sseg-surface-2: #F4F7F9;
+  max-width: 620px;
+}
+.sseg-said { margin: 0; font-size: clamp(16px, 1.8vw, 18px); font-weight: 500; color: var(--sseg-ink); }
+.sseg[data-set="false"] .sseg-said { color: var(--sseg-muted); }
+.sseg-top { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.sseg-badge { margin: 0; display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; min-width: 0; }
+.sseg-num { font-weight: 700; font-size: clamp(30px, 3.6vw, 38px); line-height: 1; color: var(--sseg-ink); }
+.sseg[data-set="false"] .sseg-num { color: var(--sseg-empty-line); }
+.sseg-empty { display: inline-block; width: .6em; height: 2px; background: var(--sseg-empty-line); vertical-align: .34em; }
+.sseg-of { font-size: 14px; color: var(--sseg-muted); }
+.sseg-name { font-family: var(--sseg-cond); font-weight: 600; font-size: clamp(12px, 1.4vw, 13px); letter-spacing: .16em; text-transform: uppercase; color: var(--sseg-accent-ink); margin-left: 6px; }
+.sseg[data-set="false"] .sseg-name { color: var(--sseg-muted); }
+.sseg-step { margin: 0; display: flex; gap: 6px; flex: none; }
+.sseg-btn { width: 34px; height: 34px; border: 1px solid var(--sseg-field); background: var(--sseg-surface); color: var(--sseg-ink); font-size: 14px; line-height: 1; cursor: pointer; }
+.sseg-btn:hover { border-color: var(--sseg-passed-line); background: var(--sseg-surface-2); }
+.sseg-btn:disabled { color: var(--sseg-field); cursor: default; background: var(--sseg-surface); }
+.sseg-btn:disabled:hover { border-color: var(--sseg-field); }
+.sseg-wrap { position: relative; margin-top: 46px; }
+.sseg-input { position: absolute; inset: -11px 0; width: 100%; height: auto; margin: 0; opacity: 0; cursor: pointer; appearance: none; -webkit-appearance: none; background: none; touch-action: pan-y; }
+.sseg-input::-webkit-slider-thumb { -webkit-appearance: none; width: 34px; height: 34px; }
+.sseg-input::-moz-range-thumb { width: 34px; height: 34px; border: 0; }
+.sseg-segs { display: grid; gap: var(--sseg-seg-gap); grid-template-columns: repeat(var(--sseg-count), 1fr); pointer-events: none; }
+.sseg-seg { height: var(--sseg-seg-h); background: var(--sseg-empty); border-bottom: 2px solid var(--sseg-empty-line); }
+.sseg-seg[data-passed="true"] { background: var(--sseg-passed); border-bottom-color: var(--sseg-passed-line); }
+.sseg-seg[data-on="true"] { background: var(--sseg-on); border-bottom-color: var(--sseg-passed-line); }
+.sseg-input:focus-visible ~ .sseg-segs { outline: 2px solid var(--sseg-focus); outline-offset: 3px; }
+/* Tick labels: VLG's original numeric-tick-plus-hover-label behavior, kept
+   as-is rather than K1x's always-visible level-name words (ticks:true gives
+   numerals 0-5; the full label -- e.g. "Reacting (0)" -- shows via native
+   title-attribute tooltip on hover/focus, added in JS after each slider
+   mounts). Dotted underline hints that a tick is hoverable. */
+.sseg-ticks { margin: 7px 0 0; display: grid; gap: var(--sseg-seg-gap); grid-template-columns: repeat(var(--sseg-count), 1fr); }
+.sseg-tick { font-family: var(--sseg-cond); font-weight: 600; font-size: 12px; letter-spacing: .1em; color: var(--sseg-muted); text-align: center; cursor: help; border-bottom: 1px dotted var(--sseg-field); padding-bottom: 2px; width: fit-content; margin: 0 auto; }
+.sseg-tick[data-on="true"] { color: var(--sseg-ink); font-weight: 700; border-bottom-color: var(--sseg-ink); }
+.sseg-ends { margin: 8px 0 0; display: flex; justify-content: space-between; gap: 16px; font-size: 12px; color: var(--sseg-muted); }
+.sseg-read { margin-top: 16px; border-left: 3px solid var(--sseg-on); padding-left: 15px; font-size: 15px; min-height: 3.2em; }
+.sseg[data-set="false"] .sseg-read { border-left-color: var(--sseg-field); }
+.sseg-read p { margin: 0; line-height: 1.6; text-wrap: pretty; }
+.sseg-read p + p { margin-top: 9px; }
+.sseg-read .sseg-prompt { color: var(--sseg-muted); }
+
+/* GD palette mapped onto the component's styling hooks -- this project's
+   equivalent of K1x's own palette-mapping block. --sseg-on/--sseg-passed use
+   GD's teal pair (strong/light) rather than K1x's near-black --ink, since
+   teal-primary is GD's actual brand accent; everything else follows the same
+   ink/slate/rule roles the goal-card CSS above already maps. */
+.sseg{
+  --sseg-on: var(--accent);
+  --sseg-passed: var(--accent-light);
+  --sseg-passed-line: var(--gd-ink-blue);
+  --sseg-empty: var(--slate-light);
+  --sseg-empty-line: var(--slate);
+  --sseg-ink: var(--ink);
+  --sseg-muted: var(--slate);
+  --sseg-accent-ink: var(--signal-ink);
+  --sseg-focus: var(--accent);
+  --sseg-cond: var(--font-mono);
+  --sseg-field: var(--rule);
+  --sseg-surface: var(--paper);
+  --sseg-surface-2: var(--bone);
+  max-width: none;
+  width: 100%;
+}
+
+/* ============================================================
+   Floating "sliding" label -- pattern reviewed live at
+   massgroup.geniusdrive.com (the SMOMA readiness tool this same
+   segment-slider component was extracted from, per its own README).
+   Always shows the currently selected level's name directly above that
+   segment, slides smoothly when the value changes instead of jumping, and
+   stays clear of both ends of the bar. Hidden until the capability is
+   answered (see updateFloatBadge in the script below). --sseg-active-index
+   is set by that same function; --sseg-count is already set by the
+   vendored component itself and inherits down to this element for free.
+   Position is computed in JS (see positionFloatBadge below) from the
+   badge's own measured width, the same technique the live reference site
+   uses -- so it sits dead-center on the active segment except at either
+   edge (level 0 or 5), where it pulls in only as far as needed to stay
+   fully on-screen. */
+.gc-float-badge{
+  position: absolute; bottom: 100%; margin-bottom: 10px;
+  left: 0;
+  transform: translateX(-50%);
+  opacity: 0;
+  visibility: hidden;
+  background: var(--paper);
+  border-bottom: 2px solid var(--accent);
+  padding: 5px 12px;
+  white-space: nowrap;
+  font-family: var(--font-mono); font-weight: 700; font-size: 12px;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--signal-ink);
+  box-shadow: 0 2px 6px rgba(14,69,112,.12);
+  transition: left .32s cubic-bezier(.22,.75,.2,1), opacity .2s ease, background-color .2s ease, border-color .2s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+</style>
+</head>
+<body>
+<div class="hero-band">
+  <div class="hero-inner">
+    <span class="pillar-tag">2 OF 3</span>
+    <p class="pillar-name">Value Quantification</p>
+    <p class="pillar-question">Can your team prove the value you deliver?</p>
+  </div>
+</div>
+<div class="shell">
+
+  <p class="coach-callout">Rate where your team stands today on each capability below. Quantification is the pillar most teams find hardest - go slow, and don't be afraid to mark "Reacting" when that's the truth.</p>
+
+  <form id="assessmentForm" method="post" action="#">
+
+    <div id="cap-list"></div>
+
+    <div class="page-footer">
+      <!-- Placeholder link -- mockup stage only, not wired to the real profile page yet. -->
+      <a class="btn btn-secondary" href="#">&larr; Back</a>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <p class="validation-msg" id="startValidationMsg" role="status" aria-live="polite"></p>
+        <button type="button" class="btn btn-primary" id="nextBtn" disabled>Next &rarr;</button>
+      </div>
+    </div>
+
+    <input type="hidden" id="rating_strategy_governance" name="rating_strategy_governance">
+    <input type="hidden" id="rating_people" name="rating_people">
+    <input type="hidden" id="rating_attract" name="rating_attract">
+    <input type="hidden" id="rating_engage" name="rating_engage">
+    <input type="hidden" id="rating_sell" name="rating_sell">
+    <input type="hidden" id="rating_retain_expand" name="rating_retain_expand">
+    <input type="hidden" id="rating_tools_technology" name="rating_tools_technology">
+    <input type="hidden" id="rating_intelligence_optimization" name="rating_intelligence_optimization">
+
+  </form>
+</div>
+<script>
+/* segment-slider - a range input painted as discrete segments, which can start
+ * unanswered.
+ *
+ * No dependencies, no build step. Vendored unmodified from
+ * PMTC assessment/segment-slider/segment-slider.js -- see that folder's own
+ * README for the full design rationale (why a native range can't do this,
+ * and the four real bugs documented there for anyone touching input
+ * handling). This project's only addition is the GD palette/tick styling in
+ * the <style> block above and the tick-tooltip wiring in the next <script>
+ * block -- the component itself is untouched.
+ */
+
+(function (root) {
+  'use strict';
+
+  const KEYS = {
+    ArrowUp: 1, ArrowRight: 1, PageUp: 1,
+    ArrowDown: -1, ArrowLeft: -1, PageDown: -1,
+    Home: null, End: null,
+  };
+
+  const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+  }[c]));
+
+  const paras = (text, cls) => String(text).split(/\n{2,}/)
+    .map((p) => `<p${cls ? ` class="${cls}"` : ''}>${esc(p)}</p>`).join('');
+
+  class SegmentSlider {
+    constructor(host, opts) {
+      if (!host) throw new Error('SegmentSlider: no host element');
+      if (!opts || !Array.isArray(opts.segments) || opts.segments.length < 2)
+        throw new Error('SegmentSlider: needs at least two segments');
+
+      this.host = host;
+      this.o = Object.assign({
+        value: null,
+        readout: 'label',
+        unsetLabel: 'Not answered yet',
+        ticks: false,
+        ends: false,
+        stepper: false,
+        descriptions: null,
+        unsetDescription: 'Move the slider to choose.',
+        ofLabel: '',
+        numerals: null,
+        ariaLabel: 'Rating',
+        onChange: null,
+        onSettle: null,
+        onDragStart: null,
+      }, opts);
+
+      this.count = this.o.segments.length;
+      this.numerals = this.o.numerals
+        || Array.from({ length: this.count }, (_, i) => i);
+      this._value = this.o.value === undefined ? null : this.o.value;
+      this._dragging = false;
+
+      this._build();
+      this._wire();
+      this.paint();
+    }
+
+    get value() { return this._value; }
+    get isSet() { return this._value !== null; }
+
+    set(index) {
+      const at = Math.max(0, Math.min(this.count - 1, index));
+      if (this._value === at) return;
+      this._value = at;
+      this.paint();
+      if (this.o.onChange) this.o.onChange(at);
+    }
+
+    clear() {
+      if (this._value === null) return;
+      this._value = null;
+      this.paint();
+      if (this.o.onChange) this.o.onChange(null);
+    }
+
+    nudge(step) {
+      this.set(this._value === null ? 0 : this._value + step);
+    }
+
+    destroy() {
+      this.host.innerHTML = '';
+      this.el = this.input = null;
+    }
+
+    _readKey() { return this.isSet ? String(this._value) : ''; }
+
+    _readHTML() {
+      return this.isSet
+        ? paras(this.o.descriptions[this._value])
+        : `<p class="sseg-prompt">${esc(this.o.unsetDescription)}</p>`;
+    }
+
+    _build() {
+      const o = this.o;
+      const segs = o.segments
+        .map(() => '<i class="sseg-seg" data-passed="false" data-on="false"></i>')
+        .join('');
+
+      const tickLabels = o.ticks === true
+        ? this.numerals.map(String)
+        : (Array.isArray(o.ticks) ? o.ticks : null);
+
+      const badge = o.readout === 'badge' || o.stepper ? `
+        <div class="sseg-top">
+          ${o.readout === 'badge' ? `<p class="sseg-badge">
+            <span class="sseg-num" data-part="num"></span>
+            ${o.ofLabel ? `<span class="sseg-of">${esc(o.ofLabel)}</span>` : ''}
+            <span class="sseg-name" data-part="name"></span>
+          </p>` : '<span></span>'}
+          ${o.stepper ? `<p class="sseg-step">
+            <button type="button" class="sseg-btn" data-step="-1"
+                    aria-label="Down one step: ${esc(o.ariaLabel)}">&minus;</button>
+            <button type="button" class="sseg-btn" data-step="1"
+                    aria-label="Up one step: ${esc(o.ariaLabel)}">+</button>
+          </p>` : ''}
+        </div>` : '';
+
+      this.host.innerHTML = `
+        <div class="sseg" data-set="false" style="--sseg-count:${this.count}">
+          ${badge}
+          ${o.readout === 'label'
+            ? '<p class="sseg-said" data-part="said"></p>' : ''}
+          <div class="sseg-wrap">
+            <input type="range" class="sseg-input" data-part="input"
+                   min="0" max="${this.count - 1}" step="1" value="0"
+                   aria-label="${esc(o.ariaLabel)}">
+            <div class="sseg-segs" data-part="segs" aria-hidden="true">${segs}</div>
+          </div>
+          ${tickLabels ? `<p class="sseg-ticks" data-part="ticks" aria-hidden="true">${
+            tickLabels.map((t) => `<span class="sseg-tick">${esc(t)}</span>`).join('')
+          }</p>` : ''}
+          ${o.ends ? `<p class="sseg-ends" aria-hidden="true">
+            <span>${esc(o.segments[0])}</span>
+            <span>${esc(o.segments[this.count - 1])}</span>
+          </p>` : ''}
+          ${o.descriptions ? `<div class="sseg-read" data-part="read"
+                 aria-live="polite" data-at="${this._readKey()}"
+                 >${this._readHTML()}</div>` : ''}
+        </div>`;
+
+      const part = (name) => this.host.querySelector(`[data-part="${name}"]`);
+      this.el = this.host.querySelector('.sseg');
+      this.input = part('input');
+      this.parts = {
+        said: part('said'), num: part('num'), name: part('name'),
+        segs: part('segs'), ticks: part('ticks'), read: part('read'),
+      };
+    }
+
+    paint() {
+      const set = this.isSet;
+      const at = this._value;
+      const label = set ? this.o.segments[at] : this.o.unsetLabel;
+
+      this.el.dataset.set = set ? 'true' : 'false';
+      if (this.parts.said) this.parts.said.textContent = label;
+      if (this.parts.num)
+        this.parts.num.innerHTML = set
+          ? esc(String(this.numerals[at])) : '<i class="sseg-empty"></i>';
+      if (this.parts.name) this.parts.name.textContent = label;
+
+      this.input.value = String(set ? at : 0);
+      this.input.setAttribute('aria-valuetext', label);
+
+      Array.from(this.parts.segs.children).forEach((seg, i) => {
+        seg.dataset.passed = set && i < at ? 'true' : 'false';
+        seg.dataset.on = set && i === at ? 'true' : 'false';
+      });
+      if (this.parts.ticks)
+        Array.from(this.parts.ticks.children).forEach((tick, i) => {
+          tick.dataset.on = set && i === at ? 'true' : 'false';
+        });
+
+      for (const button of this.el.querySelectorAll('.sseg-btn')) {
+        const dir = +button.dataset.step;
+        button.disabled = set && (dir < 0 ? at === 0 : at === this.count - 1);
+      }
+
+      const read = this.parts.read;
+      if (read && read.dataset.at !== this._readKey()) {
+        read.dataset.at = this._readKey();
+        read.innerHTML = this._readHTML();
+      }
+    }
+
+    _wire() {
+      const input = this.input;
+
+      input.addEventListener('keydown', (e) => {
+        if (!(e.key in KEYS)) return;
+        e.preventDefault();
+        const step = KEYS[e.key];
+        if (step === null) this.set(e.key === 'Home' ? 0 : this.count - 1);
+        else this.nudge(step);
+      });
+
+      if (this.o.stepper)
+        this.el.addEventListener('click', (e) => {
+          const button = e.target.closest('.sseg-btn');
+          if (button) this.nudge(+button.dataset.step);
+        });
+
+      input.addEventListener('input', () => this.set(+input.value));
+
+      if (typeof PointerEvent !== 'function') return;
+      this._wirePointer();
+    }
+
+    _wirePointer() {
+      const input = this.input;
+
+      const at = (e) => {
+        const box = input.getBoundingClientRect();
+        if (!box.width) return null;
+        return Math.floor((e.clientX - box.left) / box.width * this.count);
+      };
+
+      const drag = (e) => {
+        if (!this._dragging) return;
+        const found = at(e);
+        if (found === null) return;
+        e.preventDefault();
+        this.set(found);
+      };
+
+      input.addEventListener('pointerdown', (e) => {
+        this._dragging = true;
+        this.el.dataset.dragging = 'true';
+        input.focus({ preventScroll: true });
+        if (this.o.onDragStart) this.o.onDragStart();
+        drag(e);
+        try {
+          if (input.setPointerCapture) input.setPointerCapture(e.pointerId);
+        } catch (refused) { /* the gesture still works, over the run itself */ }
+      });
+
+      input.addEventListener('pointermove', drag);
+
+      for (const type of ['pointerup', 'pointercancel'])
+        input.addEventListener(type, () => {
+          if (!this._dragging) return;
+          this._dragging = false;
+          this.el.dataset.dragging = 'false';
+          if (this.isSet && this.o.onSettle) this.o.onSettle(this._value);
+        });
+    }
+  }
+
+  if (typeof module === 'object' && module.exports) module.exports = SegmentSlider;
+  else root.SegmentSlider = SegmentSlider;
+})(typeof globalThis !== 'undefined' ? globalThis : this);
+</script>
+<script>
+/* Capability data -- read live from the current workbook,
+   Files/Value-Led Growth Assessment v2.x3-web.xlsx (VQ sheet: B-column
+   question text at D12:D19; Data sheet: capability names C15:C22,
+   characteristics VQ_A at E41:J49), Sep 18 2026. Matches CLAUDE.md's
+   documented B5/B6/B8 text exactly -- no drift found for VQ. Ported from
+   mockup_assess_accordion_vc.html's VC build; generated programmatically
+   from the workbook read, not hand-typed, to guarantee exact fidelity to the source text. */
+var CAPS = [{"name": "Strategy & Governance", "question": "How clearly defined, governed, and measured is our approach to quantifying value across the customer lifecycle?", "levels": ["Value quantification has no defined strategy or governance. \nThere is no Value Program Office, no standardized methodology, and no shared understanding of how value should be assessed. \nQuantification occurs only when forced by deals, renewals, or escalations.", "The importance of value quantification is acknowledged. \nEarly discussions begin around governance, standardization, and maturity assessment. \nExecution remains inconsistent and dependent on individual champions or high-priority deals.", "Foundational governance is established. \nA Value Program Office charter is drafted. \nRoles for value program management and value consulting or engineering are defined. Initial capability and maturity assessments are conducted. \nStandard value assessment frameworks and success metrics are defined but not consistently applied.", "Governance is formally established and applied across core GTM and customer-facing teams. \nThe Value Program Office operates with clear ownership. Standard value frameworks and CMM models are consistently used. \nThe value selling journey is integrated into sales, marketing, and customer success processes. \nSuccess metrics guide prioritization and improvement.", "Value quantification is embedded into operating rhythm. \nCapability and maturity assessments are conducted on a regular cadence. \nStandardized value frameworks and CMM models are continuously refined. \nValue program management informs planning, segmentation, pricing strategy, and investment decisions.", "Governance operates as a coordinated, enterprise-wide value system. \nValue frameworks, operating models, performance management, and realization tracking are synchronized across functions and partners. \nLeaders continuously optimize value creation, quantification, and realization at scale using insight-driven governance."]}, {"name": "People", "question": "How effectively are our teams aligned, enabled, and supported to consistently quantify value using shared methods, frameworks, and practices?", "levels": ["There is no executive sponsorship or defined ownership for value quantification.\n\nTeams quantify value independently using inconsistent methods, frameworks, and tools.\n\nCollaboration across sales, marketing, customer success, and partners is minimal and informal.", "Leadership recognizes the need for stronger value quantification capability and sponsorship.\n\nEarly advocates or champions promote more consistent approaches.\n\nRoles, responsibilities, and engagement models remain unclear. Inconsistency across teams and functions is common.", "A value quantification team model begins to take shape.\n\nExecutive sponsors are identified.Value consulting or engineering roles are formally defined.\n\nCross-functional collaboration improves.Standard methods and practices are promoted, but adoption varies by role and team.", "Roles, responsibilities, and engagement models are clearly defined and supported by executive sponsorship.\n\nSales, marketing, customer success, and partners collaborate using standardized frameworks, methods, and tools. Inconsistency in value quantification delivery is actively reduced across teams.", "Value quantification operates as a shared, cross-functional discipline.\n\nThe Value Program Office and value leaders actively evangelize best practices.\n\nEnablement, coaching, and governance continuously reinforce standard methods.\n\nTeams consistently apply shared frameworks across the lifecycle.", "Value quantification is orchestrated across the full GTM ecosystem.\n\nExecutives, value teams, sellers, customer success, and partners operate with a common language and shared practices.Incentives and performance metrics are aligned to value-based behaviors.\n\nThe value program scales predictably across markets and regions."]}, {"name": "Attract", "question": "How effectively do we use quantified value to attract, qualify, and prioritize the right prospects early in the buying journey?", "levels": ["Prospects are not engaged with quantified value during early stages.\n\nThere are no self-service assessment or value tools.\n\nTargeting is driven primarily by firmographics or intuition.\n\nValue framing is largely absent from top-of-funnel activity.", "The need to introduce quantification earlier is recognized.\n\nValue outcomes are occasionally referenced in marketing or prospecting.\n\nConcepts for self-service tools or value-led content are discussed.\n\nAccount targeting shows limited consideration of value potential.", "Foundational value attraction capabilities are built.\n\nSelf-service CMM assessments and interactive ROI or TCO tools are introduced.\n\nTVA or TEI-style value white papers are developed.Value potential begins to inform account targeting, though adoption varies.", "Quantified value is consistently used to attract and qualify prospects.\n\nSelf-service CMM, ROI, TCO, and value-pricing tools are actively used by prospects.\n\nValue white papers frame buyer expectations early.\n\nAccount targeting prioritizes prospects based on value and outcome potential.", "Value quantification is embedded into demand generation and account planning.\n\nSelf-service tools and value content are refined using usage and conversion data.\n\nTargeting models are adjusted based on realized outcomes.\n\nValue framing builds buyer confidence before direct sales engagement.", "Value-led attraction is orchestrated at scale.\n\nProspect self-service tools dynamically adapt by segment, industry, and role.\n\nAccount targeting is driven by predictive value and outcome analytics.\n\nQuantified value consistently differentiates the company and drives high-quality demand globally."]}, {"name": "Engage", "question": "How consistently do we uncover value drivers, assess maturity, form value hypotheses, and prioritize opportunities based on value potential?", "levels": ["Value discovery is informal and inconsistent.\n\nCustomer capability, maturity, and value drivers are not systematically assessed.\n\nValue is positioned late in the sales cycle.\n\nOpportunities are qualified primarily on deal size and intuition rather than value potential.", "The need for structured value discovery is recognized.\n\nEarly discovery guides or qualification concepts are introduced.\n\nTeams attempt to discuss value earlier in conversations.\n\nMaturity and value potential are not reliably captured or used for prioritization.", "Foundational value engagement capabilities are built.\n\nStructured discovery frameworks and value hypothesis models are introduced.\n\nCustomer capability and maturity assessments are deployed.\n\nEarly automation supports sellers in capturing discovery insights.\n\nValue qualification frameworks and risk scoring models are defined, though adoption varies.", "Value discovery and qualification are consistently applied across active opportunities.\n\nSellers use structured discovery and automated CMM assessments to position value early.\n\nValue hypotheses are documented and refined collaboratively.\n\nOpportunities are prioritized using defined value and risk scoring frameworks.\n\nDiscovery insights inform resource allocation and deal strategy.", "Value quantification is embedded into opportunity engagement and prioritization.\n\nAI-assisted discovery and automated maturity assessments dynamically refine value hypotheses.\n\nQualification and scoring models continuously improve using performance data.\n\nTeams consistently focus effort on highest-value opportunities.", "Value-led engagement is orchestrated at scale.\n\nDiscovery, maturity assessment, hypothesis development, and qualification are synchronized through automation and intelligence.\n\nPredictive value and risk insights guide pipeline strategy.Leaders and sellers continuously optimize pipeline quality and conversion outcomes."]}, {"name": "Sell", "question": "How effectively do we quantify value to support pricing, business cases, shared value plans, and buyer decision-making during sales?", "levels": ["Business value is not consistently quantified during the sales process.\n\nPricing and discounting decisions are disconnected from value.\n\nBusiness cases are created only when required by deal size or executive review.\n\nBuyer collaboration on value is minimal and informal.", "The importance of quantified value in sales is recognized.\n\nEarly business value assessments or proposal templates are introduced.\n\nSome effort is made to link value to pricing discussions.\n\nExecution remains inconsistent and largely manual.", "Foundational value selling capabilities are established.\n\nStandard approaches for business value assessments, business cases, and value proposals are introduced.\n\nSellers begin collaborating with buyers to shape quantified value narratives.\n\nAlignment between quantified value and pricing or discounting is emerging but inconsistent.", "Value quantification is consistently applied to sales execution.\n\nSellers conduct structured business value assessments and build personalized business cases.\n\nShared value plans are developed collaboratively to span pre- and post-sale outcomes.Digital selling rooms are used to deliver and manage business cases and value proposals.", "Value quantification is embedded into deal strategy and commercial decision-making.Pricing and discounting are routinely aligned to quantified value.\n\nShared value plans guide both sales execution and post-sale success.\n\nValue models and proposals are refined continuously based on deal outcomes and realization data.", "Value-led selling is orchestrated at scale.\n\nBusiness value assessments, pricing alignment, shared value plans, and proposals are dynamically guided by integrated data and predictive insights.\n\nQuantified value consistently drives higher win rates, stronger deal quality, and predictable commercial performance across segments."]}, {"name": "Retain & Expand", "question": "How consistently do we measure, communicate, and act on realized value to drive renewals, expansion, and long-term growth?", "levels": ["Post-sale value is rarely quantified or reviewed.\n\nCustomer capability progression, maturity advancement, and realized outcomes are not systematically measured.\n\nRenewal and expansion decisions are largely reactive.Shared value plans are not maintained after the sale.", "The need to quantify and communicate realized value is recognized.\n\nEarly attempts are made to review outcomes or discuss ROI.Some risk assessments are introduced.\n\nExecution is inconsistent and largely manual.Insights are not reliably used to guide retention or expansion strategy.", "Foundational post-sale value management capabilities are introduced.\n\nOngoing CMM assessments and realized value tracking are implemented.\n\nShared value plan reviews occur periodically.Value reviews and gap analyses begin identifying renewal risks and expansion opportunities.\n\nAdoption varies across teams and segments.", "Value quantification is consistently applied across the customer lifecycle.Teams leverage \n\nCMM progression, realized ROI metrics, and value-based risk scoring.\n\nQuarterly value reviews reinforce alignment on goals and outcomes\n\nInsights systematically inform renewal planning and targeted expansion plays.", "Value quantification is embedded into customer success strategy and business planning.\n\nRealized value insights continuously refine shared value plans.Investment decisions and roadmap priorities are influenced by quantified outcomes.\n\nQuarterly value reviews reinforce executive alignment and long-term confidence.", "Value-led retention and expansion is orchestrated at scale.\n\nCustomer maturity progression, realized value, and predictive risk and growth insights dynamically guide renewal and expansion strategy.\n\nValue quantification continuously maximizes lifetime value and sustainable growth across the portfolio."]}, {"name": "Tools / Technology", "question": "How well do our tools, data, and automation enable scalable, accurate, and increasingly intelligent value quantification across teams and customers?", "levels": ["Value quantification relies almost entirely on spreadsheets and disconnected tools.\n\nValue models, business cases, and ROI calculations are manually built.\n\nModels are difficult to reuse, govern, or scale.\n\nThere is little integration with CRM, customer success, or product data.", "The limitations of spreadsheet-based quantification are recognized.\n\nTemplates are standardized to improve reuse and consistency.\n\nAutomation platforms are explored.Integration across systems remains limited.\n\nValue modeling and storytelling remain largely manual.", "Foundational value technology capabilities are introduced.\n\nA value automation platform supports business cases and shared value plans, often alongside spreadsheets.\n\nBasic realized value tracking is implemented.Early integrations with CRM or customer success systems begin.\n\nAutomation and intelligence remain limited.", "Value quantification technology is consistently used across the lifecycle.\n\nA value automation platform supports discovery, value hypotheses, business cases, shared value plans, and realized value tracking.\n\nCRM, customer success, marketing, and analytics systems are integrated.\n\nProduct instrumentation and dashboards capture outcome KPIs and ROI.", "Value technology is embedded into GTM and product workflows\n\nAI automates discovery insights, generates value hypotheses, and refines value models.\n\nValue storytelling and presentation assets are enhanced by automation.\n\nRealized value dashboards continuously communicate outcomes to customers and executives.\n\nData informs prioritization, pricing, and growth decisions.", "Value quantification operates through intelligent, data-driven platforms.\n\nAI continuously optimizes value models, pricing alignment, storytelling, and opportunity prioritization using customer and product data.\n\nReal-time outcome reporting and automated insights create a predictive value-led growth engine.\n\nInternal teams and partners operate on a unified, scalable value platform."]}, {"name": "Intelligence & Optimization", "question": "How effectively do we measure, validate, and continuously improve the credibility, accuracy, and business impact of our value quantification efforts?", "levels": ["Value quantification impact is not measured.\n\nBusiness cases are created inconsistently.\n\nAssumptions and financial drivers are not systematically tracked.\n\nNo system captures projected versus realized value.\n\nThere is no feedback loop between sales, finance, and customer success.ROI claims are anecdotal and unvalidated.", "The need to measure quantification effectiveness is recognized.Some deal-level \n\nROI outputs may be stored.\n\nAssumptions, drivers, and outcomes are not consistently tracked.\n\nForecast accuracy and credibility are difficult to assess.\n\nPost-sale realization is rarely compared to pre-sale projections.", "Foundational tracking of value cases is implemented.\n\nStandardized ROI templates and calculators are used in portions of the business.\n\nKey assumptions and projected benefits are documented.\n\nEarly comparisons between projected and actual outcomes begin.\n\nInsights are manual and inconsistent across segments.", "Value quantification performance is consistently tracked and reviewed.\n\nDashboards analyze business case usage, projected ROI ranges, discount sensitivity, and win-rate correlation.\n\nAssumption libraries are governed and periodically updated.\n\nPost-sale realization data informs refinements in value models and messaging.", "Intelligence is embedded across the full value lifecycle.\n\nPre-sale projections are systematically compared to realized outcomes\n\nQuantification accuracy, credibility, and industry benchmarks are continuously refined.Insights \n\nImprove pricing strategy, packaging, segmentation, and sales coaching.\n\nValue modeling performance informs executive planning.", "A closed-loop, predictive value intelligence system operates at scale.Real-time customer and product data feed quantification models.\n\nAI-enhanced benchmarking dynamically adjusts assumptions by segment, persona, and maturity level.\n\nValue accuracy and realized ROI are forecasted and optimized.\n\nQuantification intelligence directly informs revenue strategy, expansion planning, and product investment decisions."]}];
+var LEVEL_NAMES = ["Reacting", "Aspiring", "Constructing", "Operationalizing", "Composing", "Orchestrating"];
+var MATURITY_LABELS = ["Reacting (0)", "Aspiring (1)", "Constructing (2)", "Operationalizing (3)", "Composing (4)", "Orchestrating (5)"];
+var CAPABILITY_KEYS = ["strategy_governance", "people", "attract", "engage", "sell", "retain_expand", "tools_technology", "intelligence_optimization"];
+
+var sliders = new Array(CAPS.length).fill(null);
+var cards = new Array(CAPS.length).fill(null);
+var heads = new Array(CAPS.length).fill(null);
+var scoreEls = new Array(CAPS.length).fill(null);
+var sparkEls = new Array(CAPS.length).fill(null);
+var mounts = new Array(CAPS.length).fill(null);
+var floatBadges = new Array(CAPS.length).fill(null);
+
+// Trailing-pair accordion (ported from PMTC assessment.html -- see
+// DESIGN_DECISIONS.md sections 27/29/30). Answering the open frontier card
+// never closes that card itself: it opens the next card below it, and
+// closes whichever card was open *before* the one just answered -- up to
+// two cards open at once, a sliding window rather than a single slot.
+// Independent per pillar page -- this file's frontier/frontierOlder/
+// reviewCard state governs only this page's 8 capabilities.
+var frontier = 0;
+var frontierOlder = null;
+var reviewCard = null;
+var manuallyClosed = {};
+
+function chevronSvg(){
+  return '<svg viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+}
+
+function updateScoreLabel(i){
+  var el = scoreEls[i];
+  if (sliders[i].isSet) {
+    el.textContent = LEVEL_NAMES[sliders[i].value].toUpperCase();
+    el.dataset.scored = 'true';
+  } else {
+    el.textContent = 'NOT SCORED';
+    el.dataset.scored = 'false';
+  }
+}
+
+// Collapsed-row sparkline (ported from DESIGN_DECISIONS.md section 21): a
+// miniature version of the segment bar, filled up to and including the
+// answer. Hidden while the card is open (the real slider already shows
+// this); unscored rows render every segment unfilled rather than omitting
+// the sparkline, so every collapsed row reads the same shape at a glance.
+function updateSpark(i){
+  var segs = sparkEls[i].children;
+  for (var s = 0; s < segs.length; s++){
+    segs[s].dataset.filled = (sliders[i].isSet && s <= sliders[i].value) ? 'true' : 'false';
+  }
+}
+
+function updateNextButtonState(){
+  var answeredCount = sliders.filter(function(s){ return s && s.isSet; }).length;
+  var btn = document.getElementById('nextBtn');
+  var msg = document.getElementById('startValidationMsg');
+  if (answeredCount < CAPS.length) {
+    btn.disabled = true;
+    msg.textContent = 'Answer all ' + CAPS.length + ' capabilities to continue.';
+  } else {
+    btn.disabled = false;
+    msg.textContent = '';
+  }
+}
+
+function setCardState(i, state){
+  cards[i].dataset.state = state;
+  heads[i].setAttribute('aria-expanded', state === 'open' ? 'true' : 'false');
+}
+
+function isOpen(i){
+  if (manuallyClosed[i]) return false;
+  if (reviewCard !== null) return i === frontier || i === reviewCard;
+  return i === frontier || i === frontierOlder;
+}
+
+function syncOpenStates(){
+  for (var k = 0; k < CAPS.length; k++){
+    setCardState(k, isOpen(k) ? 'open' : 'closed');
+  }
+}
+
+function toggleOrReview(i){
+  if (cards[i].dataset.clickable !== 'true') return;
+  if (isOpen(i)) return;
+  reviewCard = i;
+  manuallyClosed[i] = false;
+  syncOpenStates();
+}
+
+function closeCard(i){
+  if (cards[i].dataset.clickable !== 'true') return;
+  if (!isOpen(i)) return;
+  withScrollAnchor(cards[i], function(){
+    if (i === reviewCard) reviewCard = null;
+    manuallyClosed[i] = true;
+    syncOpenStates();
+  });
+}
+
+function withScrollAnchor(anchorEl, fn){
+  var before = anchorEl.getBoundingClientRect().top;
+  fn();
+  var after = anchorEl.getBoundingClientRect().top;
+  if (after !== before) window.scrollBy(0, after - before);
+}
+
+function settleCard(i){
+  if (!sliders[i].isSet) return;
+  if (i === frontier){
+    withScrollAnchor(cards[i], function(){
+      if (frontier < CAPS.length - 1){
+        frontierOlder = frontier;
+        frontier = frontier + 1;
+      } else {
+        frontierOlder = null;
+      }
+      reviewCard = null;
+      syncOpenStates();
+    });
+  } else if (i === reviewCard){
+    reviewCard = null;
+    syncOpenStates();
+  }
+}
+
+function handleChange(i){
+  updateScoreLabel(i);
+  updateFloatBadge(i);
+  updateSpark(i);
+  var clickable = sliders[i].isSet;
+  cards[i].dataset.clickable = clickable ? 'true' : 'false';
+  if (clickable) {
+    heads[i].setAttribute('tabindex', '0');
+    heads[i].setAttribute('role', 'button');
+  } else {
+    heads[i].removeAttribute('tabindex');
+    heads[i].removeAttribute('role');
+  }
+  updateNextButtonState();
+}
+
+// Native title-attribute tooltip on each numeral tick, showing the full
+// maturity label (e.g. "Reacting (0)") on hover/focus -- VLG's original
+// slider-label behavior, kept instead of porting K1x's always-visible
+// level-name ticks. Ticks are static (six fixed positions), so this only
+// needs to run once, right after the slider builds its markup.
+function addTickTooltips(mount){
+  var ticks = mount.querySelectorAll('.sseg-tick');
+  for (var t = 0; t < ticks.length && t < MATURITY_LABELS.length; t++){
+    ticks[t].setAttribute('title', MATURITY_LABELS[t]);
+    ticks[t].setAttribute('tabindex', '0');
+    ticks[t].setAttribute('aria-label', MATURITY_LABELS[t]);
+  }
+}
+
+// Floating "sliding" label above the selected segment -- ported from the
+// live pattern at massgroup.geniusdrive.com (built on this same
+// segment-slider lineage; see the vendored component's own README credit
+// to "the SMOMA readiness tool"). Not part of the vendored component --
+// built and wired here the same way that reference site's own version is,
+// on top of the component's onChange hook, not inside segment-slider.js
+// itself. One badge element per card, created once at build time and
+// repositioned/relabeled on every change.
+function addFloatingBadge(mount){
+  var wrap = mount.querySelector('.sseg-wrap');
+  var badge = document.createElement('span');
+  badge.className = 'gc-float-badge';
+  // Decorative echo of the answer -- the slider's own aria-valuetext
+  // already carries this to screen readers (see segment-slider.js paint()),
+  // so this floating copy is hidden from the accessibility tree rather
+  // than announced a second time.
+  badge.setAttribute('aria-hidden', 'true');
+  wrap.appendChild(badge);
+  return badge;
+}
+
+// Centers the badge over the middle of the active segment, in pixels,
+// using the badge's own measured width -- not a guessed constant -- so it
+// only pulls in from dead-center the minimum needed to stay fully inside
+// the wrap. Left visible/measurable at all times (opacity/visibility, not
+// display:none) so offsetWidth is always accurate, including the instant
+// a capability is first answered.
+function positionFloatBadge(i){
+  var badge = floatBadges[i];
+  var wrap = sliders[i].el.querySelector('.sseg-wrap');
+  var count = LEVEL_NAMES.length;
+  var wrapWidth = wrap.clientWidth;
+  var segWidth = wrapWidth / count;
+  var idealCenter = (sliders[i].value + 0.5) * segWidth;
+  var half = badge.offsetWidth / 2;
+  var center = Math.min(wrapWidth - half, Math.max(half, idealCenter));
+  badge.style.left = center + 'px';
+}
+
+function updateFloatBadge(i){
+  var badge = floatBadges[i];
+  if (sliders[i].isSet) {
+    badge.textContent = LEVEL_NAMES[sliders[i].value].toUpperCase();
+    badge.style.opacity = '1';
+    badge.style.visibility = 'visible';
+    positionFloatBadge(i);
+  } else {
+    badge.style.opacity = '0';
+    badge.style.visibility = 'hidden';
+  }
+}
+
+// Keep an already-answered badge correctly centered if the window is
+// resized (the wrap's pixel width, and so the segment centers, change).
+window.addEventListener('resize', function(){
+  for (var ri = 0; ri < sliders.length; ri++) {
+    if (sliders[ri] && sliders[ri].isSet) positionFloatBadge(ri);
+  }
+});
+
+function buildCard(i){
+  var cap = CAPS[i];
+  var container = document.getElementById('cap-list');
+
+  var card = document.createElement('div');
+  card.className = 'goal-card';
+  card.dataset.state = (i === 0) ? 'open' : 'closed';
+  card.dataset.clickable = 'false';
+
+  var head = document.createElement('div');
+  head.className = 'goal-row-head';
+  head.setAttribute('aria-expanded', (i === 0) ? 'true' : 'false');
+
+  var chevron = document.createElement('span');
+  chevron.className = 'gc-chevron';
+  chevron.setAttribute('aria-hidden', 'true');
+  chevron.innerHTML = chevronSvg();
+  head.appendChild(chevron);
+
+  var nameEl = document.createElement('span');
+  nameEl.className = 'gc-name';
+  nameEl.textContent = cap.name;
+
+  var scoreEl = document.createElement('span');
+  scoreEl.className = 'gc-score';
+  scoreEl.textContent = 'NOT SCORED';
+  scoreEl.dataset.scored = 'false';
+
+  var spark = document.createElement('span');
+  spark.className = 'gc-spark';
+  spark.setAttribute('aria-hidden', 'true');
+  for (var sp = 0; sp < LEVEL_NAMES.length; sp++){
+    var seg = document.createElement('i');
+    seg.dataset.filled = 'false';
+    spark.appendChild(seg);
+  }
+
+  head.appendChild(nameEl);
+  head.appendChild(scoreEl);
+  head.appendChild(spark);
+
+  var body = document.createElement('div');
+  body.className = 'goal-body';
+
+  var questionEl = document.createElement('div');
+  questionEl.className = 'gc-question';
+  questionEl.textContent = cap.question;
+  body.appendChild(questionEl);
+
+  var mount = document.createElement('div');
+  mount.className = 'goal-slot';
+  body.appendChild(mount);
+
+  card.appendChild(head);
+  card.appendChild(body);
+  container.appendChild(card);
+
+  head.addEventListener('click', function(){ toggleOrReview(i); });
+  head.addEventListener('keydown', function(e){
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    e.preventDefault();
+    toggleOrReview(i);
+  });
+
+  cards[i] = card;
+  heads[i] = head;
+  scoreEls[i] = scoreEl;
+  sparkEls[i] = spark;
+  mounts[i] = mount;
+
+  sliders[i] = new SegmentSlider(mount, {
+    segments: LEVEL_NAMES,
+    value: null,
+    readout: 'none',
+    ticks: true,
+    stepper: false,
+    ends: false,
+    descriptions: cap.levels,
+    unsetDescription: 'Click to select the level that matches your current practice.',
+    ariaLabel: cap.name + ' maturity level',
+    onChange: function(){ handleChange(i); },
+    onSettle: function(){ settleCard(i); },
+  });
+  addTickTooltips(mount);
+  floatBadges[i] = addFloatingBadge(mount);
+
+  sliders[i].input.addEventListener('blur', function(){ settleCard(i); });
+
+  updateSpark(i);
+}
+
+// §31-equivalent voluntary close via chevron -- wired up after buildCard
+// so it can reach closeCard/withScrollAnchor by index without re-deriving
+// it from the DOM inside buildCard's own chevron handler above.
+for (var gi = 0; gi < CAPS.length; gi++) buildCard(gi);
+for (var ci = 0; ci < CAPS.length; ci++){
+  (function(idx){
+    cards[idx].querySelector('.gc-chevron').addEventListener('click', function(e){
+      if (cards[idx].dataset.state === 'open' && cards[idx].dataset.clickable === 'true'){
+        e.stopPropagation();
+        closeCard(idx);
+      }
+    });
+  })(ci);
+}
+
+updateNextButtonState();
+
+document.getElementById('nextBtn').addEventListener('click', function(){
+  var answeredCount = sliders.filter(function(s){ return s && s.isSet; }).length;
+  if (answeredCount < CAPS.length) return;
+  for (var i = 0; i < CAPS.length; i++) {
+    document.getElementById('rating_' + CAPABILITY_KEYS[i]).value = sliders[i].value;
+  }
+  // Mockup stage only -- no live Flask route to advance to yet. A real
+  // build would submit assessmentForm and route to /assess/vq.
+  document.getElementById('startValidationMsg').textContent = 'All ' + CAPS.length + ' capabilities rated. (Mockup -- Next would advance to Value Activation.)';
+});
+</script>
+</body>
+</html>

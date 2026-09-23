@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="base.css">
+<div class="page profile">
+  <div class="h1">About {{ profile.company }}</div>
+  <div class="subhead">A snapshot of your team and what you chose to assess. Use this as the lens for everything that follows &mdash; the maturity scores, peer comparisons, and recommendations are all calibrated to this profile.</div>
+
+  <div class="columns">
+    <div class="col">
+      <div class="col-head">About your organization</div>
+      <div class="field-row"><div class="label">Industry</div><div class="value">{{ profile.industry }}</div></div>
+      <div class="field-row"><div class="label">GTM team size</div><div class="value">{{ profile.team_size }}</div></div>
+      <div class="field-row"><div class="label">Annual sales revenue</div><div class="value">{{ profile.revenue }}</div></div>
+      <div class="field-row"><div class="label">Location</div><div class="value">{{ profile.location }}</div></div>
+      <div class="field-row"><div class="label">Assessment date</div><div class="value">{{ generated_date }}</div></div>
+    </div>
+    <div class="col">
+      <div class="col-head">What you chose to assess</div>
+      <div class="cards">
+        {% for pillar in pillars %}
+        <div class="pillar-card{% if not pillar.selected %} deselected{% endif %}">
+          <div class="bar"></div>
+          <div class="check">{% if pillar.selected %}&check;{% else %}&ndash;{% endif %}</div>
+          <div class="name">{{ pillar.name }}</div>
+          <div class="desc">{{ pillar.desc }}</div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <img class="logo" src="assets/img/gd_logo.png" style="position:absolute; left:64px; bottom:28px; width:117px;">
+  <div class="copyright" style="left:auto; right:0; width:1280px; text-align:center;">&copy; 2026 Genius Drive. All rights reserved.</div>
+  <div class="page-number">{{ "%02d"|format(page_number) }}</div>
+</div>

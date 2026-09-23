@@ -1,0 +1,7 @@
+# Pinned to the exact versions this whole report pipeline was built and
+# verified against this session (see DATA_CONTRACT.md's Windows-install
+# notes and the "Report pipeline" section) -- WeasyPrint's rendering
+# behavior can shift meaningfully between versions, so this is a
+# deliberate pin, not a leftover placeholder.
+Jinja2==3.0.3
+WeasyPrint==70.0

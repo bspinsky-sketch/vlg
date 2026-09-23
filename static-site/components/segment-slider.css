@@ -1,0 +1,169 @@
+/* segment-slider - a range input painted as discrete segments.
+ *
+ * The control underneath is a real <input type="range">, held transparent. It
+ * carries the drag, the keyboard and the accessibility semantics; every mark you
+ * can see is painted by this stylesheet. That separation is the whole point: it
+ * is what lets a slider nobody has moved look unmoved, rather than parked on the
+ * first state of the scale.
+ *
+ * Everything colour- and size-ish is a custom property, so this drops into an
+ * existing design system by overriding the block below - either globally on
+ * :root or per instance on the .sseg element.
+ */
+
+.sseg {
+  /* the run */
+  --sseg-seg-h: 15px;              /* height of one segment */
+  --sseg-seg-gap: 4px;             /* space between segments */
+  --sseg-empty: #DDE4EA;           /* a segment not yet reached */
+  --sseg-empty-line: #A9B6C2;      /* its underline */
+  --sseg-passed: #123A63;          /* a segment below the answer */
+  --sseg-on: #00A3E0;              /* the answered segment itself */
+  --sseg-passed-line: #0C2340;     /* underline for both of those */
+
+  /* text */
+  --sseg-ink: #0C2340;             /* the answer, stated */
+  --sseg-muted: #5B6B7C;           /* labels, and the answer while unset */
+  --sseg-accent-ink: #00699A;      /* the level name; accent that passes on white */
+  --sseg-focus: #00699A;           /* the focus ring */
+  --sseg-cond: inherit;            /* a condensed face, if the system has one */
+
+  /* the stepper buttons and the description rule */
+  --sseg-field: #C9D4DE;
+  --sseg-surface: #FFFFFF;
+  --sseg-surface-2: #F4F7F9;
+
+  max-width: 620px;
+}
+
+/* ---------- the answer, stated ---------------------------------------------
+   Two forms. `readout: 'label'` states the answer in words on one line, for a
+   scale whose states are sentences. `readout: 'badge'` states it as a numeral
+   with the state's name beside it, for a scale whose states are levels. */
+
+.sseg-said {
+  margin: 0;
+  font-size: clamp(16px, 1.8vw, 18px);
+  font-weight: 500;
+  color: var(--sseg-ink);
+}
+/* Unanswered, the standing-in copy is not the answer, and must not read as one. */
+.sseg[data-set="false"] .sseg-said { color: var(--sseg-muted); }
+
+.sseg-top {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 16px; flex-wrap: wrap;
+}
+.sseg-badge {
+  margin: 0; display: flex; align-items: baseline; gap: 8px;
+  flex-wrap: wrap; min-width: 0;
+}
+.sseg-num {
+  font-weight: 700; font-size: clamp(30px, 3.6vw, 38px); line-height: 1;
+  color: var(--sseg-ink);
+}
+.sseg[data-set="false"] .sseg-num { color: var(--sseg-empty-line); }
+/* Nothing chosen yet is a thin rule one digit wide, set on the digit's optical
+   centre. An en dash at the numeral's own size and weight paints a slab, which
+   reads as a redaction bar or a loading skeleton rather than an empty slot. */
+.sseg-empty {
+  display: inline-block; width: .6em; height: 2px;
+  background: var(--sseg-empty-line); vertical-align: .34em;
+}
+.sseg-of { font-size: 14px; color: var(--sseg-muted); }
+.sseg-name {
+  font-family: var(--sseg-cond); font-weight: 600;
+  font-size: clamp(12px, 1.4vw, 13px); letter-spacing: .16em;
+  text-transform: uppercase; color: var(--sseg-accent-ink); margin-left: 6px;
+}
+.sseg[data-set="false"] .sseg-name { color: var(--sseg-muted); }
+
+/* ---------- the stepper ----------------------------------------------------
+   For the respondent who would rather not drag anything, and the one on a
+   trackpad. */
+
+.sseg-step { margin: 0; display: flex; gap: 6px; flex: none; }
+.sseg-btn {
+  width: 34px; height: 34px; border: 1px solid var(--sseg-field);
+  background: var(--sseg-surface); color: var(--sseg-ink);
+  font-size: 14px; line-height: 1; cursor: pointer;
+}
+.sseg-btn:hover { border-color: var(--sseg-passed-line); background: var(--sseg-surface-2); }
+.sseg-btn:disabled { color: var(--sseg-field); cursor: default; background: var(--sseg-surface); }
+.sseg-btn:disabled:hover { border-color: var(--sseg-field); }
+
+/* ---------- the run itself -------------------------------------------------
+   A transparent range laid over painted segments. The range is inset past the
+   top and bottom of the paint so the whole band is a hit target, not just the
+   15px of ink. */
+
+.sseg-wrap { position: relative; margin-top: 12px; }
+.sseg-input {
+  position: absolute; inset: -11px 0; width: 100%; height: auto; margin: 0;
+  opacity: 0; cursor: pointer;
+  appearance: none; -webkit-appearance: none; background: none;
+  /* The horizontal gesture belongs to the slider and the vertical one to the
+     page, so a finger that lands on the run can still scroll past it. Without
+     this the browser takes the whole gesture and the drag never fires. */
+  touch-action: pan-y;
+}
+/* The thumb is invisible but still has to be draggable, and on a touch screen
+   that means finger-sized. */
+.sseg-input::-webkit-slider-thumb { -webkit-appearance: none; width: 34px; height: 34px; }
+.sseg-input::-moz-range-thumb { width: 34px; height: 34px; border: 0; }
+
+.sseg-segs {
+  display: grid; gap: var(--sseg-seg-gap);
+  grid-template-columns: repeat(var(--sseg-count), 1fr);
+  /* The paint passes every press through to the range underneath. */
+  pointer-events: none;
+}
+.sseg-seg {
+  height: var(--sseg-seg-h);
+  background: var(--sseg-empty);
+  border-bottom: 2px solid var(--sseg-empty-line);
+}
+.sseg-seg[data-passed="true"] {
+  background: var(--sseg-passed); border-bottom-color: var(--sseg-passed-line);
+}
+.sseg-seg[data-on="true"] {
+  background: var(--sseg-on); border-bottom-color: var(--sseg-passed-line);
+}
+
+/* The ring goes round the whole run rather than round the segment under the
+   handle: unanswered, there is no segment under the handle to ring. */
+.sseg-input:focus-visible ~ .sseg-segs {
+  outline: 2px solid var(--sseg-focus); outline-offset: 3px;
+}
+
+/* ---------- what sits under the run ---------------------------------------- */
+
+/* Tick labels, one per segment, on the segment's own centre. */
+.sseg-ticks {
+  margin: 7px 0 0; display: grid; gap: var(--sseg-seg-gap);
+  grid-template-columns: repeat(var(--sseg-count), 1fr);
+}
+.sseg-tick {
+  font-family: var(--sseg-cond); font-weight: 600; font-size: 12px;
+  letter-spacing: .1em; color: var(--sseg-muted); text-align: center;
+}
+.sseg-tick[data-on="true"] { color: var(--sseg-ink); }
+
+/* The two ends named, for a scale too wordy to tick every stop of. */
+.sseg-ends {
+  margin: 8px 0 0; display: flex; justify-content: space-between; gap: 16px;
+  font-size: 12px; color: var(--sseg-muted);
+}
+
+/* The description of wherever the handle is, and only that one.
+   min-height is load-bearing: it stops the page moving under a reader who is
+   mid-drag. Set it to about the median of your own strings - sizing it to the
+   longest spends most of a phone screen on the short ones. */
+.sseg-read {
+  margin-top: 16px; border-left: 3px solid var(--sseg-on); padding-left: 15px;
+  font-size: clamp(14px, 1.5vw, 15px); min-height: 4.65em;
+}
+.sseg[data-set="false"] .sseg-read { border-left-color: var(--sseg-field); }
+.sseg-read p { margin: 0; line-height: 1.6; text-wrap: pretty; }
+.sseg-read p + p { margin-top: 9px; }
+.sseg-read .sseg-prompt { color: var(--sseg-muted); }

@@ -1,0 +1,88 @@
+{# "Let's build value-led growth together." -- ports pptx slide 16
+   verbatim. Genuinely static: unlike every page before it, nothing here
+   is computed from the visitor's own results -- Ben called this and the
+   two pages after it (pptx slides 17/18) "the static marketing tail
+   pages." No app (static-site/) equivalent exists (this content never
+   appears on-screen -- it's report-only), and K1x's own structurally-
+   closest page (output_report/06-solutions.tmpl.html) turned out NOT to
+   be a usable model: it's a dynamic gap->product mapping keyed to the
+   visitor's own top-3 gaps, not a static capability overview -- checked
+   and ruled out rather than assumed. So the pptx is the only real source
+   here; this page follows this report's own established light-page
+   conventions (shared .h1/.subhead, the 3-card grid + shadow pattern
+   from 09-next-moves) for positioning rather than the pptx's literal
+   inch offsets, same as every other page's docstring already explains.
+
+   Per-pillar color treatment (navy/teal/tan label per column) is a
+   deliberate one-off, confirmed with Ben rather than assumed away: every
+   other page in this deck uses a single accent color, but here each
+   pillar's icon illustration (extracted from the pptx: Files/VLG
+   2.3.pptx slide 16's 3 picture shapes, now assets/img/icon-value-
+   communication.png / -quantification.png / -activation.png) already
+   has its own colored blob baked into the image, so a uniform label
+   color would visibly clash with 2 of the 3 icons. Ben's direction:
+   keep the pptx's own per-pillar colors (`.partner-label.vc/.vq/.va`
+   below, literal hex from the pptx's own label shapes -- new,
+   page-scoped values, not existing deck tokens, since none of
+   --signal-ink/--accent/etc. matches a "tan" family at all). Bullet dot
+   markers, unlike the labels, are NOT per-pillar in the pptx (all 9 use
+   the same teal regardless of column) -- normalized to this deck's own
+   `--accent` token rather than the pptx's literal fill, matching every
+   other page's "our token, not their legacy hex" rule.
+
+   Card content (icon/label/tagline/bullets) is a plain Jinja `{%- set
+   %}` list, not a render_preview.py kwarg -- there's no per-visitor
+   data to pass here, and no other page's data contract fits. Copy is
+   the pptx's own text verbatim (Ben confirmed, no edits wanted).
+
+   NUMBERING NOTE: named `14-` (RENUMBERED 2026-09-26, was `10-`) to
+   continue this report's own build-order file sequence, NOT the pptx's
+   own slide number (16) -- same divergence already true of every page
+   after 05 (pptx slides 6-7 have no report equivalent; the results
+   cluster turned pptx's one slide 8 into three report pages). The
+   outcomes/roadmap-grid pages (10-outcomes-a/11-outcomes-b/
+   12-outcomes-c/13-outcomes-d, modeled on pptx slides 10-15) now slot in
+   BEFORE this page as anticipated -- this file and the two marketing-tail
+   pages after it were bumped from 10/11/12 to 14/15/16 accordingly, no
+   other change. #}
+<link rel="stylesheet" href="base.css">
+{%- set PARTNER_CARDS = [
+  {"key": "vc", "icon": "icon-value-communication.png", "label": "VALUE COMMUNICATION",
+   "tagline": "Sharpen the story your team tells.",
+   "bullets": ["Value storytelling frameworks tailored to your industries and personas",
+               "Outcome-focused sales, marketing, and executive engagement content",
+               "AI-powered tools to communicate differentiated value consistently"]},
+  {"key": "vq", "icon": "icon-value-quantification.png", "label": "VALUE QUANTIFICATION",
+   "tagline": "Make value provable.",
+   "bullets": ["ROI, TCO, and business value frameworks tailored to your solutions",
+               "Interactive value calculators your sellers actually use",
+               "Benchmarks and proof points drawn from your own install base"]},
+  {"key": "va", "icon": "icon-value-activation.png", "label": "VALUE ACTIVATION",
+   "tagline": "Turn intent into habit.",
+   "bullets": ["Role-based enablement that embeds value skills in the daily workflow",
+               "Coaching cadences and manager scorecards that sustain adoption",
+               "Realization reviews that turn delivered value into expansion"]},
+] -%}
+<div class="page partner">
+  <div class="h1">Let&rsquo;s build value-led growth together.</div>
+  <div class="subhead">Genius Drive helps GTM teams articulate, quantify, and activate value across the entire customer lifecycle. Here&rsquo;s what partnering looks like, organized by the three pillars of Value-Led Growth.</div>
+
+  <div class="partner-cards">
+    {%- for card in PARTNER_CARDS %}
+    <div class="partner-card">
+      <img class="partner-icon" src="assets/img/{{ card.icon }}" alt="">
+      <div class="partner-label {{ card.key }}">{{ card.label }}</div>
+      <div class="partner-tagline">{{ card.tagline }}</div>
+      <ul class="partner-bullets">
+        {%- for b in card.bullets %}
+        <li>{{ b }}</li>
+        {%- endfor %}
+      </ul>
+    </div>
+    {%- endfor %}
+  </div>
+
+  <img class="logo" src="assets/img/gd_logo.png" style="position:absolute; left:64px; bottom:28px; width:117px;">
+  <div class="copyright" style="left:auto; right:0; width:1280px; text-align:center;">&copy; 2026 Genius Drive. All rights reserved.</div>
+  <div class="page-number">{{ "%02d"|format(page_number) }}</div>
+</div>

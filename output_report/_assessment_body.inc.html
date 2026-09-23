@@ -1,0 +1,31 @@
+{# Shared body for the self-assessment page (03-assessment-vc / 04-...-vq /
+   05-...-va). Not matched by render_preview.py's *.tmpl.html glob on
+   purpose -- it's rendered 3 times via {% include %} from those three
+   numbered wrapper files, not on its own. Expects, from the including
+   template's context: pillar_name, subhead_text, capabilities (list of 8
+   dicts: name, level int 0-5, level_label, desc), plus the usual
+   generated_date/page_number passed to every page. See DATA_CONTRACT.md. #}
+<link rel="stylesheet" href="base.css">
+<div class="page assess">
+  <div class="h1">{{ pillar_name }} - your self-assessment</div>
+  <div class="subhead">{{ subhead_text }}</div>
+
+  <div class="cap-table">
+    <div class="cap-head">
+      <div>Capability</div><div></div><div>Maturity</div><div></div><div>Characteristic</div>
+    </div>
+    {% for cap in capabilities %}
+    <div class="cap-row">
+      <div class="cap-name">{{ cap.name }}</div>
+      <div></div>
+      <div class="mat-cell"><span class="mat-pill lvl-{{ cap.level }}">{{ cap.level_label }} ({{ cap.level }})</span></div>
+      <div></div>
+      <div class="cap-desc">{{ cap.desc }}</div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <img class="logo" src="assets/img/gd_logo.png" style="position:absolute; left:64px; bottom:28px; width:117px;">
+  <div class="copyright" style="left:auto; right:0; width:1280px; text-align:center;">&copy; 2026 Genius Drive. All rights reserved.</div>
+  <div class="page-number">{{ "%02d"|format(page_number) }}</div>
+</div>

@@ -1,0 +1,83 @@
+{# Next moves -- replaces the pptx's flat-image slide 9 ("Your next
+   moves"). Ben, 2026-09-22: "The pptx is the model for the page, the
+   app is the model for each card." Split accordingly:
+
+   PAGE from the pptx (Files/VLG 2.3.pptx, slide 9, read shape-by-shape
+   via python-pptx): plain white .page background (its own slide fill
+   is solid FFFFFF, unlike page 06/08's dark gradient), header block at
+   top (title + lede), a 3-column card grid below it, and this deck's
+   standard light-page footer (logo + centered copyright + page-
+   number) -- the pptx has its own copy of all three. Header/footer/
+   grid POSITIONING follows this report's own already-established
+   conventions for a light content page (same .h1/.subhead shared
+   typography and .page-content padding as 02/03/04/05/07), not the
+   pptx's literal inch offsets, since this report's fixed 1280x720
+   canvas isn't the pptx's 20x11.25in slide.
+
+   CARD from the app (static-site/mockup_results.html's real .move-card
+   markup + static-site/app.js's renderMoveCards()/static-site/
+   styles.css's .move-card rules) -- overriding three pptx card
+   elements the app's on-screen version doesn't have:
+     - no white-on-navy numbered glyph (pptx's Shape 5/19/33 + "1"/"2"/
+       "3") -- just the capability name.
+     - no red "N.N below peer leaders" stat line (pptx's Text 8/22/36) --
+       the gradient pill below already communicates the gap.
+     - ONE two-color gradient pill reading "CurrentLabel → NextLabel"
+       (app's own format/order, e.g. "Reacting (0) → Aspiring (1)"),
+       not the pptx's two separate solid pills + arrow glyph in
+       "N · Label" order (reversed from the app's "Label (N)").
+   The pptx's thin rule between the pill and the bullets (Shape 14/28/
+   42) IS kept -- the app's own on-screen card doesn't have one (its
+   bullets sit directly under the pill), but Ben's spec called for it
+   explicitly ("All above a rule (as the pptx) with bullets at the
+   bottom"), so this is the one place page-level (pptx) and card-level
+   (app) direction overlap and the pptx wins for that one element.
+
+   Header copy is the APP's own on-screen text (h1 "Build your
+   system." + its longer lede about pacing "two or three per quarter"),
+   not the pptx's shorter "Your next moves" title/lede -- Ben's answer
+   to Q1. Bullet marker is the app's small teal CSS dot (::before, see
+   base.css's .move-bullets), not the pptx's literal "• " character --
+   Ben's answer to Q2.
+
+   Sample cards are Attract / Sell / Strategy & Governance -- the SAME
+   top-3 gaps already shown on page 08, in the same order -- not the
+   pptx's own slide 9 example (Attract / Retain & Expand / People).
+   Ben's answer to Q3. See render_preview.py's MATURITY_PILL_COLORS /
+   _move_cards() (ports static-site/calc.js's `cards = gaps.map(...)`
+   block exactly, including its pythonRound()/capped-at-5 numeric
+   levels and its cross-pillar recommendationBullets lookup) and
+   DATA_CONTRACT.md.
+
+   fitMoveCardTitles()/fitMoveTransitionPills() (app.js) shrink the
+   card title and pill font-size live in the browser when the text is
+   too wide for one line -- WeasyPrint has no JS engine, so this page
+   uses fixed font-sizes sized for the longest text this sample scenario
+   actually needs ("Strategy & Governance" / "Aspiring (1) →
+   Constructing (2)"), confirmed by render not to wrap or overflow. A
+   future real-data render with a longer capability name or a level-5
+   label pair should re-check this the same way. #}
+<link rel="stylesheet" href="base.css">
+<div class="page moves">
+  <div class="h1">Build your system.</div>
+  <div class="subhead">These are the three capabilities where you trail peers most. The bullets below are the moves teams typically make to advance from your current maturity level to the next. Plan on two or three per capability per quarter &ndash; that's the pace at which value-led growth compounds across a GTM organization.</div>
+
+  <div class="moves-cards">
+    {%- for card in move_cards %}
+    <div class="move-card">
+      <div class="move-cap">{{ card.name }}</div>
+      <div class="move-transition" style="background:linear-gradient(to right, {{ card.current_bg }}, {{ card.next_bg }});">{{ card.current_label }} &rarr; {{ card.next_label }}</div>
+      <div class="move-rule"></div>
+      <ul class="move-bullets">
+        {%- for b in card.bullets %}
+        <li>{{ b }}</li>
+        {%- endfor %}
+      </ul>
+    </div>
+    {%- endfor %}
+  </div>
+
+  <img class="logo" src="assets/img/gd_logo.png" style="position:absolute; left:64px; bottom:28px; width:117px;">
+  <div class="copyright" style="left:auto; right:0; width:1280px; text-align:center;">&copy; 2026 Genius Drive. All rights reserved.</div>
+  <div class="page-number">{{ "%02d"|format(page_number) }}</div>
+</div>

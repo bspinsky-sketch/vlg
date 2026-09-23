@@ -1,0 +1,152 @@
+{# Results cluster, page 3 of 3 -- replaces the pptx's flat-image slide 8
+   ("YOUR MATURITY STORY"), alongside 06-maturity-curve and
+   07-capability-compare.
+
+   REVISED, Ben 2026-09-22 (second pass): the first build of this page kept
+   mockup_results.html's own on-screen layout almost unchanged (ONE combined
+   concentric ring, band label in its own middle column, narrative on the
+   right) on the grounds that VLG's locked design already had a complete,
+   real version of this section. Ben corrected that: pull the LAYOUT from
+   K1x's own production template instead (PMTC assessment/Application/
+   output_report/05-where-you-stand.tmpl.html, their "slide 5") -- same as
+   pages 06/07 already do -- including K1x's TWO SEPARATE donut rings (Your
+   Score and Peer Leaders each get their own ring in their own box), not
+   mockup's single combined ring. So this page now follows the same rule
+   pages 06/07 already established (K1x's structure, VLG's own locked
+   colors/tokens where the two differ), rather than treating this section as
+   an exception to it:
+
+   - Score card: K1x's 3-column .score-card grid (ring box / narrative card
+     / ring box, `.8fr 1.6fr .78fr` + 32px gaps), each ring box a fixed-height
+     (216px) card with its eyebrow/ring/second line absolutely positioned at
+     K1x's own fixed offsets (top:18px / 42px / 164px) -- ported verbatim,
+     including the "Where your {industry} peer leaders ranked" / "Leaders
+     are the top percentile of N peers" copy on the peer box, and the
+     lighter scrim overlay K1x uses to visually set that box apart from the
+     Your Score box. The "Where You Are Today" band label moves from its
+     own middle column (mockup's placement) to underneath the Your Score
+     ring instead (K1x's placement, inside that same ring's box).
+   - Whole page is now one continuous dark gradient (VLG's own tokens, same
+     as page 06's .curve-page, not K1x's photo background) -- including the
+     strengths/gaps table below the score card, which the first build had
+     put on the page's plain light background instead (reading
+     mockup_results.html's own real markup literally: its dark band's
+     closing tag comes before its .sg-table). Ben's direction here (K1x's
+     layout) means the whole page follows K1x's actual page shape -- one
+     unbroken dark surface top to bottom -- rather than mockup's split.
+     Strengths/gaps content itself is unchanged from the first build (name +
+     delta only, no per-row description) -- K1x adds a description line per
+     row via its level_desc() helper, and that's still deliberately not
+     carried over, same "don't add back content the locked design omits"
+     call already made for page 07's bar chart. Cards are now K1x's own
+     translucent dark-card style (rgba(255,255,255,.07) + border), not
+     mockup's light/paper cards, to match the unified dark background.
+   - No footer logo/copyright on this page, matching page 06's own
+     established rule for a fully dark page: the one logo asset is
+     dark-charcoal/muted-blue and has poor contrast against this gradient,
+     and K1x's own dark pages use a text-only footer for the same reason.
+     Page-number only.
+   - Header h1/lede unchanged from the first build: mockup's own on-screen
+     copy for this section (pages 06/07 already have their own, different
+     h1/lede), with `subhead` being the real narrative sentence
+     static-site/calc.js's buildSubhead() builds, not mockup's hand-written
+     paraphrase of it.
+
+   Ring math: dasharray/dashoffset computed inline (not in curve.py) --
+   fixed-radius circle, not curve.py's variable spline geometry. Formula
+   ported verbatim from static-site/app.js's setRing(): c = 2*pi*r,
+   dashoffset = c*(1 - score/5). r=65 / viewBox 148x148 are K1x's own ring
+   geometry constants, ported as-is along with the rest of the box layout.
+
+   TWEAKS, Ben 2026-09-22 (third pass): (1) the Your Score ring's progress
+   circle was painted with `stroke:var(--accent-light)` and rendered BLACK
+   instead of teal -- a new instance of the inline-SVG paint bug, but a
+   different mechanism than the earlier "external stylesheet classes don't
+   reach inline SVG shapes" one: this WAS already an inline style="", not a
+   class, but it referenced a CSS custom property (var(--accent-light))
+   defined on :root in the external stylesheet, and WeasyPrint's inline-SVG
+   rendering doesn't resolve custom properties from outside the SVG either,
+   so the var() fails and `stroke` falls back to its invalid-value default.
+   The Peer Leaders ring's progress circle never hit this because it was
+   already painted with a literal hex (#0088E6), not a var(). Fixed by
+   hardcoding the Your Score ring to the literal #8AC3B6 (what
+   --accent-light/--gd-teal-light actually resolve to) -- so: inline SVG
+   paint in this deck needs literal values, full stop, not just "not a
+   class". (2) Ring number text was wrapping ("/5" breaking onto its own
+   line) inside the 108px ring -- font-size reduced and white-space:nowrap
+   added on both rings' number/denominator, same defensive fix as the
+   recurring WeasyPrint flex-wrap quirk seen on pages 06/07. (3) Peer box
+   title simplified from K1x's own "Where your {industry} peer leaders
+   ranked" copy to a plain "Peer Leaders Score", parallel to "Your Score" --
+   reuses .score-eyebrow instead of the now-unused .peer-eyebrow. See
+   DATA_CONTRACT.md. #}
+<link rel="stylesheet" href="base.css">
+{%- set ring_r = 65 %}
+{%- set ring_c = 2 * 3.14159265358979 * ring_r %}
+<div class="page stand">
+  <div class="h1">You have a number. Top performers have a system.</div>
+  <div class="lede">{{ subhead }}</div>
+
+  <div class="score-card">
+    <div class="score-box ring-col">
+      <div class="score-eyebrow">Your Score</div>
+      <div class="ring-figure">
+        <svg class="ring-svg" viewBox="0 0 148 148">
+          <circle cx="74" cy="74" r="{{ ring_r }}" style="fill:none; stroke:rgba(255,255,255,.14); stroke-width:10;"></circle>
+          <circle cx="74" cy="74" r="{{ ring_r }}" style="fill:none; stroke:#8AC3B6; stroke-width:10; stroke-linecap:round; stroke-dasharray:{{ ring_c|round(2) }}; stroke-dashoffset:{{ (ring_c * (1 - scores.your_score / 5))|round(2) }};"></circle>
+        </svg>
+        <div class="ring-text"><div class="ring-stat"><div class="ring-num">{{ "%.1f"|format(scores.your_score) }}</div><div class="ring-den">/5</div></div></div>
+      </div>
+      <div class="band-row">
+        <div class="band-strong">{{ level_band.label }}</div>
+        <div class="band-sub">{{ level_band.tagline }}</div>
+      </div>
+    </div>
+
+    <div class="narrative-col">
+      <div class="narrative-card">
+        <div class="eyebrow">What This Means</div>
+        <div class="narrative-body">
+          {%- for sentence in level_band.descriptor.split('. ') %}
+          <p>{{ sentence if sentence.endswith('.') else sentence + '.' }}</p>
+          {%- endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="score-box band-col scrim">
+      <div class="score-eyebrow">Peer Leaders Score</div>
+      <div class="ring-figure">
+        <svg class="ring-svg" viewBox="0 0 148 148">
+          <circle cx="74" cy="74" r="{{ ring_r }}" style="fill:none; stroke:rgba(255,255,255,.14); stroke-width:10;"></circle>
+          <circle cx="74" cy="74" r="{{ ring_r }}" style="fill:none; stroke:#0088E6; stroke-width:10; stroke-linecap:round; stroke-dasharray:{{ ring_c|round(2) }}; stroke-dashoffset:{{ (ring_c * (1 - scores.peer_score / 5))|round(2) }};"></circle>
+        </svg>
+        <div class="ring-text"><div class="ring-stat"><div class="peer-num">{{ "%.1f"|format(scores.peer_score) }}</div><div class="peer-den">/5</div></div></div>
+      </div>
+      <div class="peer-note">Leaders are the top percentile out of {{ peer_count }} peers.</div>
+    </div>
+  </div>
+
+  <div class="sg-table">
+    <div class="sg-col">
+      <div class="sg-head">
+        <div class="sg-header">Your strongest positions</div>
+        <div class="sg-foot">Smallest gaps versus peer leaders.</div>
+      </div>
+      {%- for s in strengths %}
+      <div class="sg-row"><div class="sg-row-main"><div class="sg-row-name">{{ s.name }}</div><div class="sg-row-desc">{{ cap_descriptions.get(s.name, "") }}</div></div><span class="sg-delta {{ 'delta-ahead' if s.delta >= 0 else 'delta-behind' }}">{{ '+' if s.delta >= 0 else '−' }}{{ '%.1f'|format(s.delta|abs) }}</span></div>
+      {%- endfor %}
+    </div>
+    <div class="sg-col scrim">
+      <div class="sg-head">
+        <div class="sg-header">Your biggest opportunities</div>
+        <div class="sg-foot">Biggest gaps versus peer leaders.</div>
+      </div>
+      {%- for g in gaps %}
+      <div class="sg-row"><div class="sg-row-main"><div class="sg-row-name">{{ g.name }}</div><div class="sg-row-desc">{{ cap_descriptions.get(g.name, "") }}</div></div><span class="sg-delta {{ 'delta-ahead' if g.delta >= 0 else 'delta-behind' }}">{{ '+' if g.delta >= 0 else '−' }}{{ '%.1f'|format(g.delta|abs) }}</span></div>
+      {%- endfor %}
+    </div>
+  </div>
+
+  <div class="page-number">{{ "%02d"|format(page_number) }}</div>
+</div>

@@ -1,0 +1,142 @@
+{# "In their words" -- ports pptx slide 18, the third and last of the
+   static marketing-tail pages (see 14-partner-with-us's docstring for
+   the research already done on this set: no app/K1x equivalent exists
+   for this content, pptx is the only source). File is named by BUILD
+   ORDER (16, RENUMBERED 2026-09-26 -- was 12), not pptx slide number
+   (18) -- same deliberate divergence already flagged on 14/15. The
+   outcomes/roadmap-grid pages (10-13) now slot in ahead of this set as
+   anticipated, bumping this file and the two marketing-tail pages
+   before it from 10/11/12 to 14/15/16; this is still the last page in
+   the deck, so no further renumbering follows.
+
+   Structure, top to bottom: "IN THEIR WORDS" eyebrow + rule -> circular
+   portrait + pull-quote + name/title -> hairline -> "TRUSTED BY" +
+   7 client logos + "+ MORE" -> "Ready to start?" + CTA button -> footer.
+
+   Quote is a real Genius Drive customer testimonial (Ken Powell, CRO of
+   K1x -- the same K1x this whole project already references for the
+   PMTC assessment precedent), ported verbatim from the pptx's own
+   content, not invented for this report.
+
+   Typography: sizes follow this deck's own established scale rather
+   than literal pptx pt-to-px conversion (consistent with how 10/11
+   handled copy vs. layout) -- eyebrows/labels use the deck's existing
+   13px/700/uppercase eyebrow convention (outcomes-label, partner-
+   label) for both "IN THEIR WORDS" and "TRUSTED BY", not the pptx's
+   own 18pt literal size.
+
+   Color: this slide uses one literal, page-specific ink -- #1D3C5E --
+   consistently across four different elements (the rule under the
+   eyebrow, the quote text itself, the "Ready to start?" lede, and the
+   CTA button fill). Confirmed by checking each shape's own fill/font
+   color in the pptx; none of them are a coincidental match to an
+   existing deck token (closest is --signal-ink at #0E4570, distinctly
+   different). Same situation as 10-partner-with-us's per-pillar label
+   colors: a deliberate, self-consistent page-scoped value, ported
+   literally rather than snapped to a token that doesn't actually
+   match. The quote's byline name ("Ken Powell") and the eyebrow text
+   ("IN THEIR WORDS") use a teal that IS close to this deck's own
+   --accent token (pptx literal #207E63 vs. --accent's #18876D) --
+   close enough, and used for the same "emphasis" role --accent already
+   plays elsewhere in this deck, that this one snaps to the token
+   instead of adding a second near-duplicate teal.
+
+   CTA button: the pptx's own btn_cta shape is a lightly-rounded
+   rectangle (~5px radius, PowerPoint roundRect adj 0.11429). Overridden
+   to a full pill (border-radius:999px) instead, because BOTH
+   independent precedents checked for this project -- the locked app's
+   static-site/styles.css `.btn`/`.btn-primary`, and K1x's own
+   wireframe/results.html `.btn`/`.btn-primary` -- already define a
+   pill-shaped CTA button (radius:999px), so that is this whole design
+   ecosystem's actual established button convention, not a pptx one-
+   off. Fill color is this page's own #1D3C5E ink (see above) rather
+   than either precedent's button color (static-site: teal --accent;
+   K1x: near-black --ink) -- picked to match the rest of this slide's
+   self-consistent ink, not either app's generic primary-button color.
+   Button copy ("Schedule a consultation →") keeps the pptx's own mixed
+   case rather than the app convention's uppercase+tracked label style,
+   since this is authored marketing copy, not a UI chrome label.
+
+   Logos: 7 client-logo images + a trailing "+ MORE" label, ported from
+   the pptx's own picture shapes (assets/img/logo_trustedby_1.png
+   through _7.png, extracted at native resolution/aspect and laid out
+   at a shared height rather than the pptx's literal per-logo inch
+   sizes). Portrait (assets/img/testimonial_ken_powell.jpg) is CSS-
+   circle-cropped (border-radius:50%) rather than relying on any pptx-
+   side oval mask, since the source image is already a square. Footer
+   logo confirmed by MD5 to be the same asset already vendored
+   (assets/img/gd_logo.png); the background dot texture
+   (assets/img/testimonial_dots.png) is a distinct asset from the
+   cover page's own dots (different MD5), extracted separately.
+
+   Fully static -- no render_preview.py kwargs, content lives in this
+   template's own {%- set %} lists.
+
+   TWEAK, Ben 2026-09-22: (1) dropped the "IN THEIR WORDS" eyebrow +
+   rule entirely -- page now opens straight into the quote. (2) added
+   a semi-transparent white scrim behind the quote text, the name/
+   title line, and the trusted-by row, so the dot-texture background
+   still shows through faintly (not fully) rather than sitting flush
+   behind that text -- implemented as one wrapping div with
+   `background:rgba(255,255,255,.82)` around those elements (a normal-
+   flow sibling painted after `.dots`, so no manual absolute-position
+   math needed to line it up). (3) "+ MORE" is now a real link to
+   Genius Drive's own "trusted by" site anchor. (4) the CTA button now
+   links to Ben's actual Calendly page rather than a placeholder `#`.
+
+   WeasyPrint quirk hit while adding those two links: an `<a>` that is
+   a DIRECT flex item (a child of a `display:flex` container) gets no
+   PDF link annotation at all in WeasyPrint 70.0 -- confirmed in
+   isolation (a flex-row `<a>` produces zero `/Annots`; the identical
+   markup with the `<a>` one level deeper, wrapped in a plain block
+   div that is the actual flex item, produces the expected link
+   annotation). Both `.cta-btn` (child of `.cta-row`, flex) and
+   `.more-label` (child of `.logo-row`, flex) hit this, so both are
+   now wrapped in a plain `.cta-btn-wrap`/`.more-label-wrap` div --
+   the div is the flex item, the `<a>` is an ordinary block descendant
+   of it, and the link becomes clickable in the PDF. Visual layout is
+   unaffected; verified by re-rendering and checking the PDF's own
+   annotation list (pypdf), not just the visual screenshot -- a
+   visually-correct link that silently isn't clickable would not show
+   up in a rendered PNG at all. #}
+<link rel="stylesheet" href="base.css">
+{%- set TRUSTED_LOGOS = [
+  "logo_trustedby_1.png", "logo_trustedby_2.png", "logo_trustedby_3.png",
+  "logo_trustedby_4.png", "logo_trustedby_5.png", "logo_trustedby_6.png",
+  "logo_trustedby_7.png",
+] -%}
+<div class="page testimonial">
+  <img class="dots" src="assets/img/testimonial_dots.png" alt="">
+
+  <div class="scrim">
+    <div class="quote-row">
+      <img class="portrait" src="assets/img/testimonial_ken_powell.jpg" alt="Ken Powell">
+      <div class="quote-col">
+        <div class="quote-text">&ldquo;Genius Drive acts as an essential extension of our team, helping us codify our unique value story and transition from selling products to collaborating with our customers on savings and positive financial outcomes.&rdquo;</div>
+        <div class="quote-attribution">
+          <span class="quote-name">Ken Powell</span>
+          <span class="quote-title">Chief Revenue Officer, K1x</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="trusted-label">TRUSTED BY</div>
+    <div class="logo-row">
+      {%- for logo in TRUSTED_LOGOS %}
+      <img class="trusted-logo" src="assets/img/{{ logo }}" alt="">
+      {%- endfor %}
+      <div class="more-label-wrap"><a class="more-label" href="https://geniusdrive.com/#:~:text=Trusted%20by%20the%20world%E2%80%99s%20fastest%20growing%20companies%3A">+ MORE</a></div>
+    </div>
+  </div>
+
+  <div class="cta-row">
+    <div class="cta-lede">Ready to start?</div>
+    <div class="cta-btn-wrap"><a class="cta-btn" href="https://calendly.com/tpisello-gd/one-on-one">Schedule a consultation &rarr;</a></div>
+  </div>
+
+  <img class="logo" src="assets/img/gd_logo.png" style="position:absolute; left:64px; bottom:28px; width:117px;">
+  <div class="copyright" style="left:auto; right:0; width:1280px; text-align:center;">&copy; 2026 Genius Drive. All rights reserved.</div>
+  <div class="page-number">{{ "%02d"|format(page_number) }}</div>
+</div>

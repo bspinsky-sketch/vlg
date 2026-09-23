@@ -1,0 +1,87 @@
+{# Shared body for the outcomes/roadmap-grid pages (10-outcomes-a /
+   11-outcomes-b / 12-outcomes-c / 13-outcomes-d). Not matched by
+   render_preview.py's *.tmpl.html glob on purpose -- rendered 4 times via
+   {% include %} from those four numbered wrapper files, same pattern as
+   _assessment_body.inc.html.
+
+   Ports pptx slides 10-15's 4-column capability roadmap grid (Files/VLG
+   2.3.pptx), 2 columns at a time -- see base.css's ".roadmap" block for
+   the full source/design discussion and DATA_CONTRACT.md for the
+   complete pre-build research this was built from. One page = one pair
+   of capabilities from the SAME 4-capability framework (1st+2nd on the
+   first page, 3rd+4th on the second), each showing every ACTIVE pillar's
+   (Value Communication/Quantification/Activation) own recommendation for
+   moving that capability from its current maturity level to the next --
+   not a separate page per pillar: the pptx's own slides 10/13 (3 pillars),
+   11/14 (2 pillars), 12/15 (1 pillar) are the SAME framework's page with a
+   different number of pillar rows, driven by how many pillars the visitor
+   completed. This template handles that the same way: `cap.rows` is
+   already filtered to only the active pillars by the caller, and
+   `missing_pillar_labels` (empty for the common 3-of-3 case) drives the
+   pptx's own scope-note copy at the bottom when it isn't.
+
+   Expects, from the including template's context: cap_a, cap_b (each a
+   dict: name, display_name, current_level int 0-5, current_label,
+   current_bg, next_level int 0-5, next_label, next_bg, rows -- a list of
+   {pillar_label, bullets} in active-pillar order, `bullets` an empty list
+   when data.json has no recommendation text for that exact
+   capability+next-level combination, e.g. Value Quantification's own
+   "Strategy & Governance -> Orchestrating (5)" cell, its one real gap --
+   see DATA_CONTRACT.md's data-hygiene note), missing_pillar_labels (list,
+   usually empty), plus the usual generated_date/page_number. Built by
+   render_preview.py's _roadmap_capability()/_roadmap_pages() -- reads
+   static-site/data.json's recommendationBullets directly (a deliberate,
+   documented exception to this tool's usual "hand-copied verbatim
+   constant" pattern for sample bullets -- see render_preview.py's own
+   comment on ROADMAP_FRAMEWORKS for why: 24 capability x pillar lookups
+   is a different scale than page 09's 3 cards). #}
+<link rel="stylesheet" href="base.css">
+<div class="page roadmap">
+  <div class="h1">What it takes to reach the next level.</div>
+  <div class="subhead">Based on your self-assessment, here&rsquo;s the most direct way to close the gap on each capability.</div>
+
+  <div class="roadmap-grid">
+    {%- for cap in [cap_a, cap_b] %}
+    <div class="roadmap-col">
+      <div class="roadmap-head">{{ cap.display_name }}</div>
+
+      <div class="roadmap-pill-row top">
+        <span class="pill-label">Current state</span>
+        <span class="mat-pill lvl-{{ cap.current_level }}">{{ cap.current_label }} ({{ cap.current_level }})</span>
+      </div>
+
+      <div class="roadmap-card" style="background:linear-gradient(180deg, {{ cap.current_bg }}, {{ cap.next_bg }});">
+        {%- for row in cap.rows %}
+        <div class="roadmap-row">
+          <div class="roadmap-pillar-name">{{ row.pillar_label }}</div>
+          {%- if row.bullets %}
+          <ul class="roadmap-bullets">
+            {%- for b in row.bullets %}
+            <li>{{ b }}</li>
+            {%- endfor %}
+          </ul>
+          {%- else %}
+          <div class="roadmap-noaction">No actions at this level</div>
+          {%- endif %}
+        </div>
+        {%- endfor %}
+      </div>
+
+      <div class="roadmap-pill-row bottom">
+        <span class="pill-label">Next level</span>
+        <span class="mat-pill lvl-{{ cap.next_level }}">{{ cap.next_label }} ({{ cap.next_level }})</span>
+      </div>
+    </div>
+    {%- endfor %}
+  </div>
+
+  {%- if missing_pillar_labels %}
+  <div class="roadmap-scope-note">
+    {{ missing_pillar_labels|join(' and ') }} {{ 'was' if missing_pillar_labels|length == 1 else 'were' }} not part of this assessment &mdash; add {{ 'this pillar' if missing_pillar_labels|length == 1 else 'these pillars' }} to see the actions that raise both capabilities above.
+  </div>
+  {%- endif %}
+
+  <img class="logo" src="assets/img/gd_logo.png" style="position:absolute; left:64px; bottom:28px; width:117px;">
+  <div class="copyright" style="left:auto; right:0; width:1280px; text-align:center;">&copy; 2026 Genius Drive. All rights reserved.</div>
+  <div class="page-number">{{ "%02d"|format(page_number) }}</div>
+</div>

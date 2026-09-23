@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VLG Profile -- combined mockup (hero + scope + callout + profile fields)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&family=Prompt:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Genius Drive brand tokens -- identical block to mockup_assess_accordion_vc.html,
+     kept in sync so this page and the assessment pages share one palette. */
+  --gd-ink-blue:#0E4570; --gd-charcoal:#3F3F41; --gd-muted-blue:#81A1B7;
+  --gd-teal-primary:#18876D; --gd-teal-light:#8AC3B6; --gd-sky-light:#D9EEFD;
+  --gd-surface-gray:#EFEFEF; --gd-meta-gray:#ADADAD; --gd-white:#FFFFFF;
+
+  --ink: var(--gd-charcoal);
+  --ink-soft: #5C5C5E;
+  --slate: #75757A;
+  --slate-light: #C7CBCC;
+  --rule: #E3E5E6;
+  --bone: var(--gd-surface-gray);
+  --paper: var(--gd-white);
+  --signal: var(--gd-sky-light);
+  --signal-ink: var(--gd-ink-blue);
+  --accent: var(--gd-teal-primary);
+  --accent-light: var(--gd-teal-light);
+
+  --font-display:'Montserrat',Helvetica,Arial,sans-serif;
+  --font-ui:'Open Sans',Helvetica,Arial,sans-serif;
+  --font-mono:'Prompt',Helvetica,Arial,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--font-ui);background:var(--bone);color:var(--ink);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;}
+.shell{max-width:960px;margin:0 auto;padding:0 24px 96px;}
+a{color:inherit;}
+
+/* ============================================================
+   Hero band -- same treatment as the assessment pages (navy
+   gradient, ported from the locked Results hero band, no photo).
+   Text content is v3_organic's original heading/body, minus its
+   eyebrow line per Ben's call.
+   ============================================================ */
+.hero-band{background:linear-gradient(135deg, #0A2F4D 0%, #0E4570 42%, #0C4A48 100%);}
+.hero-inner{max-width:960px;margin:0 auto;padding:0 24px;}
+.hero-heading{font-family:var(--font-display);font-size:34px;font-weight:800;line-height:1.15;letter-spacing:-.01em;color:#fff;padding-top:44px;margin-bottom:12px;}
+.hero-lede{font-size:16px;line-height:1.6;color:rgba(255,255,255,.85);padding-bottom:40px;}
+
+/* ============================================================
+   Step labels -- shared by the Scope and Profile sections.
+   ============================================================ */
+.step-label{font-family:var(--font-mono);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--slate);margin:40px 0 12px;}
+.step-intro{font-size:15px;color:var(--ink);line-height:1.6;margin-bottom:22px;}
+
+/* ============================================================
+   Scope section -- pillar cards, adapted from v3_organic's
+   organic-blob icon badges. Icon now sits inline with the name
+   (same row) instead of alone above it, closing the dead space
+   that used to sit to its right; all text bumped up a size.
+   ============================================================ */
+.pillar-cards{display:flex;gap:16px;margin-bottom:8px;align-items:stretch;}
+.pillar-card{flex:1;background:var(--paper);border:2px solid var(--gd-ink-blue);border-radius:10px;padding:22px 22px 20px;cursor:pointer;transition:border-color .12s,background .12s,opacity .12s;display:flex;flex-direction:column;user-select:none;box-shadow:0 2px 10px rgba(14,69,112,.05);}
+.pillar-card.deselected{border-color:var(--rule);background:var(--bone);opacity:.6;box-shadow:none;}
+.card-top-row{display:flex;align-items:center;gap:14px;margin-bottom:12px;}
+.pc-icon-badge{width:50px;height:50px;border-radius:60% 40% 55% 45% / 45% 55% 45% 55%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.pc-icon-badge svg{width:24px;height:24px;}
+.pillar-card.deselected .pc-icon-badge{background:var(--bone) !important;}
+.pillar-card.deselected .pc-icon-badge svg{opacity:.45;}
+.badge-vc{background:var(--gd-muted-blue);}
+.badge-vq{background:var(--accent-light);}
+.badge-va{background:#D3C0AA;}
+.card-name{font-family:var(--font-display);font-size:19px;font-weight:700;color:var(--gd-ink-blue);line-height:1.25;flex:1;}
+.pillar-card.deselected .card-name{color:var(--slate);}
+.card-check{width:22px;height:22px;border-radius:50%;border:2px solid var(--accent);flex-shrink:0;background:var(--accent);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 10'%3E%3Cpath d='M1 5l3.5 3.5L11 1' stroke='white' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-size:12px 10px;background-repeat:no-repeat;background-position:center;transition:background .12s,border-color .12s;}
+.pillar-card.deselected .card-check{background:#fff;border-color:var(--rule);background-image:none;}
+.card-subtitle{font-family:var(--font-mono);font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:10px;}
+.pillar-card.deselected .card-subtitle{color:var(--slate);}
+.card-desc{font-size:15px;color:var(--ink);line-height:1.6;flex:1;}
+.pillar-card.deselected .card-desc{color:var(--slate);}
+.selection-note{font-family:var(--font-mono);font-size:12.5px;font-weight:600;color:#B54708;margin-top:10px;min-height:18px;}
+
+/* ============================================================
+   "Did you know" callout -- v3_organic's ink-blue divider with
+   blob accent and icon badge (not v2's solid-teal number banner).
+   ============================================================ */
+.dyk-divider{position:relative;background:var(--gd-ink-blue);border-radius:12px;padding:28px 32px;margin:36px 0;overflow:hidden;display:flex;align-items:center;gap:26px;}
+.dyk-blob-accent{position:absolute;top:-40px;right:-30px;width:180px;height:180px;background:var(--accent-light);opacity:.22;border-radius:55% 45% 60% 40% / 45% 55% 45% 55%;}
+.dyk-icon-badge{position:relative;z-index:1;width:58px;height:58px;flex-shrink:0;border-radius:55% 45% 60% 40% / 45% 60% 40% 55%;background:var(--accent-light);display:flex;align-items:center;justify-content:center;}
+.dyk-icon-badge svg{width:28px;height:28px;}
+.dyk-content{position:relative;z-index:1;flex:1;}
+.dyk-label{font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-light);margin-bottom:6px;}
+.dyk-stat-num{font-family:var(--font-display);font-weight:800;font-size:30px;color:#fff;margin-right:8px;}
+.dyk-text{font-size:14.5px;color:#EAF0F5;line-height:1.6;}
+.dyk-source{font-size:11.5px;color:rgba(255,255,255,.62);font-style:italic;margin-top:8px;}
+
+/* ============================================================
+   Profile fields -- v2_texture's two-column grid, company name
+   spanning the full width above it.
+   ============================================================ */
+.form-fields{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px;margin:0 0 8px;}
+.field-row{display:flex;flex-direction:column;gap:7px;}
+.field-row.full{grid-column:1 / -1;}
+.field-label{font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--gd-ink-blue);}
+.field-input{width:100%;padding:12px 14px;font-size:15px;font-family:var(--font-ui);border:1.5px solid var(--rule);border-radius:6px;background:var(--paper);color:var(--ink);appearance:none;outline:none;transition:border-color .12s,box-shadow .12s;}
+.field-input:focus{border-color:var(--gd-ink-blue);box-shadow:0 0 0 3px rgba(14,69,112,.12);}
+select.field-input{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2375757A' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:34px;cursor:pointer;}
+
+/* ============================================================
+   Footer -- single on-brand Next button, same pill button used
+   on the assessment pages.
+   ============================================================ */
+.page-footer{display:flex;justify-content:flex-end;align-items:center;margin-top:40px;padding-top:24px;border-top:1px solid var(--rule);}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--font-ui);font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.1em;border-radius:999px;min-height:48px;cursor:pointer;text-decoration:none;transition:background .15s,color .15s;border:none;}
+.btn-primary{background:var(--accent);color:#fff;padding:15px 26px;}
+.btn-primary:hover{background:var(--gd-ink-blue);}
+
+.comp-tag{position:fixed;bottom:14px;right:16px;font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--slate);background:#fff;border:1px solid var(--rule);border-radius:20px;padding:5px 12px;z-index:9;}
+
+@media (max-width:760px){
+  .pillar-cards{flex-direction:column;}
+  .form-fields{grid-template-columns:1fr;}
+  .dyk-divider{flex-direction:column;align-items:flex-start;}
+}
+</style>
+</head>
+<body>
+
+<div class="hero-band">
+  <div class="hero-inner">
+    <h1 class="hero-heading">Let's tailor your assessment.</h1>
+    <p class="hero-lede">Spend a few minutes telling us about your team and choosing the areas you'd like to assess. We'll meet you on the other side with results and recommendations tailored to exactly where you are today.</p>
+  </div>
+</div>
+
+<div class="shell">
+
+  <div class="step-label">Step 1 -- What will we assess today?</div>
+  <p class="step-intro">We recommend assessing all three pillars together -- that's the default, and they're most powerful in combination. You can de-select one or two to focus your attention, but expect partial recommendations as a result.</p>
+
+  <div class="pillar-cards">
+    <div class="pillar-card" id="card-vc" onclick="togglePillar('vc')">
+      <div class="card-top-row">
+        <div class="pc-icon-badge badge-vc">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#3F3F41" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a7.5 7.5 0 0 1-11.4 6.4L4 19l1.1-5.4A7.5 7.5 0 1 1 21 11.5z"/></svg>
+        </div>
+        <div class="card-name">Value Communication</div>
+        <div class="card-check" id="check-vc"></div>
+      </div>
+      <div class="card-subtitle">Communicate value clearly.</div>
+      <div class="card-desc">Build a shared understanding of customer pain, impact, and the outcomes they want to achieve.</div>
+    </div>
+    <div class="pillar-card" id="card-vq" onclick="togglePillar('vq')">
+      <div class="card-top-row">
+        <div class="pc-icon-badge badge-vq">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#3F3F41" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M12 20V4M20 20v-7"/></svg>
+        </div>
+        <div class="card-name">Value Quantification</div>
+        <div class="card-check" id="check-vq"></div>
+      </div>
+      <div class="card-subtitle">Quantify what you deliver.</div>
+      <div class="card-desc">Translate customer challenges into credible financial and operational value cases.</div>
+    </div>
+    <div class="pillar-card" id="card-va" onclick="togglePillar('va')">
+      <div class="card-top-row">
+        <div class="pc-icon-badge badge-va">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#3F3F41" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="8" r="3"/><circle cx="16" cy="8.5" r="2.4"/><path d="M3 19c.6-3 2.7-5 5.5-5s4.9 2 5.5 5M14 14.3c2.3.2 4 1.9 4.5 4.7"/></svg>
+        </div>
+        <div class="card-name">Value Activation</div>
+        <div class="card-check" id="check-va"></div>
+      </div>
+      <div class="card-subtitle">Activate your GTM team.</div>
+      <div class="card-desc">Embed value through training, coaching, and reinforcement across your team.</div>
+    </div>
+  </div>
+  <div class="selection-note" id="selectionNote"></div>
+
+  <div class="dyk-divider">
+    <div class="dyk-blob-accent"></div>
+    <div class="dyk-icon-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#0E4570" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17h.01M12 13.5a2 2 0 1 0-2-2"/><circle cx="12" cy="12" r="9"/></svg>
+    </div>
+    <div class="dyk-content">
+      <div class="dyk-label">Did you know&hellip;</div>
+      <span class="dyk-stat-num">86%</span><span class="dyk-text">of B2B purchases stall before close, and 81% of buyers end up dissatisfied with their chosen provider. The teams that win -- and keep customers -- don't pitch features. They help buyers articulate and quantify value clearly enough to defend it internally.</span>
+      <div class="dyk-source">Source: Forrester, The State of Business Buying, 2024.</div>
+    </div>
+  </div>
+
+  <div class="step-label">Step 2 -- About your organization</div>
+  <div class="form-fields">
+    <div class="field-row full">
+      <label class="field-label" for="company">Your company name</label>
+      <input class="field-input" type="text" id="company" placeholder="Company name">
+    </div>
+    <div class="field-row">
+      <label class="field-label" for="industry">Industry</label>
+      <select class="field-input" id="industry">
+        <option value="">Select one</option>
+        <option>AI &amp; Data Platforms</option>
+        <option>Asset &amp; Wealth Management</option>
+        <option>Business Process Outsourcing (BPO)</option>
+        <option>Commercial Banking &amp; Fintech</option>
+        <option>Construction &amp; Real Estate Technology</option>
+        <option>Customer Success &amp; CX Technology</option>
+        <option>Cybersecurity</option>
+        <option>Developer Tools &amp; Infrastructure</option>
+        <option>Energy &amp; Utilities (B2B)</option>
+        <option>Enterprise Learning &amp; EdTech</option>
+        <option>Enterprise SaaS &amp; Cloud</option>
+        <option>Finance &amp; Accounting Services</option>
+        <option>Government &amp; Public Sector (B2B)</option>
+        <option>Health IT &amp; Digital Health</option>
+        <option>HR &amp; Workforce Solutions</option>
+        <option>Industrial Equipment &amp; Manufacturing</option>
+        <option>Insurance (Commercial)</option>
+        <option>Legal Services</option>
+        <option>Life Sciences &amp; Pharma (B2B)</option>
+        <option>Marketing Technology (MarTech)</option>
+        <option>Medical Devices &amp; Equipment</option>
+        <option>Professional &amp; Management Consulting</option>
+        <option>Sales &amp; Revenue Technology</option>
+        <option>Supply Chain &amp; Logistics</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div class="field-row">
+      <label class="field-label" for="gtmteam">Size of GTM team</label>
+      <select class="field-input" id="gtmteam">
+        <option value="">Select range&hellip;</option>
+        <option>1 to 5</option>
+        <option>6 to 15</option>
+        <option>16 to 30</option>
+        <option>31 to 50</option>
+        <option>51 to 100</option>
+        <option>101 to 250</option>
+        <option>251+</option>
+      </select>
+    </div>
+    <div class="field-row">
+      <label class="field-label" for="revenue">Annual sales revenue</label>
+      <select class="field-input" id="revenue">
+        <option value="">Select range&hellip;</option>
+        <option>Under $5M</option>
+        <option>$5M to $20M</option>
+        <option>$20M to $50M</option>
+        <option>$50M to $100M</option>
+        <option>$100M to $250M</option>
+        <option>$250M to $500M</option>
+        <option>$500M to $1B</option>
+        <option>Over $1B</option>
+      </select>
+    </div>
+    <div class="field-row">
+      <label class="field-label" for="location">Location</label>
+      <select class="field-input" id="location">
+        <option value="">Select one</option>
+        <option>United States</option>
+        <option>North America</option>
+        <option>Central America</option>
+        <option>South America</option>
+        <option>Eastern Europe</option>
+        <option>Western Europe</option>
+        <option>Middle East</option>
+        <option>Africa</option>
+        <option>Asia</option>
+        <option>Pacific Rim</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <button class="btn btn-primary" id="btnNext">Next &rarr;</button>
+  </div>
+
+</div>
+<div class="comp-tag">Profile -- combined mockup</div>
+<script>
+const selected = { vc: true, vq: true, va: true };
+function togglePillar(key) {
+  const wouldDeselect = selected[key];
+  const currentlySelected = Object.values(selected).filter(Boolean).length;
+  if (wouldDeselect && currentlySelected === 1) {
+    document.getElementById('selectionNote').textContent = 'At least one pillar must be selected.';
+    return;
+  }
+  selected[key] = !selected[key];
+  document.getElementById('selectionNote').textContent = '';
+  updateUI();
+}
+function updateUI() {
+  ['vc', 'vq', 'va'].forEach(key => {
+    const card = document.getElementById('card-' + key);
+    if (selected[key]) card.classList.remove('deselected');
+    else card.classList.add('deselected');
+  });
+}
+updateUI();
+</script>
+</body>
+</html>
