@@ -1401,6 +1401,12 @@ bookkeeping needed. (3) "+ MORE" became a real link to
 `https://calendly.com/tpisello-gd/one-on-one` instead of a placeholder
 `#`.
 
+UPDATED, Ben 2026-09-23 (report copy/layout pass): the "+ MORE" link's
+target was changed from the "Trusted by..." text fragment above to
+`https://geniusdrive.com/#:~:text=CASE%20STUDIES-,See%20more,-Leveraging%20TCO%20Savings`
+-- points at the "See more" case-studies link instead. Link text ("+
+MORE") and the CTA button are unchanged.
+
 WeasyPrint bug hit while adding those two links, LOCKED fix: an `<a>`
 that is a *direct* flex item (a child of a `display:flex` container)
 gets no PDF link annotation at all in WeasyPrint 70.0 -- silently; the

@@ -367,10 +367,10 @@ body{font-family:var(--font-ui);color:var(--ink);}
    not a compressed section sandwiched between other content), which is
    a layout adjustment, not a color/identity one -- see DATA_CONTRACT.md. */
 .compare{ padding:43px 64px 0; }
-.compare .subhead{ max-width:1152px; margin-top:14px; }
+.compare .subhead{ max-width:1152px; margin-top:14px; margin-bottom:76px; }
 
 .compare .chart-legend{ display:flex; flex-wrap:wrap; justify-content:center; gap:20px;
-  margin:40px 0 22px; }
+  margin:32px 0 0; }
 .compare .legend-item{ display:flex; align-items:center; gap:7px; font-family:var(--font-ui); white-space:nowrap;
   font-size:13px; color:var(--ink-soft); }
 .compare .legend-swatch{ width:13px; height:13px; border-radius:3px; flex-shrink:0; }

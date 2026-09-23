@@ -46,11 +46,29 @@
      dark-charcoal/muted-blue and has poor contrast against this gradient,
      and K1x's own dark pages use a text-only footer for the same reason.
      Page-number only.
-   - Header h1/lede unchanged from the first build: mockup's own on-screen
-     copy for this section (pages 06/07 already have their own, different
-     h1/lede), with `subhead` being the real narrative sentence
-     static-site/calc.js's buildSubhead() builds, not mockup's hand-written
-     paraphrase of it.
+   - REVISED, Ben 2026-09-23 (headline/subhead rewrite): h1 was originally
+     static copy ("You have a number. Top performers have a system."),
+     with the lede driven by `subhead` -- the real per-visitor narrative
+     sentence static-site/calc.js's buildSubhead() builds ("You're
+     strongest on X. You're furthest behind peers on Y."). Ben flagged
+     both problems: the headline's first half didn't land, and the
+     subhead just restated what the strengths/gaps table below already
+     shows in more detail. Fix: h1 now names the visitor's actual current
+     band (level_band.label, e.g. "Value on Paper") against the top
+     band's own name, "Value as a System" -- a real data point already
+     computed for this page (same level_band already used in
+     .band-strong below), not invented copy, so it reads differently
+     depending on where someone actually scores. The bottom band's own
+     literal label ("No Value Narrative") breaks that sentence's
+     grammar (leads with "No"), so it's the one special-cased to "Value
+     Without a Narrative" -- a restatement of that band's own tagline
+     ("Invisible by default"), not new copy. The lede is now fully
+     static, freed from restating specific capability names, and instead
+     introduces the two things this page's real estate is actually doing
+     (the narrative card's maturity characteristics + the peer-leader
+     comparison) -- `subhead`/buildSubhead() is no longer referenced by
+     this page at all (still computed and still used elsewhere/by the
+     app; just not this template).
 
    Ring math: dasharray/dashoffset computed inline (not in curve.py) --
    fixed-radius circle, not curve.py's variable spline geometry. Formula
@@ -84,8 +102,8 @@
 {%- set ring_r = 65 %}
 {%- set ring_c = 2 * 3.14159265358979 * ring_r %}
 <div class="page stand">
-  <div class="h1">You have a number. Top performers have a system.</div>
-  <div class="lede">{{ subhead }}</div>
+  <div class="h1">From {{ 'Value Without a Narrative' if level_band.label == 'No Value Narrative' else level_band.label }} to Value as a System.</div>
+  <div class="lede">This is what your maturity level looks like in practice, and how far peer leaders have taken theirs.</div>
 
   <div class="score-card">
     <div class="score-box ring-col">

@@ -2,7 +2,7 @@
 
 **Purpose:** Authoritative running state. Read at every session start. Updated whenever an item opens or closes.
 
-**Last updated:** 2026-09-23 EDT (Session 15 -- new git repo initialized at the project root to actually cover static-site/ and output_report/, which had never been under version control; staged and ready, commit/push left to Ben per STANDING_RULES; see CLAUDE.md Key Decisions Log)
+**Last updated:** 2026-09-23 EDT (Session 17 -- report template copy/layout pass: 7 items across slides 2/6/7/8/9/10-13/14/15/16 -- see CLAUDE.md Key Decisions Log and SESSION_LOG.md for the full negotiation history. Not yet committed -- see CLI commands given to Ben in chat)
 
 ---
 
@@ -48,7 +48,7 @@
 | O-12 | Static site: copy/adapt the canonical segment-slider and maturity-curve components' own READMEs into static-site/components/ if the project wants them documented in place (currently only the vendored .js/.css files were copied) | Open |
 | O-13 | HubSpot: waiting on the Genius Drive HubSpot admin to complete the setup guide (properties + form) and send back Hub ID, Form ID, region, and opt-in choice (Option A or B). If Option B: Ben does not have the consent wording yet -- once it arrives, add it to hubspot-config.js consentText AND display it next to the opt-in checkbox in the modal (not built yet); then fill static-site/hubspot-config.js and run a live test submission together (guide Step 5) | Open |
 | O-14 | "Get My Report" confirmation copy still says "Report on its way ... We've sent your personalized report", which is not true yet (HubSpot only captures the lead; no report is delivered). Ben to decide whether to soften the copy until report delivery exists | Closed (2026-09-22) -- Ben: keep the copy as is |
-| O-15 | Git: static-site/ and output_report/ were discovered to have never been under version control (the only existing repo, github.com/bspinsky-sketch/vlg-web, is rooted at app/ and only ever covered the frozen legacy Flask app -- by the project template's own original convention, not a mistake). A new repo has been git-init'd at the project root (2026-09-23, Session 15), with app/ and Claude outputs/ excluded via .gitignore, git-lfs tracking set up for xlsx/pptx/docx/pdf/png/jpg/ico/font files (mirroring app/'s existing .gitattributes convention), and everything else staged (`git add -A`, 188 files). Per STANDING_RULES ("Always commit from your local machine"), the actual `git commit`, creating a new GitHub remote, and `git push` were deliberately left to Ben rather than done from here | Open -- Ben to commit + create remote + push |
+| O-15 | Git: static-site/ and output_report/ were discovered to have never been under version control (the only existing repo, github.com/bspinsky-sketch/vlg-web, is rooted at app/ and only ever covered the frozen legacy Flask app -- by the project template's own original convention, not a mistake). A new repo has been git-init'd at the project root (2026-09-23, Session 15), with app/ and Claude outputs/ excluded via .gitignore, git-lfs tracking set up for xlsx/pptx/docx/pdf/png/jpg/ico/font files (mirroring app/'s existing .gitattributes convention), and everything else staged (`git add -A`, 188 files). Per STANDING_RULES ("Always commit from your local machine"), the actual `git commit`, creating a new GitHub remote, and `git push` were deliberately left to Ben rather than done from here | Closed (2026-09-23, Session 16) -- Ben installed Git LFS, committed, created github.com/bspinsky-sketch/vlg, and pushed (commit 2361282) |
 
 ---
 
@@ -102,6 +102,8 @@
 |----------------|--------|-------------|
 | 2026-07-27 13:38 EDT | 5378383 | Session 1: project init -- starter repo cloned, blueprint renamed to vlg |
 | 2026-07-27 13:38 EDT | e61ae04 | Session 1: Phase 1 complete -- vlg scaffold, routes, pure-Python calc engine |
+| 2026-09-23 15:01 EDT | 2361282 | Session 15: new project-root git repo committed and pushed by Ben (covers static-site/ and output_report/ for the first time; app/ repo remains separate, frozen legacy Flask app) |
 
-**Current authoritative Git commit:** e61ae04
+**Current authoritative Git commit (project root, static-site/ + output_report/):** 2361282 (bspinsky-sketch/vlg on GitHub)
+**Current authoritative Git commit (app/, legacy Flask, frozen):** e61ae04
 
