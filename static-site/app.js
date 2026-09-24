@@ -679,7 +679,15 @@
   function renderResults() {
     var result = CALC.runCalculation(DATA, state.toggles, state.ratings, state.profile);
 
-    document.getElementById('resultsLede').textContent = result.subhead;
+    // Headline mirrors report slide "where you stand" (08-where-you-stand.tmpl.html):
+    // "From <current band> to Value as a System." The bottom band's own label
+    // ("No Value Narrative") breaks the sentence, so it reads as its tagline's
+    // meaning instead -- the same special case the report template uses.
+    var headBand = result.levelBand && result.levelBand.label;
+    if (headBand) {
+      var headFrom = headBand === 'No Value Narrative' ? 'Value Without a Narrative' : headBand;
+      document.getElementById('resultsHeadline').textContent = 'From ' + headFrom + ' to Value as a System.';
+    }
 
     setRing(document.getElementById('ringYou'), result.overallYour);
     setRing(document.getElementById('ringPeer'), result.overallPeerLeaders);
@@ -848,7 +856,20 @@
   // ---------------------------------------------------------------------
 
   var modalOpenedAt = Date.now();
-  function openModal() { modalOpenedAt = Date.now(); document.getElementById('modalScrim').classList.add('open'); }
+  // Pre-fill Company from the Profile page (Ben, 2026-09-23). Editable: a value
+  // the visitor typed themselves is never overwritten; a value we pre-filled is
+  // refreshed if the Profile company has changed since.
+  function prefillModalCompany() {
+    var el = document.getElementById('mcompany');
+    if (!el) return;
+    var profileCompany = ((state.profile && state.profile.company) || '').trim();
+    var current = el.value.trim();
+    if (!current || current === (el.getAttribute('data-prefilled') || '')) {
+      el.value = profileCompany;
+      el.setAttribute('data-prefilled', profileCompany);
+    }
+  }
+  function openModal() { modalOpenedAt = Date.now(); prefillModalCompany(); document.getElementById('modalScrim').classList.add('open'); }
   function closeModal() { document.getElementById('modalScrim').classList.remove('open'); }
   function openRestartModal() { document.getElementById('restartScrim').classList.add('open'); }
   function closeRestartModal() { document.getElementById('restartScrim').classList.remove('open'); }

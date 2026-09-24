@@ -158,8 +158,11 @@
   <div class="app-band">
     <div class="band-inner">
       <header class="page-header">
-        <h1 class="h1">You have a number. Top performers have a system.</h1>
-        <p class="lede" id="resultsLede"></p>
+        <!-- Headline and lede mirror report slide "where you stand"
+             (output_report/08-where-you-stand.tmpl.html) -- Ben, 2026-09-23.
+             The headline is filled in by app.js renderResults(). -->
+        <h1 class="h1" id="resultsHeadline">From your level to Value as a System.</h1>
+        <p class="lede" id="resultsLede">This is what your maturity level looks like in practice, and how far peer leaders have taken theirs.</p>
       </header>
 
       <div class="your-score-card">
@@ -235,8 +238,9 @@
     </div>
 
     <header class="page-header moves-header">
-      <h2 class="h1" style="color:var(--ink);">Build your system.</h2>
-      <p class="lede" style="color:var(--ink-soft);">Building a system starts with momentum, not perfection. The three capabilities below are your fastest path to real business outcomes &ndash; not just a higher maturity score, but measurable gains in the results that matter to your GTM motion &ndash; each paired with the moves organizations typically take to advance to the next maturity level. Two to three moves per capability, per quarter, is enough to start compounding real progress.</p>
+      <!-- Mirrors report slide "Build your system" (output_report/09-next-moves.tmpl.html) -- Ben, 2026-09-23. -->
+      <h2 class="h1" style="color:var(--ink);">Build your system</h2>
+      <p class="lede" style="color:var(--ink-soft);">These are the three capabilities where you trail peers most. The bullets below are the moves teams typically make to advance from your current maturity level to the next. Plan on two or three per capability per quarter &ndash; that's the pace at which value-led growth compounds across a GTM organization.</p>
     </header>
     <div class="moves-cards" id="movesCards"></div>
 
