@@ -573,3 +573,17 @@ Ben ran DEPLOY_RUNBOOK.md Phases 0-3 from his own machine. VlgSite live at https
 ### 2026-09-23 23:00 EDT -- Session 18 (cont.): Results page + report form fixes
 
 Three app fixes, proposed and approved before building: Results headline/lede now mirror report slide "where you stand" (dynamic band headline, same 'No Value Narrative' special case as the template; the buildSubhead() narrative no longer shows on Results -- same call Ben made for the report in Session 17); "Build your system" headline/subhead mirror report slide 09-next-moves; the report form's Company pre-fills from the Profile (data-prefilled marker so a visitor's own edit is never clobbered). Verified in Playwright against mock endpoints, no page errors; deployed (VlgSite). Flagged: the top band produces "From Value as a System to Value as a System." in both the site and the report -- awaiting Ben's wording.
+
+### 2026-09-24 10:45 EDT -- Session 19: whitepaper link on Profile page and report slide 16
+
+**Request (Ben):** add "Learn more about the Value-Led Growth Maturity Model" linking to https://geniusdrive.com/wp-content/uploads/2026/06/170626-Growth-Maturity-Model-GD-VGMM-WP045-1.pdf on the Profile page and on the last slide of the report.
+
+**Checked first:** local static-site/index.html, app.js and styles.css are byte-identical (SHA-256) to the live CloudFront files, so the edit starts from what is deployed. The whitepaper URL opens the real PDF ("The Value-Led Growth Maturity Model") in Chrome.
+
+**Mockups before building (per the confirm-first rule):** rendered from scratch copies with the real fonts. Profile: link inside the Did-you-know callout under the Forrester source line (desktop + 390px phone). Slide 16: first placed directly under "Ready to start?"; Ben asked for it lower to use the empty space at the bottom, so it moved to its own row below the CTA row (margin-top 44px). Ben approved both, with the trailing arrow.
+
+**Built:** static-site/index.html (one `<a class="dyk-link">`, target=_blank rel=noopener), static-site/styles.css (.dyk-link + hover), output_report/16-in-their-words.tmpl.html (`.wp-link-wrap` > `a.wp-link` after `.cta-row`, docstring TWEAK note), output_report/base.css (.wp-link-wrap/.wp-link). The report link sits inside a plain block div, not as a direct flex item, per the page's documented WeasyPrint 70 flex-item link bug.
+
+**Verified:** full 16-page render_preview.py run from the real files; slide 16 PNG is pixel-identical to the approved mockup; pypdf shows page 16's annotations as + MORE, Calendly (x2) and the whitepaper URL. Profile page screenshots (desktop + phone) from the real files are pixel-identical to the approved mockups.
+
+**Not done (Ben's call):** no deploy -- VlgSite and VlgMail redeploys held until the first round of feedback arrives later today (PROJECT_STATE O-20). Ben commits and pushes.

@@ -98,7 +98,15 @@
    unaffected; verified by re-rendering and checking the PDF's own
    annotation list (pypdf), not just the visual screenshot -- a
    visually-correct link that silently isn't clickable would not show
-   up in a rendered PNG at all. #}
+   up in a rendered PNG at all.
+
+   TWEAK, Ben 2026-09-24: added a "Learn more about the Value-Led Growth
+   Maturity Model" link to the Genius Drive whitepaper PDF, on its own
+   row below the CTA row (first tried directly under "Ready to start?";
+   Ben asked for it lower to use the empty space at the bottom of the
+   page). Same link also added to the app's Profile page Did-you-know
+   callout. Wrapped in a plain .wp-link-wrap div per the flex-item quirk
+   above; verified clickable via pypdf. #}
 <link rel="stylesheet" href="base.css">
 {%- set TRUSTED_LOGOS = [
   "logo_trustedby_1.png", "logo_trustedby_2.png", "logo_trustedby_3.png",
@@ -135,6 +143,8 @@
     <div class="cta-lede">Ready to start?</div>
     <div class="cta-btn-wrap"><a class="cta-btn" href="https://calendly.com/tpisello-gd/one-on-one">Schedule a consultation &rarr;</a></div>
   </div>
+
+  <div class="wp-link-wrap"><a class="wp-link" href="https://geniusdrive.com/wp-content/uploads/2026/06/170626-Growth-Maturity-Model-GD-VGMM-WP045-1.pdf">Learn more about the Value-Led Growth Maturity Model &rarr;</a></div>
 
   <img class="logo" src="assets/img/gd_logo.png" style="position:absolute; left:64px; bottom:28px; width:117px;">
   <div class="copyright" style="left:auto; right:0; width:1280px; text-align:center;">&copy; 2026 Genius Drive. All rights reserved.</div>

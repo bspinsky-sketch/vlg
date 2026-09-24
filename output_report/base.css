@@ -664,6 +664,14 @@ body{font-family:var(--font-ui);color:var(--ink);}
   gap:8px; background:#1D3C5E; color:#fff; font-family:var(--font-display); font-weight:700;
   font-size:17px; border-radius:999px; padding:16px 32px; text-decoration:none; }
 
+/* Whitepaper link (Ben 2026-09-24): its own row under the CTA row, left-
+   aligned with "Ready to start?". The <a> sits inside a plain block div,
+   never as a direct flex item (WeasyPrint 70 drops link annotations on
+   flex-item <a> tags -- see 16-in-their-words docstring). */
+.testimonial .wp-link-wrap{ margin-top:44px; }
+.testimonial .wp-link{ font-family:var(--font-display); font-weight:600; font-size:15px;
+  color:#1D3C5E; text-decoration:underline; text-underline-offset:3px; }
+
 /* ---- Outcomes / roadmap grid (10-outcomes-a/11-outcomes-b/
    12-outcomes-c/13-outcomes-d) -- ports pptx slides 10-15's 4-column
    capability roadmap grid (Files/VLG 2.3.pptx), split 4->2 columns per
