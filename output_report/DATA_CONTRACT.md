@@ -1470,3 +1470,16 @@ this session -- see that section's "Known gap"), and there has been no
 real AWS deploy or live end-to-end test, since no AWS credentials are
 available here. report-config.js's `apiUrl` stays blank (integration
 off) until Ben deploys and fills it in.
+
+---
+
+## Deployment update (Session 18, 2026-09-23) -- supersedes "Deploy" above
+
+The report is now EMAILED, not downloaded (Ben's decision). The deploy commands in the "Deploy (Ben, not yet done...)" section above, and `lambda_handler.py` / this folder's `Dockerfile`, are superseded and were never deployed. The live path is:
+
+- `mailer/handler.py` -- the Lambda handler. Its `document()` calls this folder's `report_context.build_context()` and `generate_report.render_report()` unchanged, so the payload contract above still holds (`profile`/`toggles`/`ratings` as app.js holds them), plus `token`, `email`, `firstName`, `lastName`, `company`, `responseId`.
+- `mailer/Dockerfile` -- builds from the project root and copies this whole folder flat into LAMBDA_TASK_ROOT, and static-site/data.json to /var/static-site/data.json (same layout the old Dockerfile used).
+- `infra/lib/mail-stack.ts` (stack `VlgMail`) -- container Lambda on a public function URL, SES send.
+- Step-by-step: `DEPLOY_RUNBOOK.md` at the project root.
+
+Any change to this folder's templates/CSS/assets reaches sent reports only after `npx cdk deploy VlgMail` (Docker Desktop running) -- the folder is baked into the image.

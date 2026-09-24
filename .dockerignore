@@ -1,0 +1,16 @@
+# Scopes the VlgMail Docker build context (the project root -- see
+# infra/lib/mail-stack.ts) to exactly what mailer/Dockerfile COPYs.
+# Without this, CDK's asset staging and the docker build walk the whole
+# project -- Files/, app/, .git, infra/node_modules, Claude outputs/ --
+# which stalled a K1x deploy for minutes (K1x commit 1888a1c).
+*
+!mailer/Dockerfile
+!mailer/handler.py
+!mailer/requirements.txt
+!mailer/smoke_test.py
+!output_report
+!static-site/data.json
+output_report/__pycache__
+output_report/**/*.pyc
+output_report/Dockerfile
+output_report/*.pdf

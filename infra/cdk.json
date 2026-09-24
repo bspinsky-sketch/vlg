@@ -1,0 +1,34 @@
+{
+  "app": "npx tsx bin/app.ts",
+  "context": {
+    "//bootstrapQualifier": "Deploys through the scoped tool0001 bootstrap. Ben's ToolKitDeveloper policy explicitly denies the default cdk-hnb659fds-* roles, so without this line the first deploy fails with an AssumeRole error that looks like a credentials problem. Do not change or remove.",
+    "@aws-cdk/core:bootstrapQualifier": "tool0001",
+    "@aws-cdk/aws-iam:minimizePolicies": true,
+    "@aws-cdk/core:checkSecretUsage": true,
+    "@aws-cdk/aws-s3:serverAccessLogsUseBucketPolicy": true,
+    "@aws-cdk/core:enablePartitionLiterals": true,
+
+    "//": "----- VLG settings. Nothing below is a secret. See DEPLOY_RUNBOOK.md -----",
+
+    "//domain": "The subdomain VlgSite answers to. Empty = serve on the *.cloudfront.net name only. Goes together with certArn.",
+    "domain": "vlg.geniusdrive.com",
+
+    "//certArn": "The shared *.geniusdrive.com wildcard certificate (us-east-1), already issued, valid to 16 Mar 2027. Do not request a new one.",
+    "certArn": "arn:aws:acm:us-east-1:019163347448:certificate/ae2a02bb-d1f3-48ed-ab5f-28b27781e590",
+
+    "//mailDomain": "The already-verified SES domain. VlgMail REFERENCES it and must never declare it: the identity belongs to the live SmomaMail stack (same pattern as K1x PmtcMail).",
+    "mailDomain": "geniusdrive.com",
+
+    "//sender": "From address. Needs no mailbox; SES verifies the domain, not the mailbox.",
+    "sender": "reports@geniusdrive.com",
+
+    "//replyTo": "Where a reply to the report goes. Must be a real mailbox. Keep it on Ben until go-live, then repoint and redeploy VlgMail.",
+    "replyTo": "bpinsky@geniusdrive.com",
+
+    "//notify": "Where bounce/complaint/reject alerts go. AWS sends a confirmation email on first deploy that must be clicked (check spam).",
+    "notify": "bpinsky@geniusdrive.com",
+
+    "//bcc": "Blind copy on every report, comma-separated. Empty = nobody.",
+    "bcc": ""
+  }
+}

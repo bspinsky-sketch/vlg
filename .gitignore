@@ -36,3 +36,11 @@ Thumbs.db
 _to_delete/
 preview_output/
 tmp_view/
+
+# Tristen's GD_TOOLS handoff kit -- external reference material (its own
+# source of truth lives in the geniusdrive/tools repo). infra/ and capture/
+# carry the adapted copies this project actually uses.
+GD_TOOLS_lessons_for_Ben/
+
+# Manual test payload for the report mailer (DEPLOY_RUNBOOK troubleshooting)
+mailer/test_request.json

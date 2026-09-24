@@ -1,24 +1,24 @@
 /**
- * VLG -> real report-generation endpoint (browser-only fetch, no secret
- * key -- same posture as hubspot.js's own public Forms API call, since
- * this also runs entirely client-side with no server in between).
+ * VLG -> report mailer (VlgMail). Fire-and-forget, by design.
  *
- * POSTs { profile, toggles, ratings } -- exactly the three pieces of
- * state app.js already holds in `state`, the same shape
- * CALC.runCalculation(DATA, toggles, ratings, profile) takes -- to
- * report-config.js's apiUrl. The Lambda handler (output_report/
- * lambda_handler.py) runs that same calculation server-side (a fresh
- * Python port, see vlg_calc.py) purely to build the PDF; it does not
- * replace or duplicate the browser's own CALC.runCalculation() call,
- * which still drives the Results page and the HubSpot submission the
- * same way it always has.
+ * The page confirms "Report on its way" and never waits on or reads this
+ * request -- a mail outage must never become the prospect's problem. The
+ * function renders the PDF and emails it; any failure lands in CloudWatch
+ * (/aws/lambda/vlg-report-mailer), and the lead is captured separately
+ * (capture.js -> Google Sheet, hubspot.js -> HubSpot), so a report that did
+ * not send can be sent by hand.
  *
- * Exposes window.VLG_REPORT_CLIENT = { isEnabled, generate }.
- * generate() resolves with a Blob (the PDF, content-type application/
- * pdf) on success. It rejects with an Error whose .kind is 'config'
- * (4xx -- a genuinely bad payload, e.g. no pillars selected),
- * 'server' (5xx -- rendering failed on the Lambda side), or 'network'
- * (fetch itself failed -- endpoint unreachable, CORS, offline, etc).
+ * The request shape follows the live SMOMA tool (PMTC handoff/README.md,
+ * Part 3), and each property matters:
+ *   - Content-Type text/plain: application/json would trigger a CORS
+ *     preflight that a function URL with no CORS config does not answer, and
+ *     the POST would never be made. The function parses the body itself.
+ *   - mode 'no-cors': the response is not needed, so no CORS config is
+ *     needed either.
+ *   - keepalive: this can be the last thing that happens before the tab
+ *     closes; without it the browser may cancel the request on unload.
+ *
+ * Exposes window.VLG_REPORT_CLIENT = { isEnabled, send }.
  */
 (function () {
   'use strict';
@@ -30,38 +30,38 @@
   }
 
   /**
-   * profile: state.profile   toggles: state.toggles   ratings: state.ratings
-   * Returns a Promise<Blob> (application/pdf) or a rejected Promise<Error>.
+   * contact: { firstName, lastName, company, email }
+   * profile/toggles/ratings: app.js state.profile / state.toggles / state.ratings
+   * responseId: capture.js's current turn id (ties the email to the Sheet row)
+   * Never throws, never returns anything worth awaiting.
    */
-  function generate(profile, toggles, ratings) {
-    if (!isEnabled()) {
-      var disabledErr = new Error('Report generation is not configured yet.');
-      disabledErr.kind = 'config';
-      return Promise.reject(disabledErr);
-    }
-
-    return fetch(CFG.apiUrl, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ profile: profile, toggles: toggles, ratings: ratings })
-    }).then(function (res) {
-      if (res.ok) return res.blob();
-      // lambda_handler.py's error responses are JSON ({"error": "..."}),
-      // not a PDF -- surface that message when present rather than just
-      // the bare status code.
-      return res.json().catch(function () { return {}; }).then(function (data) {
-        var err = new Error((data && data.error) || ('Report endpoint returned ' + res.status));
-        err.kind = (res.status >= 500) ? 'server' : 'config';
-        err.status = res.status;
-        err.detail = data;
-        throw err;
+  function send(contact, profile, toggles, ratings, responseId) {
+    if (!isEnabled()) return;
+    var body = {
+      token: CFG.token || '',
+      responseId: responseId || '',
+      email: contact.email,
+      firstName: contact.firstName,
+      lastName: contact.lastName,
+      company: contact.company,
+      profile: profile,
+      toggles: toggles,
+      ratings: ratings
+    };
+    try {
+      fetch(String(CFG.apiUrl).trim(), {
+        method: 'POST',
+        mode: 'no-cors',
+        keepalive: true,
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(body)
+      }).catch(function (err) {
+        if (window.console) console.error('[VLG] Report request failed', err && err.message);
       });
-    }, function (netErr) {
-      var err = new Error('Network error: ' + (netErr && netErr.message));
-      err.kind = 'network';
-      throw err;
-    });
+    } catch (err) {
+      if (window.console) console.error('[VLG] Report request failed', err && err.message);
+    }
   }
 
-  window.VLG_REPORT_CLIENT = { isEnabled: isEnabled, generate: generate };
+  window.VLG_REPORT_CLIENT = { isEnabled: isEnabled, send: send };
 })();

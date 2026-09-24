@@ -1,0 +1,22 @@
+{
+  "name": "vlg-infra",
+  "version": "1.0.0",
+  "private": true,
+  "description": "VLG Assessment hosting (VlgSite: S3 behind CloudFront at vlg.geniusdrive.com) and report email (VlgMail: WeasyPrint PDF on a Lambda function URL, sent via SES).",
+  "scripts": {
+    "cdk": "cdk",
+    "synth": "cdk synth",
+    "diff": "cdk diff",
+    "deploy": "cdk deploy"
+  },
+  "devDependencies": {
+    "aws-cdk": "2.1027.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "@types/node": "^22.10.2"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "2.219.0",
+    "constructs": "^10.4.2"
+  }
+}

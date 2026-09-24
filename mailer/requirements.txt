@@ -1,0 +1,21 @@
+# The report pipeline's two direct dependencies are pinned to the versions it
+# was built and verified against (output_report/requirements.txt). Everything
+# below them is the exact set pip resolved for those two on 2026-09-23, when a
+# real 15-page report was rendered with it -- pinned so a later rebuild cannot
+# silently pick up a newer pydyf/tinycss2/etc. that renders differently.
+# boto3 is not listed: the AWS Lambda Python base image ships it.
+Jinja2==3.0.3
+WeasyPrint==70.0
+brotli==1.2.0
+cffi==2.1.1
+cssselect2==0.10.1
+fonttools==4.65.0
+MarkupSafe==3.0.3
+pillow==12.3.0
+pycparser==3.0
+pydyf==0.12.1
+pyphen==0.18.1
+tinycss2==1.5.1
+tinyhtml5==2.1.0
+webencodings==0.6.1
+zopfli==0.4.3

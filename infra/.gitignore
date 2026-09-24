@@ -1,0 +1,5 @@
+# Reinstalled by `npm install` (on Windows -- never copy node_modules between machines)
+node_modules/
+# CDK synth/deploy output and the site staging copy, regenerated every deploy
+cdk.out/
+.staging/

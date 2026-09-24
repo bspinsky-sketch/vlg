@@ -839,3 +839,16 @@ python3 -c "import ast; ast.parse(open('file.py').read()); print('OK')"  # For P
 **Root cause:** The session-start protocol (read CLAUDE.md, PROJECT_STATE.md, STANDING_RULES.md, CLAUDE_problems.md before any substantive work) was only partly followed. README_first.md, PROJECT_STATE.md and PLATFORM.md were read; STANDING_RULES.md was not read until just before the build step.
 **Fix:** Rules re-read before any file write; all file writes this session used bash heredoc/sed per STANDING_RULES; no further pickers used.
 **Prevention:** Read STANDING_RULES.md as part of the very first exploration step of any session in this project, before asking Ben anything, even for tasks that start as "walk me through" conversations rather than builds.
+
+## P040 [GENERAL] -- sed replacement text containing `&` inserted the matched line instead of a literal ampersand (Session 18)
+
+**What happened:** Editing mailer/Dockerfile with `sed -i 's|<whole RUN line>|<new text with && and ||>|'`. In a sed replacement, an unescaped `&` means "the whole match", so every `&&` became two copies of the original line and the Dockerfile's RUN instruction was mangled. Caught immediately by printing the lines back after the edit, before any build or commit.
+**Fix:** Deleted the affected lines by number and inserted the correct block from a heredoc temp file with `sed -i '<n>r /tmp/file'` -- no replacement-string escaping involved.
+**Rule:** For any multi-line or shell-syntax replacement (anything containing `&`, `\`, `|` or newlines), do not use `s///` -- write the new block to a temp file with a quoted heredoc and splice it in with `sed '<n>d'` + `sed '<n>r file'`. Always print the edited region back immediately (the Write/Edit-truncation rule's `tail` check, applied to sed too).
+
+## P041 [AWS] -- reservedConcurrentExecutions copied from the PMTC handoff kit failed the first VlgMail deploy (Session 18, 2026-09-23 21:44 EDT)
+
+**What happened:** First `npx cdk deploy VlgMail` (Ben's machine; the Docker image built and deployed fine) rolled back at the Lambda: "Specified ReservedConcurrentExecutions for function decreases account's UnreservedConcurrentExecution below its minimum value of [10]." Account 019163347448's total Lambda concurrency quota is low (evidently well under the 1000 default -- a new-account limit), so reserving even 5 is refused. Nothing else in the stack was at fault; the rollback deleted everything cleanly.
+**Root cause of the miss:** Copied `reservedConcurrentExecutions: 5` from handoff/infra/lib/mail-stack.ts (the kit's default) without checking it against K1x's live PmtcMail, which -- in the same account -- sets none. An account quota is invisible to synth; only the real service enforces it (same family as K1x P044/P045/P052).
+**Fix:** Removed the setting from infra/lib/mail-stack.ts (comment left in place explaining why). Re-synthesized clean.
+**Rule:** When two sibling sources disagree on a setting, prefer the one that is LIVE in the same account (PmtcMail) over the generic kit. Account-level quotas (concurrency, memory above 3008MB) are shared across every tool here; never reserve concurrency in this account without asking first.
