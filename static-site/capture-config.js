@@ -10,6 +10,6 @@
  *   into Apps Script, deploy it as a New version, then redeploy VlgSite.
  */
 window.VLG_CAPTURE = {
-  endpoint: '',
+  endpoint: 'https://script.google.com/macros/s/AKfycbwUmBBv5LZ7Xxc-EC9Q_tDrUwOsCalPC3b3MLyi9Xy9RZq_-J-EnRriComuHIejrs9a/exec',
   token: 's2k6UvKPXdnXICBammXhHhm0bncF6n_P'
 };

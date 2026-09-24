@@ -44,3 +44,5 @@ GD_TOOLS_lessons_for_Ben/
 
 # Manual test payload for the report mailer (DEPLOY_RUNBOOK troubleshooting)
 mailer/test_request.json
+# Capture health-check payload (DEPLOY_RUNBOOK Phase 2)
+capture/test_check.json

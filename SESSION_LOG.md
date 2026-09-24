@@ -563,3 +563,9 @@ Ben confirmed the root cause is mangled text in the source workbook itself, not 
 **Superseded, left in place:** output_report/lambda_handler.py, output_report/Dockerfile (download design, never deployed). DEPLOY_HANDOFF.md's deploy commands are superseded by DEPLOY_RUNBOOK.md.
 
 **Next:** Ben follows DEPLOY_RUNBOOK.md Phase 0-1 and sends the DistributionDomainName; then Phase 2 (sheet URL) and Phase 3 (MailEndpoint); Claude fills the two config URLs and logs every deploy/push timestamp in PROJECT_STATE.md's registry.
+
+### 2026-09-23 22:36 EDT -- Session 18 (cont.): deployed and verified live
+
+Ben ran DEPLOY_RUNBOOK.md Phases 0-3 from his own machine. VlgSite live at https://d3i3rw206rzk09.cloudfront.net/ (vlg.geniusdrive.com pending the GoDaddy CNAME -- Ben has no GoDaddy credentials; none exist in any project doc; Tristen added K1x's records). VlgMail: Docker image built and smoke-tested locally; first deploy rolled back on reservedConcurrentExecutions (P041, setting removed); second deploy succeeded. First site test sent nothing because the post-VlgMail site redeploy had not taken effect (live report-config.js still blank) -- redeployed, verified with curl, then the report arrived (CloudWatch: 15 pages, 9.5s + 8.1s cold start, 207MB). Apps Script capture deployed; SMOMA health checks passed (added:true then added:false on row 2). Final redeploy switched capture on; Ben verified the full path (Leads row on Results, same row gains contact details, report email received). Pushed af9ab2a mid-way; the capture endpoint, P041 fix follow-ups and these logs are uncommitted. Also: a WSL hang during the Docker step needed a Windows restart (the Cowork VM's /tmp was wiped by it).
+
+**Open for go-live:** GoDaddy CNAME + Appendix checks; phone/cellular test to a non-geniusdrive address; SNS bounce-alert confirmation (email not found in Gmail yet); O-16 replyTo decision; O-13 HubSpot still pending the admin.
