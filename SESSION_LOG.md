@@ -587,3 +587,17 @@ Three app fixes, proposed and approved before building: Results headline/lede no
 **Verified:** full 16-page render_preview.py run from the real files; slide 16 PNG is pixel-identical to the approved mockup; pypdf shows page 16's annotations as + MORE, Calendly (x2) and the whitepaper URL. Profile page screenshots (desktop + phone) from the real files are pixel-identical to the approved mockups.
 
 **Not done (Ben's call):** no deploy -- VlgSite and VlgMail redeploys held until the first round of feedback arrives later today (PROJECT_STATE O-20). Ben commits and pushes.
+
+### 2026-09-25 16:39 EDT -- Session 19 (cont.): Results page report-teaser copy
+
+**Request (Ben):** the copy above the Results page stat tiles (48% win rate / 35% deal size / 25% sales cycle) was disconnected from the stats; rework it to strengthen the Get My Report CTA by tying it to the stats.
+
+**Round 1 (previews only):** three options rendered from a scratch copy of the site with real fonts and a seeded Results state (desktop + phone). Ben picked the direction of option C (headline restating the stats, bridging copy near the CTA) but asked to (1) keep the text under the headline, (2) replace the headline, which read as AI-written, (3) drop "a clear next step whenever you're ready to talk it through", and to match the voice of https://geniusdrive.com/insights/.
+
+**Voice research:** read "The Value Gap Is Now the Growth Gap" and "Promised Value = Proven Value" in full (via Chrome; both sandboxes are blocked from geniusdrive.com). Voice: blunt, declarative, practitioner vocabulary (baseline, win rate, cycle time, "prove value in the buyer's terms"), no slogan headlines, plain CTAs ("Let's discuss ...").
+
+**Round 2:** three more options; Ben chose option 2. Built: static-site/index.html lines 249-250 only (h2 + lede text). Wording avoids implying the report itself produces the figures, since the footnote says they are Genius Drive engagement results.
+
+**Verified:** Results section rendered from the real file is pixel-identical (desktop + phone) to the approved preview. No other file references the old copy.
+
+**Not done (Ben's call):** no deploy (PROJECT_STATE O-21, held with O-20). Ben commits and pushes.
