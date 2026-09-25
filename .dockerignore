@@ -14,3 +14,4 @@ output_report/__pycache__
 output_report/**/*.pyc
 output_report/Dockerfile
 output_report/*.pdf
+output_report/preview_output
