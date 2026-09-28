@@ -1,0 +1,80 @@
+<!-- VLG schema.org structured data (JSON-LD) -- DRAFT (2026-09-28), NOT YET LIVE.
+     Goes into the <head> of static-site/index.html with feedback round 1 (PROJECT_STATE.md O-24).
+     Wording aligned with the approved share tags (marketing/og-tags-snippet.html): "top 10%", no "122".
+     Logo = the same file geniusdrive.com's Yoast graph uses. Organization @id matches geniusdrive.com's
+     own (https://geniusdrive.com/#organization, confirmed from its <head> 2026-09-28). -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://vlg.geniusdrive.com/#app",
+      "name": "Value-Led Growth Assessment",
+      "alternateName": ["VLG Assessment", "Value-Led Growth Maturity Assessment"],
+      "url": "https://vlg.geniusdrive.com/",
+      "description": "Free maturity assessment for B2B go-to-market teams. Score how well your organization communicates, quantifies and activates value across eight capabilities, benchmark against the top 10%, and get prioritized next moves plus a personalized PDF report.",
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "Value selling and go-to-market maturity assessment",
+      "operatingSystem": "Any (web browser)",
+      "inLanguage": "en",
+      "isAccessibleForFree": true,
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": "B2B go-to-market leaders: sales, marketing, customer success, revenue operations, sales enablement and value engineering"
+      },
+      "featureList": [
+        "Assess up to three pillars: Value Communication, Value Quantification and Value Activation",
+        "Rate eight capabilities per pillar, from Strategy & Governance to Intelligence & Optimization, on a six-level maturity scale from Reacting to Orchestrating",
+        "Benchmark your maturity score against the top 10% of B2B organizations",
+        "See your strongest capabilities and biggest gaps",
+        "Get the three highest-impact next moves for your team",
+        "Receive a personalized PDF report with a roadmap for every capability, by email"
+      ],
+      "about": [
+        { "@type": "Thing", "name": "Value selling" },
+        { "@type": "Thing", "name": "Business value quantification" },
+        { "@type": "Thing", "name": "Customer value realization" },
+        { "@id": "https://vlg.geniusdrive.com/#model" }
+      ],
+      "keywords": "value selling, value-based selling, value-led growth, value engineering, business case, ROI, value realization, customer success, go-to-market maturity, sales maturity assessment, B2B",
+      "isBasedOn": { "@id": "https://vlg.geniusdrive.com/#whitepaper" },
+      "creator": { "@id": "https://geniusdrive.com/#organization" },
+      "publisher": { "@id": "https://geniusdrive.com/#organization" }
+    },
+    {
+      "@type": "DefinedTermSet",
+      "@id": "https://vlg.geniusdrive.com/#model",
+      "name": "Value-Led Growth Maturity Model",
+      "description": "Genius Drive's six-level framework for how B2B organizations communicate, quantify and activate value across the customer lifecycle.",
+      "hasDefinedTerm": [
+        { "@type": "DefinedTerm", "name": "Value Communication", "description": "Telling a customer value story instead of pitching features, across marketing and sales conversations." },
+        { "@type": "DefinedTerm", "name": "Value Quantification", "description": "Proving the value delivered with business cases, ROI and measurable outcomes." },
+        { "@type": "DefinedTerm", "name": "Value Activation", "description": "Embedding value in how teams are enabled, and how customers adopt, realize, renew and expand." }
+      ]
+    },
+    {
+      "@type": "Report",
+      "@id": "https://vlg.geniusdrive.com/#whitepaper",
+      "name": "The Value-Led Growth Maturity Model: A Framework for Winning in the Outcome Economy",
+      "url": "https://geniusdrive.com/wp-content/uploads/2026/06/170626-Growth-Maturity-Model-GD-VGMM-WP045-1.pdf",
+      "author": { "@id": "https://geniusdrive.com/#organization" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://geniusdrive.com/#organization",
+      "name": "Genius Drive",
+      "url": "https://geniusdrive.com",
+      "description": "Genius Drive empowers B2B solution providers to better communicate, quantify and activate value across the entire customer lifecycle.",
+      "logo": "https://geniusdrive.com/wp-content/uploads/2024/07/Genius-Drive-Logo-with-Tag-Charcoal-Blue-Gray-1.png",
+      "sameAs": [
+        "https://www.linkedin.com/company/genius-drive/",
+        "https://www.youtube.com/@BusinessValueCollective",
+        "https://twitter.com/thegeniusdrive",
+        "https://www.instagram.com/thegeniusdrive/"
+      ]
+    }
+  ]
+}
+</script>

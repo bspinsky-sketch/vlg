@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<!-- VLG social share image (Open Graph / LinkedIn / X), 1200x630.
+     Source for the current share image (og-image-v2.png; v1 kept for comparison). Lives in marketing/; asset paths are relative to the project root. Render: open in Chromium at a 1200x630 viewport and screenshot #card (Claude does this with Playwright). Bump the file name (-v3, ...) on every change: LinkedIn caches previews for about a week.
+     Uses the site's own fonts, colours and maturity-curve component. Markers are
+     illustrative (no real scores). -->
+<style>
+@font-face{font-family:'Montserrat';font-weight:600;src:url('../output_report/assets/fonts/Montserrat/static/Montserrat-SemiBold.ttf');}
+@font-face{font-family:'Montserrat';font-weight:700;src:url('../output_report/assets/fonts/Montserrat/static/Montserrat-Bold.ttf');}
+@font-face{font-family:'Montserrat';font-weight:800;src:url('../output_report/assets/fonts/Montserrat/static/Montserrat-ExtraBold.ttf');}
+@font-face{font-family:'Open Sans';font-weight:400;src:url('../output_report/assets/fonts/Open_Sans/static/OpenSans-Regular.ttf');}
+@font-face{font-family:'Open Sans';font-weight:600;src:url('../output_report/assets/fonts/Open_Sans/static/OpenSans-SemiBold.ttf');}
+@font-face{font-family:'Prompt';font-weight:600;src:url('../output_report/assets/fonts/Prompt/Prompt-SemiBold.ttf');}
+@font-face{font-family:'Prompt';font-weight:700;src:url('../output_report/assets/fonts/Prompt/Prompt-Bold.ttf');}
+:root{--gd-ink-blue:#0E4570;--accent-light:#8AC3B6;--teal:#18876D;--charcoal:#3F3F41;--font-mono:'Prompt',sans-serif;}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{width:1200px;height:630px;overflow:hidden;background:#0E4570;}
+#card{position:relative;width:1200px;height:630px;overflow:hidden;
+  background:linear-gradient(135deg,#0A2F4D 0%,#0E4570 42%,#0C4A48 100%);font-family:'Open Sans',sans-serif;color:#fff;}
+.main{position:absolute;left:0;top:0;right:0;height:500px;display:flex;align-items:center;padding:0 60px 0 72px;gap:36px;}
+.copy{flex:0 0 555px;display:flex;flex-direction:column;}
+.eyebrow{font-family:'Prompt';font-weight:700;font-size:20px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-light);margin-bottom:22px;}
+h1{font-family:'Montserrat';font-weight:800;font-size:64px;line-height:1.06;letter-spacing:-.015em;margin-bottom:28px;}
+.pillars{font-family:'Montserrat';font-weight:700;font-size:25px;color:#fff;opacity:.92;display:flex;gap:14px;align-items:center;}
+.pillars .dot{width:7px;height:7px;border-radius:50%;background:var(--accent-light);display:inline-block;}
+.chart{flex:1;display:flex;flex-direction:column;justify-content:center;}
+.chart-frame{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:28px 24px 24px;}
+.chart-title{font-family:'Prompt';font-weight:600;font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.72);margin:0 0 6px 6px;}
+/* curve styles: copied from static-site/styles.css, sized up for thumbnail legibility */
+.curve-svg{display:block;width:100%;height:auto;overflow:visible;--curve-stroke:6px;--curve-dot:13px;}
+.curve-axis{stroke:rgba(255,255,255,.28);stroke-width:1;}
+.curve-line{stroke:#A9B7C0;stroke-width:var(--curve-stroke,4px);stroke-linecap:round;fill:none;}
+.curve-tick line{stroke:rgba(255,255,255,.28);stroke-width:1;}
+.curve-tick-name,.curve-tick-n{display:none;}
+.curve-mark circle{stroke-width:var(--curve-stroke,4px);r:var(--curve-dot,7px);}
+.curve-mark[data-mark="now"] circle{fill:var(--accent-light);stroke:var(--gd-ink-blue);}
+.curve-mark[data-mark="target"] circle{fill:var(--gd-ink-blue);stroke:#E8A23A;}
+.curve-mark[data-mark="peer"] circle{fill:#0088E6;stroke:var(--gd-ink-blue);r:calc(var(--curve-dot,7px) * .85);}
+.curve-mark text,.curve-leader{display:none;}
+.key{display:flex;justify-content:center;gap:18px;margin-top:20px;font-family:'Prompt';font-weight:600;font-size:17px;color:rgba(255,255,255,.88);}
+.key span{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;}
+.key i{width:14px;height:14px;border-radius:50%;display:inline-block;}
+.k-now{background:var(--accent-light);} .k-target{background:var(--gd-ink-blue);border:3px solid #E8A23A;} .k-peer{background:#0088E6;}
+#curveKey{display:none;}
+.foot{position:absolute;left:0;right:0;bottom:0;height:130px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 64px 0 72px;}
+.foot img{height:62px;}
+.foot .right{text-align:right;}
+.foot .offer{font-family:'Montserrat';font-weight:700;font-size:23px;color:var(--gd-ink-blue);}
+.foot .url{font-family:'Prompt';font-weight:600;font-size:19px;letter-spacing:.04em;color:var(--teal);margin-top:4px;}
+</style></head>
+<body>
+<div id="card">
+  <div class="main">
+    <div class="copy">
+      <div class="eyebrow">Value-Led Growth Assessment</div>
+      <h1>Does your team sell value, or pitch features?</h1>
+      <div class="pillars">Communicate it <span class="dot"></span> Prove it <span class="dot"></span> Deliver it</div>
+    </div>
+    <div class="chart">
+      <div class="chart-frame">
+        <div class="chart-title">Your maturity, benchmarked</div>
+        <svg class="curve-svg" id="curveSvg"></svg>
+        <div id="curveKey"></div>
+        <div class="key"><span><i class="k-now"></i>Your Score</span><span><i class="k-target"></i>Recommended</span><span><i class="k-peer"></i>Top Decile</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot">
+    <img src="../output_report/assets/img/gd_logo.png" alt="Genius Drive">
+    <div class="right">
+      <div class="offer">Compare to the top 10% &middot; Get your free roadmap</div>
+      <div class="url">vlg.geniusdrive.com</div>
+    </div>
+  </div>
+</div>
+<script src="../static-site/components/maturity-curve.js"></script>
+<script>
+window.VLG_MATURITY_CURVE.mountMaturityCurve(
+  document.getElementById('curveSvg'), document.getElementById('curveKey'),
+  { stages:['Reacting','Aspiring','Constructing','Operationalizing','Composing','Orchestrating'],
+    labels:{now:'Your Score',target:'Recommended',peer:'Top Decile'},
+    now:1.7, target:3, peer:3.85 });
+</script>
+</body></html>
