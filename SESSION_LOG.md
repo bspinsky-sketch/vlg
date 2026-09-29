@@ -632,3 +632,20 @@ Three app fixes, proposed and approved before building: Results headline/lede no
 ## 2026-09-29 18:16 EDT - Session 20 (cont.): HubSpot retest PASSED
 - Admin removed the Company-object "Company name" field from the form. Retest from Ben's Chrome on https://vlg.geniusdrive.com with exactly what hubspot.js sends (no 0-2/name): 200 accepted. No code change needed.
 - Remaining: admin confirms the test contact ben+vlgtest@geniusdrive.com shows the VLG properties and the Marketing Information subscription, then deletes it and any "VLG Test Co" company record; Ben commits and redeploys VlgSite.
+
+## 2026-09-29 18:26 EDT - Session 20 (cont.): ad77f02 pushed; VlgSite deployed
+- Ben pushed ad77f02 and deployed VlgSite (102.34s). Live check from Ben's Chrome: hubspot-config.js served with the new values and HubSpot integration enabled; Top Decile rename present in live app.js.
+- Next: VlgMail deploy (Docker), then a real end-to-end run on the live site with a new test address.
+
+## 2026-09-29 18:31 EDT - Session 20 (cont.): VlgMail deployed
+- Ben deployed VlgMail (90.92s); outputs unchanged (same MailEndpoint, sender reports@geniusdrive.com, replyTo bpinsky@geniusdrive.com, bcc none). Site and report now both carry feedback round 1.
+- Next: live end-to-end run on vlg.geniusdrive.com with ben+vlgtest2@geniusdrive.com (form accepted, report email arrives with Top Decile wording, HubSpot contact + scores + subscription).
+
+## 2026-09-29 18:40 EDT - Session 20 (cont.): live end-to-end test PASSED; O-13 closed
+- Ben ran the full flow on https://vlg.geniusdrive.com with ben+vlgtest2@geniusdrive.com, opt-in ticked: no form error, report email arrived with Top Decile wording, HubSpot contact created with the VLG properties and the Marketing Information subscription. Ben: "All looks correct."
+- HubSpot integration is now live. Admin to delete the test contacts. Ben commits this log update.
+
+## 2026-09-29 18:43 EDT - Session 20 (cont.): share image switched on (O-23)
+- Ben: turn on the share image without waiting for approval ("ask forgiveness").
+- Built: copied marketing/og-image-v2.png (1200x630 RGB, 301051 bytes) to static-site/og-image-v2.png; removed the two comment lines around the IMAGE TAGS block in static-site/index.html so og:image, og:image:type/width/height/alt and twitter:image:alt are active; header comment updated. Diff checked: only those lines changed.
+- Not done: VlgSite redeploy (Ben), then LinkedIn Post Inspector re-scrape.
