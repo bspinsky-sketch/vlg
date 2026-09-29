@@ -612,3 +612,23 @@ Three app fixes, proposed and approved before building: Results headline/lede no
 ## 2026-09-28 20:19 EDT - Regenerated static-site/data.json + data.js from workbook
 - Ran static-site/extract_data.py (Ben approved). Output identical to preview extraction; only topPctPeersLabel and recommendationBullets changed (6 items above). Closes O-22 #7 (caption) as BUILT.
 - Not deployed. Needs VlgSite (app) AND VlgMail (Docker image bakes in static-site/data.json) deploys.
+
+## 2026-09-28 20:41 EDT - Ben pushed ee19c0d (c7ea4be..ee19c0d); deploy held until tomorrow
+
+## 2026-09-29 17:20 EDT - Session 20: HubSpot config filled in (O-13)
+- Admin finished the setup guide. Step 3 fix given to the admin: subscription type IDs are not shown on the Subscription Types page; read them from the "Opted out of email: <name>" contact property's internal name (hs_email_optout_<ID>).
+- Values: Hub ID 39843197, Form ID 469e132f-b6d1-425d-bfb2-b2548d3a66b5, region na1, Option B, subscription type 332199890 ("Marketing Information"). Ben: keep the existing checkbox wording, no extra consent text.
+- Built: static-site/hubspot-config.js (portalId, formId, optInMode 'subscription', subscriptionTypeId). No code changes.
+- Verified: Playwright with api.hsforms.com mocked -- correct submit URL, all 16 fields, a skipped pillar's score omitted, legalConsentOptions communications value follows the checkbox. Could not read the real form's field list (HubSpot 403).
+- Not done: live test submission (guide Step 5) and VlgSite redeploy. Report email only fires after HubSpot accepts, so live-test right away.
+
+## 2026-09-29 17:24 EDT - Session 20 (cont.): live HubSpot test submission
+- Sent from Ben's Chrome on https://vlg.geniusdrive.com (the cloud sandbox's proxy blocks api.hsforms.com), with the exact payload hubspot.js builds, opt-in ticked, email ben+vlgtest@geniusdrive.com.
+- Attempt 1: 400 REQUIRED_FIELD "0-2/name" -- the admin's form has a required COMPANY-object "Company name" field (objectTypeId 0-2, property name), not only the contact "company" property the guide specified. hubspot.js only sends 0-1/company, so every real visitor would be rejected and get no report email.
+- Attempt 2 (same payload + 0-2/name): 200 accepted. So all 12 vlg_ fields, contact company, and Option B consent with blank consentToProcess text are all accepted. This submission may also have created a company record "VLG Test Co".
+- Open decision for Ben/admin: remove the company-object field from the form (matches the guide, no code change) OR keep it and add 0-2/name to hubspot.js. Deploy blocked until decided.
+- Bridge note: the first commit of PROJECT_STATE.md/SESSION_LOG.md at 17:20 reported "written" but the device files kept their old content; re-committed and verified by size.
+
+## 2026-09-29 18:16 EDT - Session 20 (cont.): HubSpot retest PASSED
+- Admin removed the Company-object "Company name" field from the form. Retest from Ben's Chrome on https://vlg.geniusdrive.com with exactly what hubspot.js sends (no 0-2/name): 200 accepted. No code change needed.
+- Remaining: admin confirms the test contact ben+vlgtest@geniusdrive.com shows the VLG properties and the Marketing Information subscription, then deletes it and any "VLG Test Co" company record; Ben commits and redeploys VlgSite.
