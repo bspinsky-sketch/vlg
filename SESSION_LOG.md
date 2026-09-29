@@ -649,3 +649,8 @@ Three app fixes, proposed and approved before building: Results headline/lede no
 - Ben: turn on the share image without waiting for approval ("ask forgiveness").
 - Built: copied marketing/og-image-v2.png (1200x630 RGB, 301051 bytes) to static-site/og-image-v2.png; removed the two comment lines around the IMAGE TAGS block in static-site/index.html so og:image, og:image:type/width/height/alt and twitter:image:alt are active; header comment updated. Diff checked: only those lines changed.
 - Not done: VlgSite redeploy (Ben), then LinkedIn Post Inspector re-scrape.
+
+## 2026-09-29 18:51 EDT - Session 20 (cont.): 42f9e3d pushed; VlgSite deployed with share image
+- AWS token expired; "Credentials were refreshed, but the refreshed credentials are still expired" came from expired AWS_* env vars left in the PowerShell window by the earlier export-credentials step. Fix: new PowerShell window, aws login, export, deploy.
+- Live check: og:image tag active, og-image-v2.png served (200, image/png, 1200x630).
+- Remaining: LinkedIn Post Inspector re-scrape (Ben); commit these log updates next session.
