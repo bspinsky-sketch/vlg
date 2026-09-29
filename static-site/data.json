@@ -116,7 +116,7 @@
     3.054983319324868
   ],
   "overallPeerLeaders": 3.842483319324868,
-  "topPctPeersLabel": "Top percentile of 122 peers",
+  "topPctPeersLabel": "Top decile of 122 peers",
   "phraseTable": {
     "Strategy & Governance": "value-led GTM strategy",
     "People": "GTM team enablement",
@@ -533,7 +533,14 @@
       "Strategy & Governance|Composing (4)": [
         "Conduct recurring maturity assessments across segments",
         "Refine value frameworks using win/loss and realization insights",
-        "Use value program data to guide segmentation a"
+        "Use value program data to guide segmentation and account prioritization",
+        "Integrate value program metrics into executive business reviews"
+      ],
+      "Strategy & Governance|Orchestrating (5)": [
+        "Embed value program governance into enterprise GTM and investment planning",
+        "Use predictive analytics to prioritize value program investment",
+        "Continuously benchmark value program maturity across regions and segments",
+        "Tie value quantification performance directly to revenue forecasting and growth planning"
       ],
       "People|Reacting (0)": [
         "Identify executive sponsor for value quantification",
@@ -769,7 +776,7 @@
       ],
       "Intelligence & Optimization|Aspiring (1)": [
         "Begin storing deal-level ROI outputs centrally",
-        "Track key assumptions and financial drivers manuall",
+        "Track key assumptions and financial drivers manually",
         "Compare select projected values to renewal outcomes",
         "Establish initial reporting cadence for value case usage"
       ],
@@ -889,7 +896,7 @@
       "Attract|Aspiring (1)": [
         "Launch foundational value storytelling training for marketing and SDR/BDR roles",
         "Introduce value-based prospecting frameworks",
-        "Provide outcome-focused messaging template",
+        "Provide outcome-focused messaging templates",
         "Begin informal coaching sessions focused on value positioning"
       ],
       "Attract|Constructing (2)": [
@@ -1021,7 +1028,7 @@
       ],
       "Retain & Expand|Composing (4)": [
         "Deliver advanced executive outcome storytelling workshops",
-        "Use realized value analytics to guide expansion strateg",
+        "Use realized value analytics to guide expansion strategy",
         "Refine renewal playbooks using retention and churn insights",
         "Align performance incentives to value realization effectiveness"
       ],

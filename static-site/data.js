@@ -117,7 +117,7 @@ window.VLG_DATA = {
     3.054983319324868
   ],
   "overallPeerLeaders": 3.842483319324868,
-  "topPctPeersLabel": "Top percentile of 122 peers",
+  "topPctPeersLabel": "Top decile of 122 peers",
   "phraseTable": {
     "Strategy & Governance": "value-led GTM strategy",
     "People": "GTM team enablement",
@@ -534,7 +534,14 @@ window.VLG_DATA = {
       "Strategy & Governance|Composing (4)": [
         "Conduct recurring maturity assessments across segments",
         "Refine value frameworks using win/loss and realization insights",
-        "Use value program data to guide segmentation a"
+        "Use value program data to guide segmentation and account prioritization",
+        "Integrate value program metrics into executive business reviews"
+      ],
+      "Strategy & Governance|Orchestrating (5)": [
+        "Embed value program governance into enterprise GTM and investment planning",
+        "Use predictive analytics to prioritize value program investment",
+        "Continuously benchmark value program maturity across regions and segments",
+        "Tie value quantification performance directly to revenue forecasting and growth planning"
       ],
       "People|Reacting (0)": [
         "Identify executive sponsor for value quantification",
@@ -770,7 +777,7 @@ window.VLG_DATA = {
       ],
       "Intelligence & Optimization|Aspiring (1)": [
         "Begin storing deal-level ROI outputs centrally",
-        "Track key assumptions and financial drivers manuall",
+        "Track key assumptions and financial drivers manually",
         "Compare select projected values to renewal outcomes",
         "Establish initial reporting cadence for value case usage"
       ],
@@ -890,7 +897,7 @@ window.VLG_DATA = {
       "Attract|Aspiring (1)": [
         "Launch foundational value storytelling training for marketing and SDR/BDR roles",
         "Introduce value-based prospecting frameworks",
-        "Provide outcome-focused messaging template",
+        "Provide outcome-focused messaging templates",
         "Begin informal coaching sessions focused on value positioning"
       ],
       "Attract|Constructing (2)": [
@@ -1022,7 +1029,7 @@ window.VLG_DATA = {
       ],
       "Retain & Expand|Composing (4)": [
         "Deliver advanced executive outcome storytelling workshops",
-        "Use realized value analytics to guide expansion strateg",
+        "Use realized value analytics to guide expansion strategy",
         "Refine renewal playbooks using retention and churn insights",
         "Align performance incentives to value realization effectiveness"
       ],
@@ -1426,8 +1433,10 @@ window.VLG_DATA = {
       ],
       "People|Constructing (2)": [
         "A value quantification team model begins to take shape.",
-        "Executive sponsors are identified.Value consulting or engineering roles are formally defined.",
-        "Cross-functional collaboration improves.Standard methods and practices are promoted, but adoption varies by role and team."
+        "Executive sponsors are identified.",
+        "Value consulting or engineering roles are formally defined.",
+        "Cross-functional collaboration improves.",
+        "Standard methods and practices are promoted, but adoption varies by role and team."
       ],
       "People|Operationalizing (3)": [
         "Roles, responsibilities, and engagement models are clearly defined and supported by executive sponsorship.",
@@ -1441,7 +1450,8 @@ window.VLG_DATA = {
       ],
       "People|Orchestrating (5)": [
         "Value quantification is orchestrated across the full GTM ecosystem.",
-        "Executives, value teams, sellers, customer success, and partners operate with a common language and shared practices.Incentives and performance metrics are aligned to value-based behaviors.",
+        "Executives, value teams, sellers, customer success, and partners operate with a common language and shared practices.",
+        "Incentives and performance metrics are aligned to value-based behaviors.",
         "The value program scales predictably across markets and regions."
       ],
       "Attract|Reacting (0)": [
@@ -1459,7 +1469,8 @@ window.VLG_DATA = {
       "Attract|Constructing (2)": [
         "Foundational value attraction capabilities are built.",
         "Self-service CMM assessments and interactive ROI or TCO tools are introduced.",
-        "TVA or TEI-style value white papers are developed.Value potential begins to inform account targeting, though adoption varies."
+        "TVA or TEI-style value white papers are developed.",
+        "Value potential begins to inform account targeting, though adoption varies."
       ],
       "Attract|Operationalizing (3)": [
         "Quantified value is consistently used to attract and qualify prospects.",
@@ -1514,7 +1525,8 @@ window.VLG_DATA = {
       "Engage|Orchestrating (5)": [
         "Value-led engagement is orchestrated at scale.",
         "Discovery, maturity assessment, hypothesis development, and qualification are synchronized through automation and intelligence.",
-        "Predictive value and risk insights guide pipeline strategy.Leaders and sellers continuously optimize pipeline quality and conversion outcomes."
+        "Predictive value and risk insights guide pipeline strategy.",
+        "Leaders and sellers continuously optimize pipeline quality and conversion outcomes."
       ],
       "Sell|Reacting (0)": [
         "Business value is not consistently quantified during the sales process.",
@@ -1537,10 +1549,12 @@ window.VLG_DATA = {
       "Sell|Operationalizing (3)": [
         "Value quantification is consistently applied to sales execution.",
         "Sellers conduct structured business value assessments and build personalized business cases.",
-        "Shared value plans are developed collaboratively to span pre- and post-sale outcomes.Digital selling rooms are used to deliver and manage business cases and value proposals."
+        "Shared value plans are developed collaboratively to span pre- and post-sale outcomes.",
+        "Digital selling rooms are used to deliver and manage business cases and value proposals."
       ],
       "Sell|Composing (4)": [
-        "Value quantification is embedded into deal strategy and commercial decision-making.Pricing and discounting are routinely aligned to quantified value.",
+        "Value quantification is embedded into deal strategy and commercial decision-making.",
+        "Pricing and discounting are routinely aligned to quantified value.",
         "Shared value plans guide both sales execution and post-sale success.",
         "Value models and proposals are refined continuously based on deal outcomes and realization data."
       ],
@@ -1552,28 +1566,33 @@ window.VLG_DATA = {
       "Retain & Expand|Reacting (0)": [
         "Post-sale value is rarely quantified or reviewed.",
         "Customer capability progression, maturity advancement, and realized outcomes are not systematically measured.",
-        "Renewal and expansion decisions are largely reactive.Shared value plans are not maintained after the sale."
+        "Renewal and expansion decisions are largely reactive.",
+        "Shared value plans are not maintained after the sale."
       ],
       "Retain & Expand|Aspiring (1)": [
         "The need to quantify and communicate realized value is recognized.",
-        "Early attempts are made to review outcomes or discuss ROI.Some risk assessments are introduced.",
-        "Execution is inconsistent and largely manual.Insights are not reliably used to guide retention or expansion strategy."
+        "Early attempts are made to review outcomes or discuss ROI.",
+        "Some risk assessments are introduced.",
+        "Execution is inconsistent and largely manual.",
+        "Insights are not reliably used to guide retention or expansion strategy."
       ],
       "Retain & Expand|Constructing (2)": [
         "Foundational post-sale value management capabilities are introduced.",
         "Ongoing CMM assessments and realized value tracking are implemented.",
-        "Shared value plan reviews occur periodically.Value reviews and gap analyses begin identifying renewal risks and expansion opportunities.",
+        "Shared value plan reviews occur periodically.",
+        "Value reviews and gap analyses begin identifying renewal risks and expansion opportunities.",
         "Adoption varies across teams and segments."
       ],
       "Retain & Expand|Operationalizing (3)": [
-        "Value quantification is consistently applied across the customer lifecycle.Teams leverage",
-        "CMM progression, realized ROI metrics, and value-based risk scoring.",
-        "Quarterly value reviews reinforce alignment on goals and outcomes",
+        "Value quantification is consistently applied across the customer lifecycle.",
+        "Teams leverage CMM progression, realized ROI metrics, and value-based risk scoring.",
+        "Quarterly value reviews reinforce alignment on goals and outcomes.",
         "Insights systematically inform renewal planning and targeted expansion plays."
       ],
       "Retain & Expand|Composing (4)": [
         "Value quantification is embedded into customer success strategy and business planning.",
-        "Realized value insights continuously refine shared value plans.Investment decisions and roadmap priorities are influenced by quantified outcomes.",
+        "Realized value insights continuously refine shared value plans.",
+        "Investment decisions and roadmap priorities are influenced by quantified outcomes.",
         "Quarterly value reviews reinforce executive alignment and long-term confidence."
       ],
       "Retain & Expand|Orchestrating (5)": [
@@ -1590,13 +1609,15 @@ window.VLG_DATA = {
       "Tools / Technology|Aspiring (1)": [
         "The limitations of spreadsheet-based quantification are recognized.",
         "Templates are standardized to improve reuse and consistency.",
-        "Automation platforms are explored.Integration across systems remains limited.",
+        "Automation platforms are explored.",
+        "Integration across systems remains limited.",
         "Value modeling and storytelling remain largely manual."
       ],
       "Tools / Technology|Constructing (2)": [
         "Foundational value technology capabilities are introduced.",
         "A value automation platform supports business cases and shared value plans, often alongside spreadsheets.",
-        "Basic realized value tracking is implemented.Early integrations with CRM or customer success systems begin.",
+        "Basic realized value tracking is implemented.",
+        "Early integrations with CRM or customer success systems begin.",
         "Automation and intelligence remain limited."
       ],
       "Tools / Technology|Operationalizing (3)": [
@@ -1606,7 +1627,7 @@ window.VLG_DATA = {
         "Product instrumentation and dashboards capture outcome KPIs and ROI."
       ],
       "Tools / Technology|Composing (4)": [
-        "Value technology is embedded into GTM and product workflows",
+        "Value technology is embedded into GTM and product workflows.",
         "AI automates discovery insights, generates value hypotheses, and refines value models.",
         "Value storytelling and presentation assets are enhanced by automation.",
         "Realized value dashboards continuously communicate outcomes to customers and executives.",
@@ -1623,11 +1644,12 @@ window.VLG_DATA = {
         "Business cases are created inconsistently.",
         "Assumptions and financial drivers are not systematically tracked.",
         "No system captures projected versus realized value.",
-        "There is no feedback loop between sales, finance, and customer success.ROI claims are anecdotal and unvalidated."
+        "There is no feedback loop between sales, finance, and customer success.",
+        "ROI claims are anecdotal and unvalidated."
       ],
       "Intelligence & Optimization|Aspiring (1)": [
-        "The need to measure quantification effectiveness is recognized.Some deal-level",
-        "ROI outputs may be stored.",
+        "The need to measure quantification effectiveness is recognized.",
+        "Some deal-level ROI outputs may be stored.",
         "Assumptions, drivers, and outcomes are not consistently tracked.",
         "Forecast accuracy and credibility are difficult to assess.",
         "Post-sale realization is rarely compared to pre-sale projections."
@@ -1647,13 +1669,14 @@ window.VLG_DATA = {
       ],
       "Intelligence & Optimization|Composing (4)": [
         "Intelligence is embedded across the full value lifecycle.",
-        "Pre-sale projections are systematically compared to realized outcomes",
-        "Quantification accuracy, credibility, and industry benchmarks are continuously refined.Insights",
-        "Improve pricing strategy, packaging, segmentation, and sales coaching.",
+        "Pre-sale projections are systematically compared to realized outcomes.",
+        "Quantification accuracy, credibility, and industry benchmarks are continuously refined.",
+        "Insights improve pricing strategy, packaging, segmentation, and sales coaching.",
         "Value modeling performance informs executive planning."
       ],
       "Intelligence & Optimization|Orchestrating (5)": [
-        "A closed-loop, predictive value intelligence system operates at scale.Real-time customer and product data feed quantification models.",
+        "A closed-loop, predictive value intelligence system operates at scale.",
+        "Real-time customer and product data feed quantification models.",
         "AI-enhanced benchmarking dynamically adjusts assumptions by segment, persona, and maturity level.",
         "Value accuracy and realized ROI are forecasted and optimized.",
         "Quantification intelligence directly informs revenue strategy, expansion planning, and product investment decisions."
@@ -1682,20 +1705,21 @@ window.VLG_DATA = {
       ],
       "Strategy & Governance|Operationalizing (3)": [
         "Value activation governance is formally established and consistently applied.",
-        "The Learning Program Office operates with clear ownership",
+        "The Learning Program Office operates with clear ownership.",
         "Structured learning journeys and certifications are delivered by role and partner type.",
         "Enablement efforts are actively promoted and reinforced.",
         "Success metrics are tracked and guide improvement priorities."
       ],
       "Strategy & Governance|Composing (4)": [
         "Value activation is embedded into operating rhythms and talent development models.",
-        "Maturity assessments are conducted on a regular cadence.Learning journeys and certifications are continuously refined.",
+        "Maturity assessments are conducted on a regular cadence.",
+        "Learning journeys and certifications are continuously refined.",
         "Certification status informs readiness, staffing, and investment decisions.",
         "Leaders actively sponsor and evangelize activation based on measurable impact."
       ],
       "Strategy & Governance|Orchestrating (5)": [
         "Value activation governance operates as a coordinated, insight-driven system.",
-        "Learning strategy, certification, performance management, and execution standards are synchronized across internal teams and partner",
+        "Learning strategy, certification, performance management, and execution standards are synchronized across internal teams and partners.",
         "Continuous optimization drives predictable adoption, execution excellence, and scalable growth.",
         "Activation performance is directly tied to revenue, retention, and expansion outcomes."
       ],
@@ -1715,7 +1739,8 @@ window.VLG_DATA = {
       "People|Constructing (2)": [
         "Foundational activation capabilities are developed.",
         "Training improves understanding of value needs, lifecycle stages, and orchestration practices.",
-        "Executive sponsors are identified.Cross-functional participation increases.",
+        "Executive sponsors are identified.",
+        "Cross-functional participation increases.",
         "Role-based certification programs are designed, though rigor varies."
       ],
       "People|Operationalizing (3)": [
@@ -1727,13 +1752,15 @@ window.VLG_DATA = {
       ],
       "People|Composing (4)": [
         "Value activation capabilities are embedded into role expectations and onboarding.",
-        "Certification status validates readiness and informs staffing and development decisions.Learning programs continuously deepen lifecycle and orchestration mastery.",
+        "Certification status validates readiness and informs staffing and development decisions.",
+        "Learning programs continuously deepen lifecycle and orchestration mastery.",
         "Cross-functional collaboration becomes standard operating behavior."
       ],
       "People|Orchestrating (5)": [
         "Value activation expertise is orchestrated enterprise-wide.",
         "Deep lifecycle and orchestration mastery is shared across all GTM and value roles.",
-        "Certification programs scale globally with consistency.Executives actively evangelize value learning as a core growth discipline.",
+        "Certification programs scale globally with consistency.",
+        "Executives actively evangelize value learning as a core growth discipline.",
         "Cross-functional alignment enables predictable, high-quality execution at scale."
       ],
       "Attract|Reacting (0)": [
@@ -1925,12 +1952,14 @@ window.VLG_DATA = {
       "Tools / Technology|Orchestrating (5)": [
         "Value activation technology operates as an AI-powered, adaptive learning ecosystem.",
         "AI-driven role-play, coaching simulations, and recommendations tailor learning and practice to individual performance signals.",
-        "Certification and skill reinforcement dynamically adjust based on execution data.Learning, coaching, and community engagement scale globally with consistency.",
+        "Certification and skill reinforcement dynamically adjust based on execution data.",
+        "Learning, coaching, and community engagement scale globally with consistency.",
         "Technology continuously drives sustained mastery and execution excellence."
       ],
       "Intelligence & Optimization|Reacting (0)": [
         "There is no systematic visibility into whether value messaging or quantified ROI is activated in live deals or customer engagements.",
-        "Field execution varies widely by individual.Coaching is anecdotal and inconsistent.",
+        "Field execution varies widely by individual.",
+        "Coaching is anecdotal and inconsistent.",
         "Customer value realization is not tracked in a structured way.",
         "No feedback loop exists between enablement, sales, and customer success."
       ],

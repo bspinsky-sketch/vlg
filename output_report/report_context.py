@@ -169,7 +169,7 @@ def build_context(profile, toggles, ratings):
     curve_labels = {
         "now": f"Your Score ({result['overallYour']:.1f})",
         "target": f"Recommended ({result['recommendedTarget']:.1f})",
-        "peer": f"Peer Leaders ({result['overallPeerLeaders']:.1f})",
+        "peer": f"Top Decile ({result['overallPeerLeaders']:.1f})",
     }
     curve_data = curve.build_curve(
         now=result["overallYour"],

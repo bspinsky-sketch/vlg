@@ -32,6 +32,12 @@
   src:url('assets/fonts/Open_Sans/static/OpenSans-SemiBold.ttf') format('truetype'); }
 @font-face{ font-family:'Open Sans'; font-weight:700; font-style:normal;
   src:url('assets/fonts/Open_Sans/static/OpenSans-Bold.ttf') format('truetype'); }
+/* Real italic faces (O-18, 2026-09-28). Without these WeasyPrint slants the
+   upright font ("faux italic") for every font-style:italic rule. */
+@font-face{ font-family:'Open Sans'; font-weight:400; font-style:italic;
+  src:url('assets/fonts/Open_Sans/static/OpenSans-Italic.ttf') format('truetype'); }
+@font-face{ font-family:'Open Sans'; font-weight:600; font-style:italic;
+  src:url('assets/fonts/Open_Sans/static/OpenSans-SemiBoldItalic.ttf') format('truetype'); }
 
 @font-face{ font-family:'Prompt'; font-weight:400; font-style:normal;
   src:url('assets/fonts/Prompt/Prompt-Regular.ttf') format('truetype'); }

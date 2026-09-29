@@ -601,3 +601,14 @@ Three app fixes, proposed and approved before building: Results headline/lede no
 **Verified:** Results section rendered from the real file is pixel-identical (desktop + phone) to the approved preview. No other file references the old copy.
 
 **Not done (Ben's call):** no deploy (PROJECT_STATE O-21, held with O-20). Ben commits and pushes.
+
+## 2026-09-28 20:17 EDT - Workbook edit: Data!P42 and Q42 (VQ_R Strategy & Governance)
+- Backup: Files/Value-Led Growth Assessment v2.x3-web.BACKUP-before-P42-Q42.xlsx
+- P42 (Composing): completed cut-off bullet ("...segmentation and account prioritization"), added "Integrate value program metrics into executive business reviews".
+- Q42 (Orchestrating): was empty; added 4 bullets (governance into GTM/investment planning; predictive analytics for investment; benchmark maturity across regions/segments; tie to revenue forecasting and growth planning).
+- Edited via direct XML (sharedStrings + sheet8 + calcPr fullCalcOnLoad=1) so formatting/formulas untouched. Ben fixed M49, P58, M55 himself.
+- Extraction diff vs static-site/data.json: exactly 6 expected changes (these 5 bullets + topPctPeersLabel "Top decile of 122 peers"). data.json NOT yet regenerated.
+
+## 2026-09-28 20:19 EDT - Regenerated static-site/data.json + data.js from workbook
+- Ran static-site/extract_data.py (Ben approved). Output identical to preview extraction; only topPctPeersLabel and recommendationBullets changed (6 items above). Closes O-22 #7 (caption) as BUILT.
+- Not deployed. Needs VlgSite (app) AND VlgMail (Docker image bakes in static-site/data.json) deploys.

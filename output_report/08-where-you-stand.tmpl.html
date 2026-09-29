@@ -102,8 +102,9 @@
 {%- set ring_r = 65 %}
 {%- set ring_c = 2 * 3.14159265358979 * ring_r %}
 <div class="page stand">
-  <div class="h1">From {{ 'Value Without a Narrative' if level_band.label == 'No Value Narrative' else level_band.label }} to Value as a System.</div>
-  <div class="lede">This is what your maturity level looks like in practice, and how far peer leaders have taken theirs.</div>
+  {#- Top band (O-19, Ben 2026-09-28): "From Value as a System to Value as a System" read as a dead end. -#}
+  <div class="h1">{% if level_band.label == 'Value as a System' %}You see value as a system, and you run it like one.{% else %}From {{ 'Value Without a Narrative' if level_band.label == 'No Value Narrative' else level_band.label }} to Value as a System.{% endif %}</div>
+  <div class="lede">This is what your maturity level looks like in practice, and how far the top decile has taken theirs.</div>
 
   <div class="score-card">
     <div class="score-box ring-col">
@@ -133,7 +134,7 @@
     </div>
 
     <div class="score-box band-col scrim">
-      <div class="score-eyebrow">Peer Leaders Score</div>
+      <div class="score-eyebrow">Top Decile Score</div>
       <div class="ring-figure">
         <svg class="ring-svg" viewBox="0 0 148 148">
           <circle cx="74" cy="74" r="{{ ring_r }}" style="fill:none; stroke:rgba(255,255,255,.14); stroke-width:10;"></circle>
@@ -141,7 +142,7 @@
         </svg>
         <div class="ring-text"><div class="ring-stat"><div class="peer-num">{{ "%.1f"|format(scores.peer_score) }}</div><div class="peer-den">/5</div></div></div>
       </div>
-      <div class="peer-note">Leaders are the top percentile out of {{ peer_count }} peers.</div>
+      <div class="peer-note">The top decile (top 10%) of {{ peer_count }} peers.</div>
     </div>
   </div>
 
@@ -149,7 +150,7 @@
     <div class="sg-col">
       <div class="sg-head">
         <div class="sg-header">Your strongest positions</div>
-        <div class="sg-foot">Smallest gaps versus peer leaders.</div>
+        <div class="sg-foot">Smallest gaps versus the top decile.</div>
       </div>
       {%- for s in strengths %}
       <div class="sg-row"><div class="sg-row-main"><div class="sg-row-name">{{ s.name }}</div><div class="sg-row-desc">{{ cap_descriptions.get(s.name, "") }}</div></div><span class="sg-delta {{ 'delta-ahead' if s.delta >= 0 else 'delta-behind' }}">{{ '+' if s.delta >= 0 else '−' }}{{ '%.1f'|format(s.delta|abs) }}</span></div>
@@ -158,7 +159,7 @@
     <div class="sg-col scrim">
       <div class="sg-head">
         <div class="sg-header">Your biggest opportunities</div>
-        <div class="sg-foot">Biggest gaps versus peer leaders.</div>
+        <div class="sg-foot">Biggest gaps versus the top decile.</div>
       </div>
       {%- for g in gaps %}
       <div class="sg-row"><div class="sg-row-main"><div class="sg-row-name">{{ g.name }}</div><div class="sg-row-desc">{{ cap_descriptions.get(g.name, "") }}</div></div><span class="sg-delta {{ 'delta-ahead' if g.delta >= 0 else 'delta-behind' }}">{{ '+' if g.delta >= 0 else '−' }}{{ '%.1f'|format(g.delta|abs) }}</span></div>

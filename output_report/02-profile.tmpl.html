@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="base.css">
 <div class="page profile">
   <div class="h1">Analysis for {{ profile.company }}</div>
-  <div class="subhead">This analysis assesses your organization across the Value-Led Growth Capability and Maturity framework, comparing you against peer leaders that match your characteristics.</div>
+  <div class="subhead">This analysis assesses your organization across the Value-Led Growth Capability and Maturity framework, comparing you against the top decile of peers that match your characteristics.</div>
 
   <div class="columns">
     <div class="col">
@@ -18,7 +18,7 @@
         {% for pillar in pillars %}
         <div class="pillar-card{% if not pillar.selected %} deselected{% endif %}">
           <div class="bar"></div>
-          <div class="check">{% if pillar.selected %}&check;{% else %}&ndash;{% endif %}</div>
+          <div class="check">{% if pillar.selected %}<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>{% else %}&ndash;{% endif %}</div>
           <div class="name">{{ pillar.name }}</div>
           <div class="desc">{{ pillar.desc }}</div>
         </div>

@@ -269,7 +269,7 @@
    */
   function mountMaturityCurve(svgEl, keyEl, opts) {
     var stages = opts.stages || ['Reacting', 'Aspiring', 'Constructing', 'Operationalizing', 'Composing', 'Orchestrating'];
-    var labels = opts.labels || { now: 'Your Score', target: 'Recommended', peer: 'Peer Leaders' };
+    var labels = opts.labels || { now: 'Your Score', target: 'Recommended', peer: 'Top Decile' };
     var chart = curveChart(svgEl, keyEl, { stages: stages, labels: labels });
     var target = opts.target != null ? opts.target : recommendedTarget(opts.now);
     chart.render({ now: opts.now, target: target, peer: opts.peer });

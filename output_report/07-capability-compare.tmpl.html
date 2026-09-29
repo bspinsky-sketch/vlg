@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="base.css">
 <div class="page compare">
   <div class="h1">Score by capability</div>
-  <div class="subhead">How you compare to the leaders among {{ peer_count }} {{ profile.industry }} peers.</div>
+  <div class="subhead">How you compare to the top decile of {{ peer_count }} {{ profile.industry }} peers.</div>
 
   {%- for row in cap_rows %}
   <div class="cap-row">
@@ -21,9 +21,9 @@
   </div>
 
   <div class="chart-legend">
-    <div class="legend-item"><div class="legend-swatch swatch-peer"></div><span>Peer leaders (top decile)</span></div>
-    <div class="legend-item"><div class="legend-swatch swatch-behind"></div><span>Your score &ndash; behind leaders</span></div>
-    <div class="legend-item"><div class="legend-swatch swatch-ahead"></div><span>Your score &ndash; at/ahead of leaders</span></div>
+    <div class="legend-item"><div class="legend-swatch swatch-peer"></div><span>Top Decile</span></div>
+    <div class="legend-item"><div class="legend-swatch swatch-behind"></div><span>Your score &ndash; below top decile</span></div>
+    <div class="legend-item"><div class="legend-swatch swatch-ahead"></div><span>Your score &ndash; at or above top decile</span></div>
   </div>
 
   <img class="logo" src="assets/img/gd_logo.png" style="position:absolute; left:64px; bottom:28px; width:117px;">

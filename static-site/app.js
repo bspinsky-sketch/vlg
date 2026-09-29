@@ -686,7 +686,12 @@
     var headBand = result.levelBand && result.levelBand.label;
     if (headBand) {
       var headFrom = headBand === 'No Value Narrative' ? 'Value Without a Narrative' : headBand;
-      document.getElementById('resultsHeadline').textContent = 'From ' + headFrom + ' to Value as a System.';
+      // Top band: no "From X to X" -- Ben 2026-09-28 (O-19). Mindset is the
+      // prerequisite, operating on it the result; both halves named.
+      var headText = headBand === 'Value as a System'
+        ? 'You see value as a system, and you run it like one.'
+        : 'From ' + headFrom + ' to Value as a System.';
+      document.getElementById('resultsHeadline').textContent = headText;
     }
 
     setRing(document.getElementById('ringYou'), result.overallYour);
@@ -707,7 +712,7 @@
       document.getElementById('curveKey'),
       {
         stages: LEVEL_NAMES,
-        labels: { now: 'Your Score', target: 'Recommended', peer: 'Peer Leaders' },
+        labels: { now: 'Your Score', target: 'Recommended', peer: 'Top Decile' },
         now: result.overallYour,
         target: result.recommendedTarget,
         peer: result.overallPeerLeaders,

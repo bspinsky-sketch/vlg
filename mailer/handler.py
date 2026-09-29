@@ -109,7 +109,7 @@ def compose(data, attachment):
         f"Thank you for completing the Value-Led Growth Assessment. "
         f"Your personalized report for {org} is attached.\n\n"
         f"It shows where you stand across the capabilities you assessed, how you "
-        f"compare with peer leaders, and the next moves we recommend.\n\n"
+        f"compare with the top decile of your peers, and the next moves we recommend.\n\n"
         f"If you would like to walk through the results with us, just reply to this email.\n\n"
         f"Genius Drive\n",
         "plain",

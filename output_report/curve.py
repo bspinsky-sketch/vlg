@@ -86,7 +86,7 @@ remaining label/label, label/curve, or label/point overlaps.
 import math
 
 STAGES = ["Reacting", "Aspiring", "Constructing", "Operationalizing", "Composing", "Orchestrating"]
-LABEL_TEXT = {"now": "Your Score", "target": "Recommended", "peer": "Peer Leaders"}
+LABEL_TEXT = {"now": "Your Score", "target": "Recommended", "peer": "Top Decile"}
 
 # All in SVG viewBox units, which are 1:1 with rendered px on this fixed-size
 # page (no responsive scaling -- see module docstring).
