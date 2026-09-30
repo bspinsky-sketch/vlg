@@ -654,3 +654,13 @@ Three app fixes, proposed and approved before building: Results headline/lede no
 - AWS token expired; "Credentials were refreshed, but the refreshed credentials are still expired" came from expired AWS_* env vars left in the PowerShell window by the earlier export-credentials step. Fix: new PowerShell window, aws login, export, deploy.
 - Live check: og:image tag active, og-image-v2.png served (200, image/png, 1200x630).
 - Remaining: LinkedIn Post Inspector re-scrape (Ben); commit these log updates next session.
+
+## 2026-09-29 19:29 EDT - Session 20 (cont.): wrap-up
+- Ben re-scraped https://vlg.geniusdrive.com in LinkedIn Post Inspector (new preview card showing). O-23 closed.
+- Internal team email sent by Ben covering HubSpot go-live, feedback round 1, and search/share tags + image.
+- Still open: O-16 (report replyTo owner); admin to delete HubSpot test contacts. Note: the O-24 JSON-LD block in index.html went live with the 2026-09-29 VlgSite deploys; O-24 row not yet updated to reflect that.
+
+## 2026-09-30 08:57 EDT - Session 21: report replyTo repointed (O-16)
+- Ben: report replies should go to tpisello@geniusdrive.com, not Ben.
+- Built: infra/cdk.json replyTo bpinsky -> tpisello (comment updated). notify (bounce/complaint alerts) still Ben; bcc still empty. JSON validated.
+- Not done: VlgMail redeploy (Ben), then a test report to confirm.

@@ -22,8 +22,8 @@
     "//sender": "From address. Needs no mailbox; SES verifies the domain, not the mailbox.",
     "sender": "reports@geniusdrive.com",
 
-    "//replyTo": "Where a reply to the report goes. Must be a real mailbox. Keep it on Ben until go-live, then repoint and redeploy VlgMail.",
-    "replyTo": "bpinsky@geniusdrive.com",
+    "//replyTo": "Where a reply to the report goes. Must be a real mailbox. Repointed from Ben to tpisello on 2026-09-30 (O-16); redeploy VlgMail after any change.",
+    "replyTo": "tpisello@geniusdrive.com",
 
     "//notify": "Where bounce/complaint/reject alerts go. AWS sends a confirmation email on first deploy that must be clicked (check spam).",
     "notify": "bpinsky@geniusdrive.com",
