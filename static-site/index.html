@@ -270,11 +270,12 @@
         <div class="ysc-ring">
           <div class="ysc-eyebrow">Your Score</div>
           <div class="ring-figure">
+            <!-- Inner ring = your score (hugs the centre number), outer ring = top decile. Swapped 2026-09-30 (Ben): with the rings the other way round the centre number read as belonging to the top-decile ring. -->
             <svg class="ring-svg" viewBox="0 0 156 156" aria-hidden="true">
               <circle class="ring-track" cx="78" cy="78" r="70" stroke-width="13"></circle>
-              <circle class="ring-you" id="ringYou" cx="78" cy="78" r="70" stroke-width="13"></circle>
+              <circle class="ring-you" id="ringYou" cx="78" cy="78" r="50" stroke-width="13"></circle>
               <circle class="ring-track" cx="78" cy="78" r="50" stroke-width="13"></circle>
-              <circle class="ring-peer" id="ringPeer" cx="78" cy="78" r="50" stroke-width="13"></circle>
+              <circle class="ring-peer" id="ringPeer" cx="78" cy="78" r="70" stroke-width="13"></circle>
             </svg>
             <div class="ring-text">
               <div class="ring-stat"><div class="ring-num" id="ringNum">0.0</div><div class="ring-den">/5</div></div>

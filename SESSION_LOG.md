@@ -668,3 +668,23 @@ Three app fixes, proposed and approved before building: Results headline/lede no
 ## 2026-09-30 16:51 EDT - Session 21 (cont.): f9d35b6 pushed; VlgMail deployed with new replyTo
 - VlgMail deploy (81.55s) output confirms MailReplyTo = tpisello@geniusdrive.com. O-16 closed.
 - Also this session: HUBSPOT_INTEGRATION_PLAYBOOK.md written at the project root for Tristen (Accertify tools) and future GD tools.
+
+## 2026-09-30 16:59 EDT - Session 21 (cont.): stale open-item statuses updated
+- O-17, O-18, O-19, O-22 marked deployed (they shipped with the 2026-09-29 VlgSite + VlgMail deploys on top of ad77f02).
+- O-24: live JSON-LD compared field by field with marketing/jsonld-snippet.html from Ben's Chrome -- identical except the logo placeholder (live has the real GD logo URL). Marked deployed.
+- Found: https://vlg.geniusdrive.com/robots.txt and /sitemap.xml return 403 (files do not exist). Not blocking (Google treats 4xx robots.txt as allow-all).
+
+## 2026-09-30 17:07 EDT - Session 21 (cont.): open-items pass with Ben
+- Ben: O-11 phone/non-GD send, SNS confirmation, O-20 whitepaper link, HubSpot test contacts all done.
+- O-23 follow-ups: completion time 10 min possible, 20-25 min average -> no minutes line in the preview; Tom knows the share image is live and would approve.
+- Visitor source: HubSpot does not reliably record it as built (no tracking code on the site) -> new O-25, circle back.
+- Built O-26: static-site/robots.txt + sitemap.xml (both confirmed to ship via shipsWithSite). Needs VlgSite deploy.
+- O-27 Search Console: to discuss. O-12 skipped. Ben is holding commits until the list is complete.
+
+## 2026-09-30 17:20 EDT - Session 21 (cont.): Results score ring swapped (O-28)
+- Ben flagged the ring as ambiguous (centre "Your score" sat inside the top-decile ring). Offered: swap rings / one ring + top-decile marker (recommended) / add a key. Ben chose the swap; the report uses two separate single-ring donuts, so it is unaffected.
+- Built: static-site/index.html ringYou r=50 (inner), ringPeer r=70 (outer), comment added. Before/after renders at 0.9 vs 3.8 (desktop + phone), no page errors. Needs VlgSite deploy (together with O-26).
+
+## 2026-09-30 17:25 EDT - Session 21 (cont.): VlgSite deployed (O-26, O-28)
+- Live checks from Ben's Chrome: robots.txt 200 text/plain, sitemap.xml 200 text/xml, score ring swapped (you inner r=50, top decile outer r=70), share image + HubSpot still on.
+- Remaining open: O-25 visitor source (circle back), O-27 Search Console (discuss). Ben to commit once the list is done.

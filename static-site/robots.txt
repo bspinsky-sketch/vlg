@@ -1,0 +1,6 @@
+# VLG Assessment -- https://vlg.geniusdrive.com
+# Everything on this site may be crawled. Added 2026-09-30 (Session 21).
+User-agent: *
+Allow: /
+
+Sitemap: https://vlg.geniusdrive.com/sitemap.xml
