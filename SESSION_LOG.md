@@ -664,3 +664,7 @@ Three app fixes, proposed and approved before building: Results headline/lede no
 - Ben: report replies should go to tpisello@geniusdrive.com, not Ben.
 - Built: infra/cdk.json replyTo bpinsky -> tpisello (comment updated). notify (bounce/complaint alerts) still Ben; bcc still empty. JSON validated.
 - Not done: VlgMail redeploy (Ben), then a test report to confirm.
+
+## 2026-09-30 16:51 EDT - Session 21 (cont.): f9d35b6 pushed; VlgMail deployed with new replyTo
+- VlgMail deploy (81.55s) output confirms MailReplyTo = tpisello@geniusdrive.com. O-16 closed.
+- Also this session: HUBSPOT_INTEGRATION_PLAYBOOK.md written at the project root for Tristen (Accertify tools) and future GD tools.
